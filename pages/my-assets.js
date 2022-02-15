@@ -3,13 +3,14 @@ import { ethers, BigNumber } from 'ethers'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
-import {drinkingTreesTwo} from '../config'
+import {drinkingTreesTwo, nftmarketaddress} from '../config'
+import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
 
 
 export default function MyAssets() {
-  const [nfts, setNfts] = useState([])
+    const [nfts, setNfts] = useState([])
 
     useEffect(()=>{
         
@@ -18,8 +19,8 @@ export default function MyAssets() {
           const connection = await web3Modal.connect()
           const provider = new ethers.providers.Web3Provider(connection)
           const signer = provider.getSigner()
+          
           const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-
           const test_address = await signer.getAddress()
           let newData = await contract.walletOfOwner(test_address)
 
@@ -47,6 +48,18 @@ export default function MyAssets() {
       return ()=> setNfts([])
 
     },[])
+
+
+    async function sellAsset(nft){
+      const web3Modal = new Web3Modal()
+      const connection = await web3Modal.connect()
+      const provider = new ethers.providers.Web3Provider(connection)
+      const signer = provider.getSigner()
+      const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+      console.log('here')
+      const mint = await contract.createMarketItem(drinkingTreesTwo, 1, ethers.utils.parseEther("100.0"))
+      console.log("Created?")
+    }
   
 
     if (nfts.length === 0){
@@ -71,7 +84,7 @@ export default function MyAssets() {
                     <MainContainer style={{ height: '70px', overflow: 'hidden' }}>
                       <p className="text-black-400">{nft ? nft.data.description: null}</p>
                     </MainContainer>
-                    <Button color="red">Sell</Button>
+                    <Button color="red" onClick={() => sellAsset(nft)}>Sell</Button>
                   </MainContainer>
                 </MainContainer>
               ))
