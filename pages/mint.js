@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
-import NFT from "../artifacts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
+import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
 import Image from 'next/image'
 const GIF = require('../images/preview.gif')
@@ -19,8 +19,10 @@ export default function Mint(){
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-        const mint = await contract.mint(1)
-        let minter = await mint.wait()
+        console.log('here')
+        const mint = await contract.mint(1, {value: ethers.utils.parseEther("100.0")})
+        console.log(mint)
+        // let minter = await mint.wait()
         
     }
 

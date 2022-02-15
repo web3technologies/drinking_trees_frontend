@@ -4,13 +4,12 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
-import NFT from "../artifacts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
+import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
 
 
 export default function MyAssets() {
   const [nfts, setNfts] = useState([])
-  const [loadingState, setLoadingState] = useState('not-loaded')
 
     useEffect(()=>{
         
@@ -21,7 +20,7 @@ export default function MyAssets() {
           const signer = provider.getSigner()
           const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
 
-          const test_address = "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266";
+          const test_address = await signer.getAddress()
           let newData = await contract.walletOfOwner(test_address)
 
           const intArr = []
@@ -48,8 +47,6 @@ export default function MyAssets() {
       return ()=> setNfts([])
 
     },[])
-
-    console.log(nfts)
   
 
     if (nfts.length === 0){
