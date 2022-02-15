@@ -1,5 +1,6 @@
-// import drinkingTreeData from './artifacts/address/DrinkingTrees.json'
+import drinkingTreeData from './artifacts/contracts/address/DrinkingTrees.json'
+import nftMarketData from './artifacts/contracts/address/NFTMarket.json'
 
 
-export const nftmarketaddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3"
-export const drinkingTreesTwo = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+export const nftmarketaddress = nftMarketData.address
+export const drinkingTreesTwo = drinkingTreeData.address
