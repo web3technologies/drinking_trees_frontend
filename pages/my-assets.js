@@ -57,7 +57,7 @@ export default function MyAssets() {
       const signer = provider.getSigner()
       const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
       console.log('here')
-      const mint = await contract.createMarketItem(drinkingTreesTwo, 1, ethers.utils.parseEther("100.0"))
+      const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, 4, ethers.utils.parseEther("100.0"), {value: ethers.utils.parseEther("0.025")})
       console.log("Created?")
     }
   
