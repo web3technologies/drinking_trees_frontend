@@ -19,9 +19,8 @@ export default function Mint(){
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-        console.log('here')
-        const mint = await contract.mint(1, {value: ethers.utils.parseEther("100.0")})
-        console.log(mint)
+        const mintAmount = 1
+        const mint = await contract.mint(mintAmount, {value: ethers.utils.parseEther("100.0")})
         // let minter = await mint.wait()
         
     }

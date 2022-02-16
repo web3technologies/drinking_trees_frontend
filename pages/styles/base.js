@@ -67,3 +67,11 @@ export const NavBar = styled.nav`
     width: 95%;
     border-bottom: 2px solid ligt-gray;
 `;
+
+
+export const PriceInput = styled.input`
+
+      width: 80%;
+      border: 2px solid green;
+
+`;

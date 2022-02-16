@@ -6,11 +6,13 @@ import Web3Modal from "web3modal"
 import {drinkingTreesTwo, nftmarketaddress} from '../config'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
+import { MainFrame, MainContainer, Text, Button, IMG, PriceInput} from "./styles/base"
 
 
 export default function MyAssets() {
     const [nfts, setNfts] = useState([])
+    const [listPrice, setListPrice ] = useState(null)
+
 
     useEffect(()=>{
         
@@ -53,13 +55,22 @@ export default function MyAssets() {
 
 
     async function sellAsset(nft){
-      const web3Modal = new Web3Modal()
-      const connection = await web3Modal.connect()
-      const provider = new ethers.providers.Web3Provider(connection)
-      const signer = provider.getSigner()
-      const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-      const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, nft.data.id, ethers.utils.parseEther("100.0"), {value: ethers.utils.parseEther("0.025")})
-      console.log("Created?")
+
+      if (!listPrice){return}
+      else{
+        const web3Modal = new Web3Modal()
+        const connection = await web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(connection)
+        const signer = provider.getSigner()
+        const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+        const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, nft.data.id, ethers.utils.parseEther(listPrice), {value: ethers.utils.parseEther("0.025")})
+        console.log("Created?")
+      }
+      
+    }
+
+    function handlePriceChange(e){
+      setListPrice(e.target.value)
     }
   
 
@@ -78,7 +89,7 @@ export default function MyAssets() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {
               nfts.map((nft, i) => (
-                <MainContainer key={i} className="border shadow rounded-xl overflow-hidden" width="100%">
+                <MainContainer key={i} >
                   <img src={nft ? nft.data.image : null}/>
                   <MainContainer>
                     <p style={{margin: "10px 0"}} className="text-2xl font-semibold">{nft ? nft.data.name: null}</p>
@@ -86,6 +97,7 @@ export default function MyAssets() {
                       <p className="text-black-400">{nft ? nft.data.description: null}</p>
                     </MainContainer>
                     <Button color="red" onClick={() => sellAsset(nft)}>Sell</Button>
+                    <PriceInput type="text" id="lname" name="lname" onChange={handlePriceChange}/>
                   </MainContainer>
                 </MainContainer>
               ))

@@ -27,7 +27,6 @@ export default function CreateItem(){
           const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
           
           const items = await marketContract.fetchMarketItems()
-          console.log(items)
           const nftArr = []
           const base_url = "https://gateway.pinata.cloud/ipfs/"
           for (let i = 0; i<items.length; i++){
@@ -42,6 +41,7 @@ export default function CreateItem(){
             nft.data.image = `${base_url}${img}` // mutate image item to be a link to pinata link.. some clients blocks ipfs link
             nft.data.price = nftPrice
             nft.data.seller = seller
+            nft.data.nftId = nftId
             nftArr.push(nft)
           }
           setMarketItems(nftArr)
@@ -55,6 +55,29 @@ export default function CreateItem(){
     },[])
 
 
+    async function buyAsset(nft){
+        console.log(nft)
+        const web3Modal = new Web3Modal()
+        const connection = await web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(connection)
+        const signer = provider.getSigner()
+        const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+        console.log(typeof nft.data.price)
+        console.log(nft.data.edition)
+        try{
+          const nftMarketCreate = await contract.createMarketSale(
+            drinkingTreesTwo, 
+            nft.data.nftId, 
+            {value: ethers.utils.parseEther(nft.data.price)}
+          )
+        } catch (e){
+          console.log("ERROR")
+          console.log(e)
+          console.log(e.data.message)
+        }
+    }
+
+
     return (
       <MainFrame>
         <MainContainer>
@@ -62,7 +85,7 @@ export default function CreateItem(){
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {
               marketItems.map((nft, i) => (
-                <MainContainer key={i} className="border shadow rounded-xl overflow-hidden" width="100%">
+                <MainContainer key={i} width="100%">
                   <img src={nft ? nft.data.image : null}/>
                   <MainContainer>
                     <p style={{margin: "10px 0"}} className="text-2xl font-semibold">{nft ? nft.data.name: null}</p>
@@ -71,7 +94,7 @@ export default function CreateItem(){
                       <p style={{margin: "10px 0"}} className="text-2xl font-semibold">Price: {nft.data.price} ETH</p>
                       <p style={{margin: "10px 0", fontSize:"12px"}} className="text-2xl font-semibold">Seller: {nft.data.seller}</p>
                     </MainContainer>
-                    <Button color="green">Buy</Button>
+                    <Button color="green" onClick={()=> buyAsset(nft)}>Buy</Button>
                   </MainContainer>
                 </MainContainer>
               ))
