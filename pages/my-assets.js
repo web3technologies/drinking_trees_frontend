@@ -31,12 +31,14 @@ export default function MyAssets() {
 
           const test_arr = []
           const base_url = "https://gateway.pinata.cloud/ipfs/"
-          for (let i = 1; i<=intArr.length; i++){
-            const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${i}.json`)
+          for (let i = 0; i<intArr.length; i++){
+            const nftId = intArr[i]
+            const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${nftId}.json`)
             const img = nft.data.image.split("ipfs://")[1]
             nft.data.image = `${base_url}${img}`
+            nft.data.id = nftId
             test_arr.push(nft)
-            console.log(nft.data.image)
+            console.log(nft)
           }
           
           setNfts(test_arr)
@@ -56,8 +58,7 @@ export default function MyAssets() {
       const provider = new ethers.providers.Web3Provider(connection)
       const signer = provider.getSigner()
       const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-      console.log('here')
-      const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, 4, ethers.utils.parseEther("100.0"), {value: ethers.utils.parseEther("0.025")})
+      const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, nft.data.id, ethers.utils.parseEther("100.0"), {value: ethers.utils.parseEther("0.025")})
       console.log("Created?")
     }
   

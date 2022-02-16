@@ -31,10 +31,9 @@ export default function CreateItem(){
           const nftArr = []
           const base_url = "https://gateway.pinata.cloud/ipfs/"
           for (let i = 0; i<items.length; i++){
-            const nftId = BigNumber.from(items[i].itemId).toNumber()
+            const nftId = BigNumber.from(items[i].tokenId).toNumber()
             let nftPrice = BigNumber.from(items[i].price).toString()
             nftPrice = ethers.utils.formatEther(nftPrice)
-            // const nftPrice = ethers.utils.parseEther(BigNumber.from(items[i].price).toString())
             const seller = items[i].seller
 
             const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${nftId}.json`)
@@ -43,7 +42,6 @@ export default function CreateItem(){
             nft.data.image = `${base_url}${img}` // mutate image item to be a link to pinata link.. some clients blocks ipfs link
             nft.data.price = nftPrice
             nft.data.seller = seller
-            console.log(nft)
             nftArr.push(nft)
           }
           setMarketItems(nftArr)
