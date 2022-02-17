@@ -38,11 +38,13 @@ export default function CreateItem(){
             const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${nftId}.json`)
             
             const img = nft.data.image.split("ipfs://")[1]
+            nft.data.itemId = BigNumber.from(items[i].itemId).toNumber()
             nft.data.image = `${base_url}${img}` // mutate image item to be a link to pinata link.. some clients blocks ipfs link
             nft.data.price = nftPrice
             nft.data.seller = seller
             nft.data.nftId = nftId
             nftArr.push(nft)
+            console.log(nft)
           }
           setMarketItems(nftArr)
           
@@ -62,12 +64,12 @@ export default function CreateItem(){
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-        console.log(typeof nft.data.price)
-        console.log(nft.data.edition)
+        console.log(nft.data.price)
+        console.log(nft.data.nftId)
         try{
           const nftMarketCreate = await contract.createMarketSale(
             drinkingTreesTwo, 
-            nft.data.nftId, 
+            nft.data.itemId, 
             {value: ethers.utils.parseEther(nft.data.price)}
           )
         } catch (e){
@@ -76,7 +78,6 @@ export default function CreateItem(){
           console.log(e.data.message)
         }
     }
-
 
     return (
       <MainFrame>

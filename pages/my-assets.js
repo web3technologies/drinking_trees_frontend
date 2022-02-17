@@ -65,6 +65,7 @@ export default function MyAssets() {
         const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
         const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, nft.data.id, ethers.utils.parseEther(listPrice), {value: ethers.utils.parseEther("0.025")})
         console.log("Created?")
+        setListPrice(null)
       }
       
     }
