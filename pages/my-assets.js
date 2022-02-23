@@ -40,7 +40,6 @@ export default function MyAssets() {
             nft.data.image = `${base_url}${img}`
             nft.data.id = nftId
             test_arr.push(nft)
-            console.log(nft)
           }
           
           setNfts(test_arr)
@@ -63,8 +62,12 @@ export default function MyAssets() {
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
         const contract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-        const nftMarketCreate = await contract.createMarketItem(drinkingTreesTwo, nft.data.id, ethers.utils.parseEther(listPrice), {value: ethers.utils.parseEther("0.025")})
-        console.log("Created?")
+        const nftMarketCreate = await contract.createMarketItem(
+          drinkingTreesTwo, 
+          nft.data.id, 
+          ethers.utils.parseEther(listPrice), 
+          {value: ethers.utils.parseEther("0.025")}
+          )
         setListPrice(null)
       }
       
