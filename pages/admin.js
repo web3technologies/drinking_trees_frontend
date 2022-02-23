@@ -55,18 +55,6 @@ export default function Mint(){
         return ()=> setBalance({nftBalance: null, marketBalance: null})
     }, [])
 
-
-
-    async function widthdrawNFTBalance(){
-        const web3Modal = new Web3Modal()
-        const connection = await web3Modal.connect()
-        const provider = new ethers.providers.Web3Provider(connection)
-        const signer = provider.getSigner()
-        const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-
-        const withdraw = await contract.withdraw()
-    }
-
     async function withdrawBank(){
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
@@ -84,11 +72,6 @@ export default function Mint(){
         
         <MainFrame>
             <MainContainer>
-                <Text>Contract Revenue</Text>
-                <p>{balance.nftBalance} Eth</p>
-                <Button  type="button" onClick={widthdrawNFTBalance} style={{width: "500px"}}>
-                    Withdraw NFT Revenue to bank
-                </Button>
                 <Text>Bank Balance</Text>
                 <p>{bankBalance} Eth</p>
                 <br></br>

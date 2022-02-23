@@ -100,7 +100,7 @@ export default function MyAssets() {
                     <MainContainer style={{ height: '70px', overflow: 'hidden' }}>
                       <p className="text-black-400">{nft ? nft.data.description: null}</p>
                     </MainContainer>
-                    <Button color="red" onClick={() => sellAsset(nft)}>Sell</Button>
+                    <Button color="red" onClick={() => sellAsset(nft)}>List on Marketplace</Button>
                     <PriceInput type="text" id="lname" name="lname" onChange={handlePriceChange}/>
                   </MainContainer>
                 </MainContainer>
