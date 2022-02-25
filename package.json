@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@usedapp/core": "^0.11.0",
     "all": "^0.0.0",
     "axios": "^0.25.0",
     "bignumber": "^1.1.0",
