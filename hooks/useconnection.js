@@ -5,6 +5,7 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
 import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
+import { id } from "ethers/lib/utils";
 
 
 export default function useConnection(){
@@ -19,42 +20,36 @@ export default function useConnection(){
         bankContract: null
     })
 
+
     useEffect(()=>{
 
         async function loadData(){
-            const web3Modal = new Web3Modal()
-            const connection = await web3Modal.connect()
 
-            const provider = new ethers.providers.Web3Provider(connection)
-            const signer = provider.getSigner()
+            if(window.ethereum){
+                window.ethereum.on('accountsChanged', ()=>{
+                    console.log("changing")
+                    loadUser()
+                    console.log(user.provider)
+                })
+    
+                window.ethereum.on('chainChanged', (_chainId) => {                   
+                    loadUser()
+                });
+            }
 
-            setUser({
-                provider: provider,
-                signer: signer
-            })
+            if(user.provider){
+                user.provider.on("accountsChanged", (accounts) => {
+                    console.log(accounts);
+                });
+            }
+            
 
-
-            const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-            const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-            const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
-
-            setContract({
-                marketContract: marketContract,
-                nftContract: nftContract,
-                bankContract: bankContract
-            })
-
-            // provider.on("accountsChanged", (accounts) => {
-            //     console.log(accounts);
-            //   });
-              
-            //   // Subscribe to chainId change
-            //   provider.on("chainChanged", (chainId) => {
-            //     console.log(chainId);
-            //   });
+            
         }
 
         loadData()
+
+        
 
         return ()=> {
             setContract({
@@ -62,15 +57,37 @@ export default function useConnection(){
                 nftContract: null,
                 bankContract: null
             })
-            setUser({
-                provider: null,
-                signer: null
-            })
+
+            
         }
     },[])
 
 
+    async function loadUser(){
+        const web3Modal = new Web3Modal()
+        const connection = await web3Modal.connect()
+
+        const provider = new ethers.providers.Web3Provider(connection)
+        const signer = provider.getSigner()
+
+        setUser({
+            provider: provider,
+            signer: signer
+        })
+
+
+        const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+        const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+        const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+
+        setContract({
+            marketContract: marketContract,
+            nftContract: nftContract,
+            bankContract: bankContract
+        })
+    }
+
     
 
-    return { user, contract}
+    return { user, contract, loadUser}
 }

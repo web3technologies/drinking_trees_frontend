@@ -70,8 +70,5 @@ export default function useMyAssets(user, contract){
         setListPrice(e.target.value)
     }
 
-
-    console.log(userAssets)
-
     return { userAssets, sellAsset, handlePriceChange, loading}
 }

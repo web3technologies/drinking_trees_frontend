@@ -5,7 +5,7 @@ import useMyAssets from '../hooks/usemyassets'
 
 export default function MyAssets() {
 
-    const { user, contract } = useConnection()
+    const { user, contract, loadUser } = useConnection()
     const { userAssets, sellAsset, handlePriceChange, loading } = useMyAssets(user, contract)
 
 
@@ -20,6 +20,7 @@ export default function MyAssets() {
     if (loading){
       return(
         <MainFrame>
+          <Button onClick={loadUser}>Load User</Button>
           <Text>Loading</Text>
         </MainFrame>)
     }
