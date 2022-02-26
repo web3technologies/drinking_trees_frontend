@@ -15,7 +15,7 @@ export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: ${({ justifyContent }) => justifyContent || "center"}; ;
 
 `;
 

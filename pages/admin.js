@@ -6,7 +6,7 @@ import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
 import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
-
+import DTable from "../components/table";
 
 
 
@@ -14,14 +14,7 @@ export default function Mint(){
 
 
     const [bankBalance, setBankBalance] = useState();
-    const [ ownerBalances, setOwnerBalances ] = useState({
-        miriamBalance: null,
-        danBalance: null,
-        zachCookBalance: null,
-        raymondBalance: null,
-        zachComBalance: null,
-        charityBalance: null
-    })
+    const [ shareHolderData, setShareHolderData] = useState([])
 
     useEffect(()=>{
 
@@ -37,39 +30,27 @@ export default function Mint(){
 
             let bankContract = new ethers.Contract(bankAddress, Bank.abi, provider)
 
-            const miriamWallet = await bankContract.miriamAddress()
-            const danWallet = await bankContract.danAddress()
-            const zachCookWallet = await bankContract.zachCookAddress()
-            const raymondWallet = await bankContract.raymondAddress()
-            const zachComWallet = await bankContract.zachComAddress()
-            const charityWallet = await bankContract.charityAddress()
-
-            let miriamBalance = await provider.getBalance(miriamWallet)
-            miriamBalance = ethers.utils.formatEther(BigNumber.from(miriamBalance).toString())
-
-            let danBalance = await provider.getBalance(danWallet)
-            danBalance = ethers.utils.formatEther(BigNumber.from(danBalance).toString())
-
-            let zachCookBalance = await provider.getBalance(zachCookWallet)
-            zachCookBalance = ethers.utils.formatEther(BigNumber.from(zachCookBalance).toString())
-
-            let raymondBalance = await provider.getBalance(raymondWallet)
-            raymondBalance = ethers.utils.formatEther(BigNumber.from(raymondBalance).toString())
-
-            let zachComBalance = await provider.getBalance(zachComWallet)
-            zachComBalance = ethers.utils.formatEther(BigNumber.from(zachComBalance).toString())
-
-            let charityBalance = await provider.getBalance(charityWallet)
-            charityBalance = ethers.utils.formatEther(BigNumber.from(charityBalance).toString())
+            const shareHolders = await bankContract.getAllShareHolders()
+            console.log(shareHolders)
+            const convertedData = []
             
-            setOwnerBalances({
-                miriamBalance: miriamBalance,
-                danBalance: danBalance,
-                zachCookBalance: zachCookBalance,
-                raymondBalance: raymondBalance,
-                zachComBalance: zachComBalance,
-                charityBalance: charityBalance
-            })
+            for (let i=0; i<shareHolders.length; i++){
+                
+                let bal = await provider.getBalance(shareHolders[i].wallet)
+                bal = ethers.utils.formatEther(BigNumber.from(bal).toString())
+                const tempObj = {
+                    name: shareHolders[i].username,
+                    balance: bal,
+                    address: shareHolders[i].wallet,
+                    equityPercent: ethers.utils.formatEther(shareHolders[i].equityPercent.toString()) 
+                }
+                convertedData.push(tempObj)
+            }
+
+            console.log(convertedData)
+            setShareHolderData(convertedData)
+
+            
 
             let nftBankBalance = await provider.getBalance(bankAddress)
             nftBankBalance = ethers.utils.formatEther(BigNumber.from(nftBankBalance).toString()) 
@@ -95,20 +76,16 @@ export default function Mint(){
 
     return (
         
-        <MainFrame>
-            <MainContainer>
+        <MainFrame style={{background: "#f8f8f8", height: "100vh"}}>
+            <MainContainer justifyContent="flex-start">
                 <Text>Bank Balance</Text>
-                <p>{bankBalance} Eth</p>
+                <p style={{fontSize: "28px", margin: "15px 0"}}>{bankBalance} Eth</p>
+                <DTable tableData={shareHolderData}/>
                 <br></br>
                 <Button  type="button" onClick={withdrawBank} style={{width: "500px"}} color="#0052ff;">
                     Withdraw Bank
                 </Button>
-                <p>Miriam Balance {ownerBalances.miriamBalance} Eth</p>
-                <p>Dan Balance {ownerBalances.danBalance} Eth</p>
-                <p>ZachCook Balance {ownerBalances.zachCookBalance} Eth</p>
-                <p>Raymond Balance {ownerBalances.raymondBalance} Eth</p>
-                <p>ZachComm Balance {ownerBalances.zachComBalance} Eth</p>
-                <p>Charity Balance {ownerBalances.charityBalance} Eth</p>
+                
             </MainContainer>       
         </MainFrame>
         )
