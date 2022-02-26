@@ -1,6 +1,5 @@
 import { ethers, BigNumber } from 'ethers'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"

@@ -58,8 +58,7 @@ export default function useMyAssets(user, contract){
           const nftMarketCreate = await contract.marketContract.createMarketItem(
             drinkingTreesTwo, 
             nft.data.id, 
-            ethers.utils.parseEther(listPrice), 
-            {value: ethers.utils.parseEther("0.025")}
+            ethers.utils.parseEther(listPrice)
             )
           setListPrice(null)
         }
