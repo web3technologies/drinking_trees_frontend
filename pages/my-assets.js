@@ -34,7 +34,7 @@ export default function MyAssets() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
           {
               userAssets.map((nft, i) => (
-                <MainContainer key={i} >
+                <MainContainer key={i} style={{margin: "10px"}}>
                   <img src={nft ? nft.data.image : null}/>
                   <MainContainer>
                     <p style={{margin: "10px 0"}} className="text-2xl font-semibold">{nft ? nft.data.name: null}</p>

@@ -43,7 +43,7 @@ export const Button = styled.button`
     text-align: center;
     font-size: 28px;
     padding: 20px;
-    width: 200px;
+    width: 300px;
     transition: all 0.5s;
     cursor: pointer;
     margin: 25px;
@@ -72,6 +72,6 @@ export const NavBar = styled.nav`
 export const PriceInput = styled.input`
 
       width: 80%;
-      border: 2px solid green;
+      border: 2px solid gray;
 
 `;

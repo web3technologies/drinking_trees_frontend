@@ -25,24 +25,24 @@ export default function useConnection(){
 
         async function loadData(){
 
-            if(window.ethereum){
-                window.ethereum.on('accountsChanged', ()=>{
-                    console.log("changing")
-                    loadUser()
-                    console.log(user.provider)
-                })
+            // if(window.ethereum){
+            //     window.ethereum.on('accountsChanged', ()=>{
+            //         console.log("changing")
+            //         loadUser()
+            //         console.log(user.provider)
+            //     })
     
-                window.ethereum.on('chainChanged', (_chainId) => {                   
-                    loadUser()
-                });
-            }
+            //     window.ethereum.on('chainChanged', (_chainId) => {                   
+            //         loadUser()
+            //     });
+            // }
 
-            if(user.provider){
-                user.provider.on("accountsChanged", (accounts) => {
-                    console.log(accounts);
-                });
-            }
-            
+            // if(user.provider){
+            //     user.provider.on("accountsChanged", (accounts) => {
+            //         console.log(accounts);
+            //     });
+            // }
+            loadUser()
 
             
         }
