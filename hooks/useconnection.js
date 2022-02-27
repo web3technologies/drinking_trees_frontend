@@ -5,14 +5,14 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
 import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
-import { id } from "ethers/lib/utils";
 
 
 export default function useConnection(){
 
     const [ user, setUser ] = useState({
         provider: null,
-        signer: null
+        signer: null,
+        isAdminUser: false
     })
     const [ contract, setContract ] = useState({
         marketContract: null,
@@ -70,15 +70,17 @@ export default function useConnection(){
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
 
-        setUser({
-            provider: provider,
-            signer: signer
-        })
-
-
         const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
         const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
         const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+
+        const isAdmin = await bankContract.getAdminUser()
+
+        setUser({
+            provider: provider,
+            signer: signer,
+            isAdminUser: isAdmin
+        })
 
         setContract({
             marketContract: marketContract,
