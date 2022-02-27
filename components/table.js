@@ -31,7 +31,7 @@ import Paper from '@mui/material/Paper';
                         >
                             <TableCell >{row.name}</TableCell>
                             <TableCell>{row.address}</TableCell>
-                            <TableCell >{row.equityPercent}</TableCell>
+                            <TableCell >{row.equityPercent} %</TableCell>
                             <TableCell >{row.balance} ♦ </TableCell>
                         </TableRow>
                     ))}

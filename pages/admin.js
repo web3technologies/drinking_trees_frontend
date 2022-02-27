@@ -42,7 +42,7 @@ export default function Mint(){
                     name: shareHolders[i].username,
                     balance: bal,
                     address: shareHolders[i].wallet,
-                    equityPercent: ethers.utils.formatEther(shareHolders[i].equityPercent.toString()) 
+                    equityPercent: ethers.utils.formatUnits(shareHolders[i].equityPercent, 2) 
                 }
                 convertedData.push(tempObj)
             }
