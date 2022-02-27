@@ -31,7 +31,6 @@ export default function Mint(){
             let bankContract = new ethers.Contract(bankAddress, Bank.abi, provider)
 
             const shareHolders = await bankContract.getAllShareHolders()
-            console.log(shareHolders)
             const convertedData = []
             
             for (let i=0; i<shareHolders.length; i++){
@@ -47,10 +46,9 @@ export default function Mint(){
                 convertedData.push(tempObj)
             }
 
-            console.log(convertedData)
             setShareHolderData(convertedData)
-
             
+            const equityPercentAllocated = await bankContract.equityPercentAllocated()
 
             let nftBankBalance = await provider.getBalance(bankAddress)
             nftBankBalance = ethers.utils.formatEther(BigNumber.from(nftBankBalance).toString()) 
