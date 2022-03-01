@@ -1,6 +1,7 @@
 import { MainFrame, MainContainer, Text, Button, IMG, PriceInput} from "./styles/base"
 import useConnection  from '../hooks/useconnection';
 import useMyAssets from '../hooks/usemyassets'
+import CircularProgress from '@mui/material/CircularProgress';
 
 
 export default function MyAssets() {
@@ -20,8 +21,10 @@ export default function MyAssets() {
     if (loading){
       return(
         <MainFrame>
-          <Button onClick={loadUser}>Load User</Button>
-          <Text>Loading</Text>
+          <MainContainer>
+            <CircularProgress color="primary" />
+          </MainContainer>
+          {/* <Button onClick={loadUser}>Load User</Button> */}
         </MainFrame>)
     }
 
@@ -41,7 +44,7 @@ export default function MyAssets() {
                     <MainContainer style={{ height: '70px', overflow: 'hidden' }}>
                       <p className="text-black-400">{nft ? nft.data.description: null}</p>
                     </MainContainer>
-                    <Button color="red" onClick={() => sellAsset(nft)}>List on Marketplace</Button>
+                    <Button color="red" onClick={() => sellAsset(nft, i)}>List on Marketplace</Button>
                     <PriceInput type="text" id="lname" name="lname" onChange={handlePriceChange}/>
                   </MainContainer>
                 </MainContainer>

@@ -4,6 +4,7 @@ import axios from 'axios'
 import { drinkingTreesTwo } from '../config'
 import {baseUrl, baseUri } from '../config'
 
+
 export default function useMyAssets(user, contract){
 
     const [ userAssets, setUserAssets ] = useState([])
@@ -51,16 +52,31 @@ export default function useMyAssets(user, contract){
     
     },[user, contract])
 
-    async function sellAsset(nft){
+    async function sellAsset(nft, index){
 
         if (!listPrice){return}
         else{
-          const nftMarketCreate = await contract.marketContract.createMarketItem(
-            drinkingTreesTwo, 
-            nft.data.id, 
-            ethers.utils.parseEther(listPrice)
-            )
-          setListPrice(null)
+            setLoading(true)
+            try{
+                let userNfts = [...userAssets]
+                const nftMarketCreate = await contract.marketContract.createMarketItem(
+                    drinkingTreesTwo, 
+                    nft.data.id, 
+                    ethers.utils.parseEther(listPrice)
+                    )
+                console.log("here")
+                const marketCreateReceipt = await nftMarketCreate.wait()
+                const event = await marketCreateReceipt.events?.find(event => event.event === 'MarketItemCreated')
+                console.log(event.args)
+                setListPrice(null)
+                setLoading(false)
+                userNfts.splice(index, 1)
+                setUserAssets(userNfts)
+            } catch (e){
+                setLoading(false)
+                console.log(e)
+            }
+          
         }
         
       }

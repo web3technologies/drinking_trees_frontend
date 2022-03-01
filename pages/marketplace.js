@@ -69,6 +69,11 @@ export default function CreateItem(){
             nft.data.itemId, 
             {value: ethers.utils.parseEther(nft.data.price)}
           )
+          const marketCreateLog = await nftMarketCreate.wait()
+          console.log("here")
+          console.log(marketCreateLog)
+          const event = marketCreateLog.events?.find(event => event.event === 'MarketItemCreated')
+          console.log(event)
         } catch (e){
           console.log("ERROR")
           console.log(e)
