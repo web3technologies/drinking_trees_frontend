@@ -5,7 +5,7 @@ import Web3Modal from "web3modal"
 import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
-import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
+import { MainFrame, MainContainer, Text, Button, IMG} from "../styles/base"
 import DTable from "../components/table";
 
 

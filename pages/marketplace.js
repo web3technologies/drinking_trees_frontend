@@ -5,9 +5,8 @@ import Web3Modal from "web3modal"
 
 import axios from 'axios'
 import {drinkingTreesTwo, nftmarketaddress} from '../config'
-import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import { MainFrame, MainContainer, Text, Button} from "./styles/base"
+import { MainFrame, MainContainer, Text, Button} from "../styles/base"
 
 
 export default function CreateItem(){

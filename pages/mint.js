@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import { MainFrame, MainContainer, Text, Button, IMG} from "./styles/base"
+import { MainFrame, MainContainer, Text, Button} from "../styles/base"
 import Image from 'next/image'
 const GIF = require('../images/preview.gif')
 

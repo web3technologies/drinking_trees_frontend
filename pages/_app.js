@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import '../styles/globals.css'
-import {NavBar, MainFrame} from "./styles/base"
+import {NavBar, MainFrame} from "../styles/base"
 
 const GIF = require('../images/preview.gif')
 
