@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-import { MainFrame, MainContainer, Text, Button, IMG} from "../styles/base"
+import { MainFrame, MainContainer, Text} from "../styles/base"
 const GIF = require('../images/tree.png')
 export default function Home() {
 

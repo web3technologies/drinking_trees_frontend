@@ -1,4 +1,4 @@
-import { MainFrame, MainContainer, Text, Button, IMG, PriceInput} from "../styles/base"
+import { MainFrame, MainContainer, Text, Button, PriceInput} from "../styles/base"
 import useConnection  from '../hooks/useconnection';
 import useMyAssets from '../hooks/usemyassets'
 import CircularProgress from '@mui/material/CircularProgress';
