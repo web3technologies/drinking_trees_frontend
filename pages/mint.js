@@ -60,7 +60,7 @@ export default function Mint(){
         <MainFrame>
             <MainContainer>
                 <Text>Mint Your Drinking Tree here</Text>
-                <Image src={GIF} alt="loading..." ></Image>
+                {/* <Image src={GIF} alt="loading..." ></Image> */}
                 <Button  type="button" onClick={mintNFT}>
                     Mint NFT {cost.stringVal} ♦
                 </Button>
