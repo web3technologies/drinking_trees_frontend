@@ -71,7 +71,7 @@ export default function CreateItem(){
           const marketCreateLog = await nftMarketCreate.wait()
           console.log("here")
           console.log(marketCreateLog)
-          const event = marketCreateLog.events?.find(event => event.event === 'MarketItemCreated')
+          const event = marketCreateLog.events?.find(event => event.event === 'MarketSale')
           console.log(event)
         } catch (e){
           console.log("ERROR")
