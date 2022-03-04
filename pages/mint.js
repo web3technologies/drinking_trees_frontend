@@ -3,9 +3,7 @@ import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import { MainFrame, MainContainer, Text, Button} from "../styles/base"
-// import Image from 'next/image'
-// const GIF = require('../images/preview.gif')
+import { MainFrame, MainContainer, Text, Button, IMG} from "../styles/base"
 
 
 
@@ -60,7 +58,7 @@ export default function Mint(){
         <MainFrame>
             <MainContainer>
                 <Text>Mint Your Drinking Tree here</Text>
-                {/* <Image src={GIF} alt="loading..." ></Image> */}
+                <IMG src={"https://gateway.pinata.cloud/ipfs/QmVnvpkK3KLfMfQtooQfdDxxaiMtGAk77iCfoWWWv8eevv/preview.gif"} alt="loading..." ></IMG>
                 <Button  type="button" onClick={mintNFT}>
                     Mint NFT {cost.stringVal} ♦
                 </Button>
