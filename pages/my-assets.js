@@ -6,9 +6,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 
 export default function MyAssets() {
 
-    const { user, contract, loadUser } = useConnection()
-    const { userAssets, sellAsset, handlePriceChange, loading } = useMyAssets(user, contract)
+    // const { user, contract, loadUser } = useConnection()
+    // const { userAssets, sellAsset, handlePriceChange, loading } = useMyAssets(user, contract)
 
+    const userAssets = []
+    const loading = null
 
     if (userAssets.length === 0 && !loading){
       return (

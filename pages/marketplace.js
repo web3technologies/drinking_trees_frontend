@@ -13,44 +13,44 @@ export default function CreateItem(){
   const [marketItems, setMarketItems] = useState([])
   const [loadingState, setLoadingState] = useState('not-loaded')
 
-    useEffect(()=>{
+    // useEffect(()=>{
         
-        async function loadMarketItems(){
-          const web3Modal = new Web3Modal()
-          const connection = await web3Modal.connect()
-          const provider = new ethers.providers.Web3Provider(connection)
-          const signer = provider.getSigner()
-          const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+    //     async function loadMarketItems(){
+    //       const web3Modal = new Web3Modal()
+    //       const connection = await web3Modal.connect()
+    //       const provider = new ethers.providers.Web3Provider(connection)
+    //       const signer = provider.getSigner()
+    //       const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
           
-          const items = await marketContract.fetchMarketItems()
-          const nftArr = []
-          const base_url = "https://gateway.pinata.cloud/ipfs/"
-          for (let i = 0; i<items.length; i++){
-            const nftId = BigNumber.from(items[i].tokenId).toNumber()
-            let nftPrice = BigNumber.from(items[i].price).toString()
-            nftPrice = ethers.utils.formatEther(nftPrice)
-            const seller = items[i].seller
+    //       const items = await marketContract.fetchMarketItems()
+    //       const nftArr = []
+    //       const base_url = "https://gateway.pinata.cloud/ipfs/"
+    //       for (let i = 0; i<items.length; i++){
+    //         const nftId = BigNumber.from(items[i].tokenId).toNumber()
+    //         let nftPrice = BigNumber.from(items[i].price).toString()
+    //         nftPrice = ethers.utils.formatEther(nftPrice)
+    //         const seller = items[i].seller
 
-            const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${nftId}.json`)
+    //         const nft = await axios.get(`${base_url}QmRE1aNGV8SEt5jcbKya6awzKuvSAdfRP73MWcgrF8wbML/${nftId}.json`)
             
-            const img = nft.data.image.split("ipfs://")[1]
-            nft.data.itemId = BigNumber.from(items[i].itemId).toNumber()
-            nft.data.image = `${base_url}${img}` // mutate image item to be a link to pinata link.. some clients blocks ipfs link
-            nft.data.price = nftPrice
-            nft.data.seller = seller
-            nft.data.nftId = nftId
-            nftArr.push(nft)
-            console.log(nft)
-          }
-          setMarketItems(nftArr)
+    //         const img = nft.data.image.split("ipfs://")[1]
+    //         nft.data.itemId = BigNumber.from(items[i].itemId).toNumber()
+    //         nft.data.image = `${base_url}${img}` // mutate image item to be a link to pinata link.. some clients blocks ipfs link
+    //         nft.data.price = nftPrice
+    //         nft.data.seller = seller
+    //         nft.data.nftId = nftId
+    //         nftArr.push(nft)
+    //         console.log(nft)
+    //       }
+    //       setMarketItems(nftArr)
           
-        }
+    //     }
 
-      loadMarketItems()
+    //   loadMarketItems()
 
-      return ()=> setMarketItems([])
+    //   return ()=> setMarketItems([])
 
-    },[])
+    // },[])
 
 
     async function buyAsset(nft){

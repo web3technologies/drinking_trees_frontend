@@ -1,5 +1,4 @@
 import { MainFrame, MainContainer, Text, IMG} from "../styles/base"
-const GIF = require('../images/tree.png')
 
 
 export default function Home() {
