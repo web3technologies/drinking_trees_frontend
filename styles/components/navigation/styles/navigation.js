@@ -16,28 +16,30 @@ export const NavigationInner = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 10px 0;
 `;
 
 
 export const NavigationLeft = styled.div`
 
-    width: 35%;
+    width: 30%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
 `;
 
 export const TabText = styled.a`
 
     color: #049829;
-    font-size: 20px;
-    margin: 24px; 
+    font-size: 18px;
     cursor: pointer;
     letter-spacing: 2px;
+    font-weight: normal;
 
     &:hover {
         color: #4BF493;
       }
+
+
 `;
 
 export const NavigationRight = styled.div`
@@ -53,13 +55,13 @@ export const ConnectButton = styled.button`
 
     color: white;
     background-color: #049829;
-    width: 20%;
+    width: 15%;
     border-radius: 20px;
     height: 40px;
     border: none;
     cursor: pointer;
     letter-spacing: 2px;
-    
+    font-weight: normal;
 
     &:hover {
         background-color: #4BF493;

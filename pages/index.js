@@ -1,16 +1,11 @@
-import { MainFrame, MainContainer, Text, IMG} from "../styles/base"
-
+import MainContainer  from '../containers/main'
 
 export default function Home() {
 
   return (
-    <MainFrame>
+
       <MainContainer>
-        <Text>This is the Drinking Trees NFT Collection</Text>
-        <Text color="green">Here at Drinking Trees we are very motivated to saving every tree on Earth</Text>
-        <IMG src={"https://gateway.pinata.cloud/ipfs/QmVnvpkK3KLfMfQtooQfdDxxaiMtGAk77iCfoWWWv8eevv/tree.png"} alt="loading..."></IMG>
-        <Text color="green">10% of all revenue will go directly to the Arbor Day Foundation</Text>
       </MainContainer>
-    </MainFrame>
+
   )
 }
