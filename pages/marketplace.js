@@ -6,7 +6,6 @@ import Web3Modal from "web3modal"
 import axios from 'axios'
 import {drinkingTreesTwo, nftmarketaddress} from '../config'
 import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import { MainFrame, MainContainer, Text, Button} from "../styles/base"
 
 
 export default function CreateItem(){
@@ -81,30 +80,11 @@ export default function CreateItem(){
     }
 
     return (
-      <MainFrame>
-        <MainContainer>
-          <Text>Nfts for sale</Text>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-4">
-          {
-              marketItems.map((nft, i) => (
-                <MainContainer key={i} width="100%">
-                  <img src={nft ? nft.data.image : null}/>
-                  <MainContainer>
-                    <p style={{margin: "10px 0"}} className="text-2xl font-semibold">{nft ? nft.data.name: null}</p>
-                    <MainContainer>
-                      <p className="text-black-400">{nft ? nft.data.description: null}</p>
-                      <p style={{margin: "10px 0"}} className="text-2xl font-semibold">Price: {nft.data.price} ETH</p>
-                      <p style={{margin: "10px 0", fontSize:"12px"}} className="text-2xl font-semibold">Seller: {nft.data.seller}</p>
-                    </MainContainer>
-                    <Button color="green" onClick={()=> buyAsset(nft)}>Buy</Button>
-                  </MainContainer>
-                </MainContainer>
-              ))
-            }
-          </div>
-          </MainContainer>
-      </MainFrame>
-    )
+
+      <div>
+        marketplace
+      </div>
+      )
 
 
 }

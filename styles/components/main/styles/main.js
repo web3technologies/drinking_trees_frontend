@@ -82,6 +82,10 @@ export const SmallText = styled.p`
     letter-spacing: 0.05em;
     color: #FFFFFF;
 
+    // &:hover {
+    //     background-color: #4BF493;
+    //   }
+
 `;
 
 export const ExploreDiv = styled.div`

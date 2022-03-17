@@ -20,7 +20,7 @@ export default function MainContainer(){
                         <Main.SupportingText>Mint Period : Earth Day - Arbor Day (4/22 - 4/29)</Main.SupportingText>
                         <Main.MultivacFrame>
                             <Main.MultiVacLogo src={"https://gateway.pinata.cloud/ipfs/QmPTjYUsCV5BLcc859yGtnDQU35HgQMJojXTRb7sB3b8Rk"}/>
-                            <Main.SmallText>Click to add chain</Main.SmallText>
+                            <Main.SmallText>Click to add blockchain</Main.SmallText>
                         </Main.MultivacFrame>
                         <Main.ExploreDiv>
                             <Main.CollectionLink>Explore Collection</Main.CollectionLink>

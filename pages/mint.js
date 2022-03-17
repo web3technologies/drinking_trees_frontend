@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
 import {drinkingTreesTwo} from '../config'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import { MainFrame, MainContainer, Text, Button, IMG} from "../styles/base"
 import CircularProgress from '@mui/material/CircularProgress';
 
 
@@ -64,28 +63,6 @@ export default function Mint(){
     }
 
     return (
-        
-        <MainFrame>
-            <MainContainer>
-                <Text>Mint Your Drinking Tree here</Text>
-                <IMG src={"https://gateway.pinata.cloud/ipfs/QmVnvpkK3KLfMfQtooQfdDxxaiMtGAk77iCfoWWWv8eevv/preview.gif"} alt="loading..." ></IMG>
-
-                {
-                    !minting ?
-                    <Button  type="button" onClick={mintNFT}>
-                        Mint NFT {cost.stringVal} ♦
-                    </Button>
-                    :
-                    <CircularProgress color="primary" />
-                }
-                
-                {
-                    error ? 
-                    <p style={{color: "red"}}>Error: {error}</p>
-                    :
-                    null
-                }
-            </MainContainer>       
-        </MainFrame>
+        <div>mint</div>
         )
 }
