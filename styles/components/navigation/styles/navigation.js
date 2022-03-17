@@ -56,7 +56,7 @@ export const ConnectButton = styled.button`
     color: white;
     background-color: #049829;
     width: 15%;
-    border-radius: 20px;
+    border-radius: 10px;
     height: 40px;
     border: none;
     cursor: pointer;
