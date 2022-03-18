@@ -2,63 +2,64 @@ import { useState, useEffect } from 'react';
 import { Team } from '../styles/components'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { safeOpen } from '../helpers/safeopen'
-import { faTiktok } from '@fortawesome/free-brands-svg-icons'
+import { faTiktok, faYoutube } from '@fortawesome/free-brands-svg-icons'
 
 
 export default function TeamContainer(){
 
     const url = "https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"
+    
+    const tikTokStyle = {
+        width: "25%",
+        color: "#FFFFFF",
+        cursor: "pointer"
+    }
+
+    const youtTubeStyle = {
+        width: "25%",
+        color: "#ff0000",
+        cursor: "pointer"
+    }
+
 
     const data = [
         {
             image: url,
             username: "VelveteenCryptoGirl",
             title: "Artist/Designer",
-            twitter: null,
-            tikTok: null
+            socials: null
         },
         {
             image: url,
             username: "dannyboy",
             title: "Lega/Community Lead",
-            twitter: null,
-            tikTok: null
+            socials: null
         },
         {
             image: url,
             username: "doctorculture",
             title: "Social Media Content Marketing",
-            twitter: null,
-            tikTok: "https://www.tiktok.com/@doctorculture"
+            socials:[
+                {
+                    link: "https://www.tiktok.com/@doctorculture", 
+                    style: tikTokStyle,
+                    icon: faTiktok
+                },
+                {
+                    link:  "https://www.youtube.com/doctorculture", 
+                    style:  youtTubeStyle,
+                    icon:  faYoutube
+                },
+            ],
         },
         {
             image: url,
-            username: "buy_it_all",
+            username: "Buy_It_All",
             title: "Front-End and Blockchain Developer",
-            twitter: null,
-            tikTok: null
+            socials: null
         }
     ]
 
-    const twitterStle = {
-        width: "25%",
-        color: "#1da1f2",
-        cursor: "pointer"
-    }
-
-    const tikTokStyle = {
-        width: "25%",
-        color: "#FFFFFF",
-        cursor: "pointer"
-    }
-    
-    useEffect(()=>{
-
-        window.ethereum.on('chainChanged', (_chainId) => {                   
-            console.log(_chainId);
-        });
-
-    },[])
 
     return (
         
@@ -76,21 +77,19 @@ export default function TeamContainer(){
                                     <Team.CardSubTitle>{card.title}</Team.CardSubTitle>
                                     <Team.SocialMediaFrame>
                                         {
-                                            card.tikTok ?
-                                            <FontAwesomeIcon 
-                                                icon={faTiktok} 
-                                                style={tikTokStyle} 
-                                                onClick={()=> {
-                                                    card.tikTok ?
-                                                    safeOpen(card.tikTok)
-                                                    :
-                                                    null
-                                                }}
-                                            />
+                                            card.socials ?
+                                            
+                                                card.socials.map((social, idx) => {
+                                                    return <FontAwesomeIcon
+                                                        key={idx} 
+                                                        icon={social.icon} 
+                                                        style={social.style} 
+                                                        onClick={()=> {safeOpen(social.link)}}
+                                                    />
+                                                }) 
                                             :
                                             null
                                         }
-                                        
                                     </Team.SocialMediaFrame>
                                 </Team.Card>
                             ))
@@ -111,6 +110,7 @@ export default function TeamContainer(){
                                         style={tikTokStyle} 
                                         onClick={() => safeOpen("https://dracodice.com/")}
                                     />
+                                    
                             </Team.SocialMediaFrame>
                         </Team.Card>
                     </Team.CardFrameBottom>

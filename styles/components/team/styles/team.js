@@ -97,7 +97,7 @@ export const SocialMediaFrame = styled.div`
     margin: 20px 0;
     width: 50%;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
 `;
 

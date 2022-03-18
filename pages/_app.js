@@ -1,4 +1,5 @@
 import  NavigationContainer from '../containers/navbar'
+import FooterContainer from '../containers/footer'
 import GlobalStyle from '../global-styles'
 import Head from 'next/head';
 
@@ -16,6 +17,7 @@ function MyApp({ Component, pageProps }) {
       <GlobalStyle/>
       <NavigationContainer/>
       <Component {...pageProps} />
+      <FooterContainer/>
     </>
   )
 }
