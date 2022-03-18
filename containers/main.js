@@ -1,9 +1,9 @@
 import React from 'react'
-import Link from 'next/link'
 // component
 import { Main }   from '../styles/components';
-
+import { addMultiVac } from '../helpers/addChain';
 import useTimer from '../hooks/usetimer';
+
 
 export default function MainContainer(){
 
@@ -18,7 +18,7 @@ export default function MainContainer(){
                         <Main.SupportingText>In Celebration of Earth Day and Arbor Day, we bring you 5,000 Drinking Trees</Main.SupportingText>
                         <Main.SupportingText>10% of all proceeds to the Arbor Day Foundation</Main.SupportingText>
                         <Main.SupportingText>Mint Period : Earth Day - Arbor Day (4/22 - 4/29)</Main.SupportingText>
-                        <Main.MultivacFrame>
+                        <Main.MultivacFrame onClick={addMultiVac}>
                             <Main.MultiVacLogo src={"https://gateway.pinata.cloud/ipfs/QmPTjYUsCV5BLcc859yGtnDQU35HgQMJojXTRb7sB3b8Rk"}/>
                             <Main.SmallText>Click to add blockchain</Main.SmallText>
                         </Main.MultivacFrame>

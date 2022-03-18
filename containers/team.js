@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Team } from '../styles/components'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { safeOpen } from '../helpers/safeopen'
-import { faTwitter, faTiktok } from '@fortawesome/free-brands-svg-icons'
+import { faTiktok } from '@fortawesome/free-brands-svg-icons'
 
 
 export default function TeamContainer(){
@@ -51,6 +51,14 @@ export default function TeamContainer(){
         color: "#FFFFFF",
         cursor: "pointer"
     }
+    
+    useEffect(()=>{
+
+        window.ethereum.on('chainChanged', (_chainId) => {                   
+            console.log(_chainId);
+        });
+
+    },[])
 
     return (
         

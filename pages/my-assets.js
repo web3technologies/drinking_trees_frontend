@@ -11,6 +11,8 @@ export default function MyAssets() {
 
 
   return (
-    <div>my assets</div>
+    <div>
+       Coming Soon
+    </div>
   )
 }

@@ -63,6 +63,8 @@ export default function Mint(){
     }
 
     return (
-        <div>mint</div>
+        <div>
+       Coming Soon
+      </div>
         )
 }
