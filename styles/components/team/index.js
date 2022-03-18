@@ -1,6 +1,7 @@
 import React from 'react';
 import { TeamFrame, TeamBox, TeamText, CardFrame, 
-    CardFrameTop, Card, CardImage,  CardTitle, CardSubTitle, SocialMediaFrame } from './styles/team'
+    CardFrameTop, Card, CardImage,  CardTitle, 
+    CardSubTitle, SocialMediaFrame, CardFrameBottom } from './styles/team'
 
 export default function Team({children, ...restProps}) {
     return <TeamFrame {...restProps}>{children}</TeamFrame>
@@ -41,5 +42,9 @@ Team.CardSubTitle = function TeamCardSubTitle({children, ...restProps}) {
 
 Team.SocialMediaFrame = function TeamSocialMediaFrame({children, ...restProps}) {
     return <SocialMediaFrame {...restProps}> {children}</SocialMediaFrame>
+}
+
+Team.CardFrameBottom = function TeamCardFrameBottom({children, ...restProps}) {
+    return <CardFrameBottom {...restProps}> {children}</CardFrameBottom>
 }
 

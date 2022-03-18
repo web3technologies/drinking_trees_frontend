@@ -62,21 +62,27 @@ export default function TeamContainer(){
                         {
                             data ?
                             data.map((card, idx) =>(
-                                <Team.Card >
+                                <Team.Card key={idx}>
                                     <Team.CardImage src={card.image}/>
                                     <Team.CardTitle>{card.username}</Team.CardTitle>
                                     <Team.CardSubTitle>{card.title}</Team.CardSubTitle>
                                     <Team.SocialMediaFrame>
-                                        <FontAwesomeIcon 
-                                            icon={faTiktok} 
-                                            style={tikTokStyle} 
-                                            onClick={()=> {
-                                                card.tikTok ?
-                                                safeOpen(card.tikTok)
-                                                :
-                                                null
-                                            }}
-                                        />
+                                        {
+                                            card.tikTok ?
+                                            <FontAwesomeIcon 
+                                                icon={faTiktok} 
+                                                style={tikTokStyle} 
+                                                onClick={()=> {
+                                                    card.tikTok ?
+                                                    safeOpen(card.tikTok)
+                                                    :
+                                                    null
+                                                }}
+                                            />
+                                            :
+                                            null
+                                        }
+                                        
                                     </Team.SocialMediaFrame>
                                 </Team.Card>
                             ))
@@ -84,6 +90,22 @@ export default function TeamContainer(){
                             null
                         }
                     </Team.CardFrameTop>
+                    <Team.CardFrameBottom>
+                        <Team.TeamText style={{fontSize: "38px", color: "white"}}>Advisor</Team.TeamText>
+                        <Team.Card>
+                            <Team.CardImage src={url}/>
+                                <Team.CardTitle>ZAch</Team.CardTitle>
+                                <Team.CardSubTitle>Founder Draco Dice</Team.CardSubTitle>
+                                <Team.SocialMediaFrame>
+                                    
+                                    <FontAwesomeIcon 
+                                        icon={faTiktok} 
+                                        style={tikTokStyle} 
+                                        onClick={() => safeOpen("https://dracodice.com/")}
+                                    />
+                            </Team.SocialMediaFrame>
+                        </Team.Card>
+                    </Team.CardFrameBottom>
                 </Team.CardFrame>
             </Team.TeamBox>
         </Team>

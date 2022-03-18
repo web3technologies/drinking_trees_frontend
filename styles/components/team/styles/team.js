@@ -6,12 +6,12 @@ export const TeamFrame = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    border: 2px solid green;
+    // border: 2px solid green;
 `;
 
 export const TeamBox = styled.div`
 
-    border: 2px solid purple;
+    // border: 2px solid purple;
     background: #1C1E27;
     box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
     border-radius: 50px;
@@ -41,7 +41,7 @@ export const CardFrame = styled.div`
 
     width: 100%;
 
-    border: 2px solid pink;
+    // border: 2px solid pink;
 `;
 
 export const CardFrameTop = styled.div`
@@ -97,8 +97,18 @@ export const SocialMediaFrame = styled.div`
     margin: 20px 0;
     width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
+`;
+
+export const CardFrameBottom = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // border: 2px solid yellow;
+    margin: 20px 0;
 `;
 
 
