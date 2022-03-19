@@ -6,7 +6,7 @@ import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTre
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
 import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
 import { configChainIdHex, configChainIdNum} from '../config/config';
-
+import { addMultiVac } from '../helpers/addChain';
 
 export default function useConnection(){
 
@@ -80,21 +80,26 @@ export default function useConnection(){
         }
     },[])
 
+    // allows user to switch network
+    // request the user to switch network.. Wait for it to be added and then log in the user
     const switchNetwork = async () => {
 
-        console.log("chain change")
-
-        // if(metamask has chain installed)
-        await window.ethereum.request({
-          method: 'wallet_switchEthereumChain',
-          params: [{ chainId: configChainIdHex }],
-        });
-
-        setChain({
-            isCorrectChain: "correct"
-        })
-
-        // else install chain in metamask
+        try{
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: configChainIdHex }],
+              });
+      
+            setChain({
+                isCorrectChain: "correct"
+            })
+        }catch (e){ // try to switch then add then load
+            const isAdded = await addMultiVac()
+            if(isAdded){
+                loadUser()
+            }
+            
+        }
 
       };
 
