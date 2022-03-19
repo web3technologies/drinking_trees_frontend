@@ -8,7 +8,7 @@ export default function UserContainer({user, chain, loadUser, switchNetwork={swi
 
     if(chain.isCorrectChain === "incorrect"){
         return (
-            <Navigation.ConnectButton style={{backgroundColor: "red"}} onClick={switchNetwork}>Incorrect Chain</Navigation.ConnectButton>
+            <Navigation.ConnectButton style={{backgroundColor: "red"}} onClick={switchNetwork}>Switch Chain</Navigation.ConnectButton>
         )
     }
 
@@ -18,10 +18,18 @@ export default function UserContainer({user, chain, loadUser, switchNetwork={swi
             {
                 user.address ?
                 
-                <>
-                    <p style={{color: "white"}}>...{user.address.toString().slice(user.address.length - 8)}</p>
-                    <FontAwesomeIcon icon={faUser} color="white"/> 
-                </>
+                <Navigation.UserFrame>
+
+                    <Navigation.UserFrameTop>
+                        <Navigation.AddressText>...{user.address.toString().slice(user.address.length - 8)}</Navigation.AddressText>
+                        <FontAwesomeIcon icon={faUser} color="white" style={{height: "25px"}}/> 
+                    </Navigation.UserFrameTop>
+
+                    <Navigation.UserFrameBottom>
+                        <Navigation.ConnectedText>Connected</Navigation.ConnectedText>
+                    </Navigation.UserFrameBottom>
+
+                </Navigation.UserFrame>
             
                 :
                 <Navigation.ConnectButton onClick={loadUser}>Connect</Navigation.ConnectButton>
