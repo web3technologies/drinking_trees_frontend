@@ -9,11 +9,22 @@ import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
 
 export default function useConnection(){
 
+
+
     const [ user, setUser ] = useState({
         provider: null,
         signer: null,
-        isAdminUser: false
+        address: null,
+        isAdminUser: false,
     })
+
+    const [chain, setChain] = useState({
+        chainId: null,
+        chainName: null,
+        isCorrectChain: 'unsure'
+    }) 
+
+
     const [ contract, setContract ] = useState({
         marketContract: null,
         nftContract: null,
@@ -25,24 +36,30 @@ export default function useConnection(){
 
         async function loadData(){
 
-            // if(window.ethereum){
-            //     window.ethereum.on('accountsChanged', ()=>{
-            //         console.log("changing")
-            //         loadUser()
-            //         console.log(user.provider)
-            //     })
+            if(window.ethereum){
+                
+                window.ethereum.on('accountsChanged', ()=>{
+                    loadUser()
+                })
     
-            //     window.ethereum.on('chainChanged', (_chainId) => {                   
-            //         loadUser()
-            //     });
-            // }
+                window.ethereum.on('chainChanged', (_chainId) => {                   
+                    
+                    if (_chainId !== "0xf49d"){
+                        setChain({
+                            chainId: _chainId,
+                            isCorrectChain: "incorrect"
+                        })
+                    } else{
+                        setChain({
+                            chainId: _chainId,
+                            isCorrectChain: "correct"
+                        })
+                    }
+                });
 
-            // if(user.provider){
-            //     user.provider.on("accountsChanged", (accounts) => {
-            //         console.log(accounts);
-            //     });
-            // }
-            loadUser()
+            }else{
+                window.alert("YOU NEED TO INSTALL METAMASK")
+            }
 
             
         }
@@ -62,34 +79,75 @@ export default function useConnection(){
         }
     },[])
 
+    const switchNetwork = async () => {
+
+
+        // if(metamask has chain installed)
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: '0xf49d' }],
+        });
+
+        setChain({
+            isCorrectChain: "correct"
+        })
+
+        // else install chain in metamask
+
+      };
+
 
     async function loadUser(){
+
+
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
 
         const provider = new ethers.providers.Web3Provider(connection)
-        const signer = provider.getSigner()
 
-        const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-        const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-        const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+        const network = await provider.getNetwork()
+        
+        if (network.chainId === 62621){
+            const signer = provider.getSigner()
+            const address = await signer.getAddress()
 
-        const isAdmin = await bankContract.getAdminUser()
+            const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+            const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+            const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
 
-        setUser({
-            provider: provider,
-            signer: signer,
-            isAdminUser: isAdmin
-        })
+            let isAdmin;
+            try{
+                isAdmin = await bankContract.getAdminUser()
+            } catch (e){
+                isAdmin = false
+            }
 
-        setContract({
-            marketContract: marketContract,
-            nftContract: nftContract,
-            bankContract: bankContract
-        })
+            setUser({
+                provider: provider,
+                signer: signer,
+                address: address,
+                isAdminUser: isAdmin
+            })
+
+            setContract({
+                marketContract: marketContract,
+                nftContract: nftContract,
+                bankContract: bankContract
+            })
+
+            setChain({
+                chainId: network.chainId,
+                chainName: network.name,
+                isCorrectChain: "correct"
+            })
+        }else{
+            setChain({
+                chainId: network.chainId,
+                chainName: network.name,
+                isCorrectChain: "incorrect"
+            })
+        }
     }
 
-    
-
-    return { user, contract, loadUser}
+    return { user, chain, contract, loadUser, switchNetwork}
 }

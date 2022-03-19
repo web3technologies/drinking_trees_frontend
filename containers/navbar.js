@@ -2,11 +2,10 @@ import React from 'react'
 import Link from 'next/link'
 // component
 import { Navigation } from '../styles/components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-solid-svg-icons'
+import  UserContainer  from './user'
 
 
-export default function NavigationContainer(props) {
+export default function NavigationContainer({loadUser, user, chain, switchNetwork={switchNetwork}}) {
 
     return (
         <Navigation>
@@ -29,8 +28,7 @@ export default function NavigationContainer(props) {
                     </Link>
                 </Navigation.NavigationLeft>
                 <Navigation.NavigationRight>
-                    {/* <FontAwesomeIcon icon={faUser} color="white"/>  */}
-                    <Navigation.ConnectButton>Connect</Navigation.ConnectButton>
+                    <UserContainer user={user} loadUser={loadUser} chain={chain} switchNetwork={switchNetwork}/>
                 </Navigation.NavigationRight>
             </Navigation.NavigationInner>           
         </Navigation>

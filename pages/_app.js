@@ -2,9 +2,13 @@ import  NavigationContainer from '../containers/navbar'
 import FooterContainer from '../containers/footer'
 import GlobalStyle from '../global-styles'
 import Head from 'next/head';
+import useConnection from '../hooks/useconnection'
 
 
 function MyApp({ Component, pageProps }) {
+
+  const { user, chain, contract, loadUser, switchNetwork} = useConnection()
+
   return (
     <>
 
@@ -15,7 +19,7 @@ function MyApp({ Component, pageProps }) {
           <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"/>
       </Head>
       <GlobalStyle/>
-      <NavigationContainer/>
+      <NavigationContainer loadUser={loadUser} user={user} chain={chain} switchNetwork={switchNetwork}/>
       <Component {...pageProps} />
       <FooterContainer/>
     </>
