@@ -97,7 +97,7 @@ export const SocialMediaFrame = styled.div`
     margin: 20px 0;
     width: 50%;
     display: flex;
-    justify-content: space-between;
+    justify-content: ${props => props.justifyContent ? props.justifyContent: 'center'};;
 
 `;
 
@@ -108,7 +108,7 @@ export const CardFrameBottom = styled.div`
     justify-content: center;
     align-items: center;
     // border: 2px solid yellow;
-    margin: 20px 0;
+    margin: 40px 0;
 `;
 
 
