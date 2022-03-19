@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const RoadMapFrame = styled.div`
 
-    margin: 100px 0;
+    margin: 200px 0;
     width: 100%;
     display: flex;
     justify-content: center;
