@@ -3,45 +3,44 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { FAQS } from "../styles/components"
-import { makeStyles } from "@material-ui/core/styles";
+import { FAQS, Team } from "../styles/components"
 import { faqsData } from '../config/faqs' 
 
 
-const useStyles = makeStyles((theme) => ({
-    accord: {
-        width: "75%",
-    },
-    typ: {
-        fontFamily: 'Fjalla One',
-        fontSize: "24px"
-    }
-  }));
+const accordionStyle={
+    width: "75%",
+
+}
+const typ = {
+    fontFamily: 'Fjalla One',
+    fontSize: "24px"
+}
+const answerStyle ={
+    fontFamily: 'Fjalla One',
+    fontSize: "16px"
+}
 
 
 export default function FAQSContainer(){
 
-    const classes = useStyles();
-
-    console.log
-
     return (
         <FAQS>
             <FAQS.FAQSFrameInner>
+            <Team.TeamText>FAQS</Team.TeamText>
                 {
                     faqsData.map((faq, idx)=>(
-                        <Accordion className={classes.accord} key={idx}>
+                        <Accordion key={idx} style={accordionStyle}>
                             <AccordionSummary
                                 expandIcon={<ExpandMoreIcon />}
                                 aria-controls="panel1a-content"
                                 id="panel1a-header"
                             >
-                                <Typography className = {classes.typ}>{faq.question}</Typography>
+                                <Typography style={typ}>{faq.question}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 {
                                     faq.answers.map((answer, idx)=>(
-                                        <Typography key={idx}>
+                                        <Typography key={idx} style={answerStyle}>
                                             {answer}
                                         </Typography>
                                     ))
@@ -55,5 +54,7 @@ export default function FAQSContainer(){
             </FAQS.FAQSFrameInner>
         </FAQS>
     )
+    
+    
     
 }

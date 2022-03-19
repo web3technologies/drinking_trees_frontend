@@ -9,9 +9,9 @@ export const faqsData = [
         ]
     },
     {
-        question: "How much does it cost to MINT an NFT",
+        question: "How much does it cost to MINT an NFT?",
         answers: [
-            "The Mint Price will be set at 1000 MTV tokens."
+            "The Mint Price will be set at 5000 MTV tokens around $30USD."
         ]
     },
     {

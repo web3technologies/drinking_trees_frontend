@@ -20,12 +20,3 @@ export const FAQSFrameInner = styled.div`
 
 `;
 
-export const Accordion = styled.div``;
-
-export const AccordionButton = styled.button``;
-
-export const AccordionTitle = styled.p``;
-
-export const AccordionContent = styled.div``;
-
-export const AccordionText = styled.div``;
