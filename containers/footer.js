@@ -6,13 +6,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function FooterFrame(){
 
     const tikTokStyle = {
-        width: "22%",
+        width: "30px",
+        height: "30px",
         color: "#1da1f2",
-        cursor: "pointer"
+        cursor: "pointer",
     }
 
     const youtTubeStyle = {
-        width: "22%",
+        width: "30px",
+        height: "30px",
         color: "#5865f2",
         cursor: "pointer"
     }
@@ -20,9 +22,6 @@ export default function FooterFrame(){
     return (
         <Footer>
             <Footer.FooterFrameInner>
-                <Footer.FooterText>
-                    Drinking Trees
-                </Footer.FooterText>
                 <Footer.FooterText>
                     NFTs4TreesLLC
                 </Footer.FooterText>
@@ -39,6 +38,7 @@ export default function FooterFrame(){
                         icon={faDiscord} 
                         style={youtTubeStyle} 
                         onClick={()=> {safeOpen("https://discord.com/channels/940060662158229505/940060662158229507")}}
+                        
                     />
                 </Footer.IconFrame>
             </Footer.FooterFrameInner>

@@ -36,5 +36,5 @@ export const IconFrame = styled.div`
     width: 10%;
     display: flex;
     justify-content: space-between;
-
+    align-items: center
 `;
