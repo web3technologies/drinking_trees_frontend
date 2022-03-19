@@ -6,7 +6,7 @@ export const TeamFrame = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
-    // border: 2px solid green;
+
 `;
 
 export const TeamBox = styled.div`
@@ -16,12 +16,16 @@ export const TeamBox = styled.div`
     box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
     border-radius: 50px;
 
-    width: 85%;
+    width: 87.5%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    @media screen and (min-width: 600px){
+        width: 85%;
+    }
 
 `;
 
@@ -30,10 +34,14 @@ export const TeamText = styled.h4`
 
     font-style: normal;
     font-weight: 400;
-    font-size: 48px;
+    font-size: 36px;
     text-align: center;
     letter-spacing: 0.05em;
     color: #049829;
+
+    @media screen and (min-width: 600px){
+        font-size: 48px;
+    }
 
 `;
 
@@ -41,14 +49,21 @@ export const CardFrame = styled.div`
 
     width: 100%;
 
-    // border: 2px solid pink;
 `;
 
 export const CardFrameTop = styled.div`
 
     display: flex;
+    flex-direction: column;
     justify-content: space-evenly;
-    margin: 20px 0;
+    align-items: center;
+    margin: 0;
+
+    @media screen and (min-width: 600px){
+        flex-direction: row;
+        align-items: flex-start;
+        margin: 20px 0;
+    }
 `;
 
 
@@ -60,24 +75,40 @@ export const Card = styled.div`
     background: #13151E;
     box-shadow: 0px 5px 10px rgba(75, 244, 147, 0.25);
     border-radius: 16px;
-    width: 16%;
+    width: 80%;
+
+    margin: 20px 0;
+    
+    @media screen and (min-width: 600px){
+        margin: 0;
+        width: 16%;
+    }
 `;
 
 export const CardImage = styled.img`
-    margin: 60px 10px 0;
+    margin: 50px 10px 0;
     border-radius: 100px;
-    width: 50%;
+    width: 42.5%;
     border: 2px solid white;
+
+    @media screen and (min-width: 600px){
+        margin: 60px 10px 0;
+        width: 50%;
+    }
 `;
 
 export const CardTitle = styled.h6`
 
     font-style: normal;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 16px;
     text-align: center;
     letter-spacing: 0.05em;
     color: #FFFFFF;
+
+    @media screen and (min-width: 600px){
+        font-size: 18px;
+    }
 
 `;
 

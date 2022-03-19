@@ -29,4 +29,6 @@ export const addMultiVac = async () => {
   } else {
     console.error('Please install MetaMask');
   }
+
+  return true
 }

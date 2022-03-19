@@ -2,11 +2,14 @@ import styled from 'styled-components';
 
 export const RoadMapFrame = styled.div`
 
-    margin: 200px 0;
+    margin: 100px 0;
     width: 100%;
     display: flex;
     justify-content: center;
-    // border: 2px solid green;
+
+    @media screen and (min-width: 600px){
+        margin: 200px 0;
+    }
 `;
 
 export const RoadMapFrameInner = styled.div`
@@ -15,10 +18,18 @@ export const RoadMapFrameInner = styled.div`
     justify-content: center;
     width: 85%;
 
+    @media screen and (min-width: 600px){
+        width: 95%;
+    }
+
 `;
 
 export const RoadMapImage = styled.img`
 
-    width: 68%;
+    width: 100%;
 
+
+    @media screen and (min-width: 600px){
+        width: 68%;
+    }
 `;
