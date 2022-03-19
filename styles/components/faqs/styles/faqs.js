@@ -2,11 +2,16 @@ import styled from 'styled-components';
 
 export const FAQSFrame = styled.div`
 
-    margin: 100px 0;
+    
     width: 100%;
     display: flex;
     justify-content: center;
-    // border: 2px solid green;
+
+    margin: 40px 0;
+
+    @media screen and (min-width: 600px){
+        margin: 100px 0;
+    }
 `;
 
 export const FAQSFrameInner = styled.div`

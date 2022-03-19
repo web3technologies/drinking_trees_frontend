@@ -23,7 +23,7 @@ export default function MainContainer(){
                             <Main.SmallText>Click to add blockchain</Main.SmallText>
                         </Main.MultivacFrame>
                         <Main.ExploreDiv>
-                            <Main.CollectionLink>Explore Collection</Main.CollectionLink>
+                            <Main.CollectionLink>Explore Collection (Coming Soon)</Main.CollectionLink>
                         </Main.ExploreDiv>
                     </Main.SupportTextFrame>
                 </Main.MainFrameLeft>

@@ -8,7 +8,7 @@ import { faqsData } from '../config/faqs'
 
 
 const accordionStyle={
-    width: "75%",
+    width: "95%",
 
 }
 const typ = {
@@ -19,14 +19,17 @@ const answerStyle ={
     fontFamily: 'Fjalla One',
     fontSize: "16px"
 }
-
+const title = {
+    fontSize: "36px",
+    margin: "20px 0"
+}
 
 export default function FAQSContainer(){
 
     return (
         <FAQS>
             <FAQS.FAQSFrameInner>
-            <Team.TeamText>FAQS</Team.TeamText>
+            <Team.TeamText style={title}>FAQS</Team.TeamText>
                 {
                     faqsData.map((faq, idx)=>(
                         <Accordion key={idx} style={accordionStyle}>
