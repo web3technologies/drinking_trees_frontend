@@ -5,11 +5,10 @@ import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
 import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
 import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
 import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
+import { configChainIdHex, configChainIdNum} from '../config/config';
 
 
 export default function useConnection(){
-
-
 
     const [ user, setUser ] = useState({
         provider: null,
@@ -33,6 +32,8 @@ export default function useConnection(){
 
 
     useEffect(()=>{
+        
+        console.log(configChainIdHex)
 
         async function loadData(){
 
@@ -44,7 +45,7 @@ export default function useConnection(){
     
                 window.ethereum.on('chainChanged', (_chainId) => {                   
                     
-                    if (_chainId !== "0xf49d"){
+                    if (_chainId !== configChainIdHex){
                         setChain({
                             chainId: _chainId,
                             isCorrectChain: "incorrect"
@@ -81,11 +82,12 @@ export default function useConnection(){
 
     const switchNetwork = async () => {
 
+        console.log("chain change")
 
         // if(metamask has chain installed)
         await window.ethereum.request({
           method: 'wallet_switchEthereumChain',
-          params: [{ chainId: '0xf49d' }],
+          params: [{ chainId: configChainIdHex }],
         });
 
         setChain({
@@ -107,7 +109,7 @@ export default function useConnection(){
 
         const network = await provider.getNetwork()
         
-        if (network.chainId === 62621){
+        if (network.chainId.toString() === configChainIdNum){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
 
