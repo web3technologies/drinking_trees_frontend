@@ -1,7 +1,7 @@
 import { Team } from '../styles/components'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { safeOpen } from '../helpers/safeopen'
-import { teamData, advisorData} from '../config/team';
+import { teamData, advisorData} from '../static/team';
 
 
 export default function TeamContainer(){

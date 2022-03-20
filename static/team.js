@@ -1,8 +1,9 @@
 import { faTiktok, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons'
-
+import { basePFPURL } from '../config/config'
 
 
 const url = "https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"
+
 
 export const tikTokStyle = {
     width: "25%",
@@ -32,7 +33,7 @@ export const teamData = [
         socials: null
     },
     {
-        image: url,
+        image: `${basePFPURL}dannyboy.png`,
         username: "dannyboy",
         title: "Operations & Community Lead",
         socials: [
@@ -44,7 +45,7 @@ export const teamData = [
         ],
     },
     {
-        image: url,
+        image: `${basePFPURL}doctorculture.JPG`,
         username: "doctorculture",
         title: "Social Media Content Marketing",
         socials:[
@@ -61,7 +62,7 @@ export const teamData = [
         ],
     },
     {
-        image: url,
+        image: `${basePFPURL}Buy_It_all.png`,
         username: "Buy_It_All",
         title: "Front-End and Blockchain Developer",
         socials: null
