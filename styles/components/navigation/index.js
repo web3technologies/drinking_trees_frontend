@@ -3,7 +3,9 @@ import React from 'react';
 import { NavigationFrame, NavigationInner, 
     NavigationLeft, TabText, ConnectButton, 
     NavigationRight, UserFrame, AddressText,
-    UserFrameTop, UserFrameBottom, ConnectedText } from './styles/navigation';
+    UserFrameTop, UserFrameBottom, ConnectedText,
+    HamburgerFrame,  Horizontal, DropDown, DropDownInner,
+    XLineLeft, XLineRight} from './styles/navigation';
 
 
 export default function Navigation({children, ...restProps}){
@@ -51,4 +53,29 @@ Navigation.AddressText = function NavigationAddressText({children, ...restProps}
 
 Navigation.ConnectedText = function NavigationConnectedText({children, ...restProps}) {
     return <ConnectedText {...restProps}> {children}</ConnectedText>
+}
+
+Navigation.HamburgerFrame = function NavigationHamburgerFrame({children, ...restProps}) {
+    return <HamburgerFrame {...restProps}> {children}</HamburgerFrame>
+}
+
+Navigation.Horizontal = function NavigationHorizontal({children, ...restProps}) {
+    return <Horizontal {...restProps}> {children}</Horizontal>
+}
+
+Navigation.DropDown = function NavigationDropDown({children, ...restProps}) {
+    return <DropDown {...restProps}> {children}</DropDown>
+}
+
+Navigation.DropDownInner = function NavigationDropDownInner({children, ...restProps}) {
+    return <DropDownInner {...restProps}> {children}</DropDownInner>
+}
+
+
+Navigation.XLineLeft = function NavigationXLineLeft({children, ...restProps}) {
+    return <XLineLeft {...restProps}> {children}</XLineLeft>
+}
+
+Navigation.XLineRight = function NavigationXLineRight({children, ...restProps}) {
+    return <XLineRight {...restProps}> {children}</XLineRight>
 }
