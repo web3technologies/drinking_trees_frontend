@@ -4,10 +4,6 @@ import { useState, useEffect } from 'react'
 
 export default function useTimer(){
 
-    const [ timerDays, setTimerDays ] = useState("00")
-    const [ timerHours, setTimerHours ] = useState("00")
-    const [ timerMinutes, setTimerMinutes ] = useState("00")
-    const [ timerSeconds, setTimerSeconds ] = useState("00")
     const [ finished, setFinished ] = useState(false)
     const [ time, setTime ] = useState()
 
@@ -27,11 +23,7 @@ export default function useTimer(){
                 setFinished(true)
                 clearInterval(timer.current)
             } else {
-                setTimerDays(days)
-                setTimerHours(hours)
-                setTimerMinutes(minutes)
-                setTimerSeconds(seconds)
-                setTime(`${days} Days, ${hours}:${minutes}:${seconds} till Mint`)
+                setTime(`${days} Days, ${hours}:${minutes}:${seconds} until Mint`)
             }
 
         }, 1000)
@@ -48,6 +40,6 @@ export default function useTimer(){
     },[])
 
     
-    return {time, finished, timerDays, timerHours, timerMinutes, timerSeconds  }
+    return {time}
 
 }
