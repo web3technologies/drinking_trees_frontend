@@ -18,8 +18,6 @@ export const NavigationInner = styled.div`
     align-items: center;
     margin: 10px 0;
 
-
-
 `;
 
 
@@ -29,8 +27,16 @@ export const NavigationLeft = styled.div`
     display: none;
     justify-content: space-between;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         display: flex;
+    }
+
+    @media screen and (min-width: 1000px){
+        width: 40%;
+    }
+
+    @media screen and (min-width: 1300px){
+        width: 30%;
     }
 `;
 
@@ -48,7 +54,7 @@ color: #049829;
         color: #4BF493;
     }
     
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         letter-spacing: 2px;
         margin: 0;
         color: #049829;
@@ -80,7 +86,7 @@ export const ConnectButton = styled.button`
         background-color: #4BF493;
       }
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         width: 15%;
     }
 
@@ -88,11 +94,15 @@ export const ConnectButton = styled.button`
 
 export const UserFrame = styled.div`
 
-      width: 50%;
-      display: flex;
-      flex-direction: column;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 
-      @media screen and (min-width: 600px){
+    @media screen and (min-width: 1000px){
+        width: 25%;
+    }
+
+    @media screen and (min-width: 1300px){
         width: 15%;
     }
 `;
@@ -120,7 +130,7 @@ export const AddressText = styled.p`
     letter-spacing: 2px
     margin: 0px;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         font-size: 18px;
     }
 `;
@@ -130,7 +140,7 @@ export const ConnectedText = styled.p`
     font-size: 8px;
     margin: 0px;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         font-size: 10px;
     }
 `
@@ -143,7 +153,7 @@ export const HamburgerFrame = styled.div`
 
     
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         display: none;
     }
 

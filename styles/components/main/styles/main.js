@@ -20,7 +20,7 @@ export const MainFrameInner = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         margin: 60px 0;
         justify-content: space-between;
         align-items: flex-start;
@@ -43,7 +43,7 @@ export const MainFrameLeft = styled.div`
     align-items: center;
     justify-content: center;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         display: block;
         width: 35%;
     }
@@ -59,11 +59,20 @@ export const MainText = styled.h1`
     width: 100%;
     font-weight: normal;
     text-align: center;
-    
+    margin: 0;
 
-    @media screen and (min-width: 600px){
-        font-size: 56px;
+    @media screen and (min-width: 825px){
+        font-size: 48px;
         text-align: left;
+    }
+
+    @media screen and (min-width: 1000px){
+        margin: 20px 0;
+        font-size: 48px;
+    }
+
+    @media screen and (min-width: 1300px){
+        font-size: 56px;
     }
 `;
 
@@ -74,7 +83,7 @@ export const SupportTextFrame = styled.div`
     flex-direction: column;
     align-items: center;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         align-items: flex-start;
     }
 `;
@@ -89,8 +98,18 @@ export const SupportingText = styled.h6`
     margin: 8px 0;
     text-align: center;
     
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         text-align: left;
+        font-size: 18px;
+        margin: 22px 0;
+    }
+
+    @media screen and (min-width: 1000px){
+        font-size: 14px;
+        margin: 14px 0;
+    }
+
+    @media screen and (min-width: 1300px){
         font-size: 18px;
         margin: 22px 0;
     }
@@ -104,7 +123,16 @@ export const MultivacFrame = styled.div`
     width: 35%;
     cursor: pointer;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
+        margin: 80px 0 0 0;
+    }
+
+    @media screen and (min-width: 1000px){
+        
+        margin: 20px 0 0 0;
+    }
+
+    @media screen and (min-width: 1300px){
         margin: 80px 0 0 0;
     }
 `;
@@ -139,7 +167,16 @@ export const ExploreDiv = styled.div`
     align-items: center;
     cursor: pointer;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
+        width: 60%;
+    }
+
+    @media screen and (min-width: 1000px){
+        
+        width: 80%;
+    }
+
+    @media screen and (min-width: 1300px){
         width: 60%;
     }
 
@@ -153,7 +190,7 @@ export const CollectionLink = styled.a`
     color: #FFFFFF;
     margin: 10px;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         font-size: 20px;
     }
 `;
@@ -168,7 +205,7 @@ export const MainFrameRight = styled.div`
     margin-top: 80px;
     // border: 2px solid green;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         width: 65%;
         margin: 0;
     }
@@ -187,7 +224,15 @@ export const ImageFrame = styled.div`
     justify-content: center;
     align-items: center;
     
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
+        width: 65%;
+    }
+
+    @media screen and (min-width: 1000px){
+        width: 80%;
+    }
+
+    @media screen and (min-width: 1300px){
         width: 65%;
     }
 
@@ -200,7 +245,7 @@ export const Image = styled.img`
     
     margin: 40px 0;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         margin: 40px 20px 0 0;
     }
 `;
@@ -212,7 +257,7 @@ export const CountDownFrame = styled.div`
     justify-content: center;
     margin-bottom: 20px;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         width: 70%;
     }
 `;
@@ -226,7 +271,7 @@ export const CountDownText = styled.h4`
 
     color: #FFFFFF;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         font-size: 28px;
     }
 
