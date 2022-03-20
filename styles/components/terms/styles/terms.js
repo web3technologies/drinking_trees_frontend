@@ -61,6 +61,7 @@ export const ParagraphTitle = styled.h4`
     font-size: 22px;
     color: #4BF493;
     margin: 10px 0;
+    
     @media screen and (min-width: 825px){
         width: 28%;
     }

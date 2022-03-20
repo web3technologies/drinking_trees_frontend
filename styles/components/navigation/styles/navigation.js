@@ -168,7 +168,7 @@ export const Horizontal = styled.div`
 `;
 
 export const DropDown = styled.div`
-    top: 6%;
+    top: 15%;
     right: 0%;
     position: fixed;
     height: 250px;
