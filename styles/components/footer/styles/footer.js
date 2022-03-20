@@ -54,6 +54,8 @@ export const IconFrame = styled.div`
     justify-content: space-between;
     align-items: center;
 
+    margin: 20px 0;
+
     @media screen and (min-width: 600px){
         width: 10%;
     }

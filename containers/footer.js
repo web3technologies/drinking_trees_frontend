@@ -2,6 +2,7 @@ import { Footer } from "../styles/components";
 import { faTwitter, faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { safeOpen } from '../helpers/safeopen'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from 'next/link'
 
 export default function FooterFrame(){
 
@@ -25,9 +26,11 @@ export default function FooterFrame(){
                 <Footer.FooterText>
                     NFTs4TreesLLC
                 </Footer.FooterText>
-                <Footer.FooterText style={{color: "white"}}>
-                    Terms conditions
-                </Footer.FooterText>
+                <Link href="/terms" >
+                    <Footer.FooterText style={{color: "white", cursor: "pointer"}}>
+                        Terms conditions
+                    </Footer.FooterText>
+                </Link>
                 <Footer.IconFrame>
                     <FontAwesomeIcon
                         icon={faTwitter} 

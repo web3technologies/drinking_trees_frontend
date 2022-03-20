@@ -7,6 +7,13 @@ export const TeamFrame = styled.div`
     display: flex;
     justify-content: center;
 
+    @media screen and (min-width: 1100px){
+        margin: 80px 0;
+    }
+
+    @media screen and (min-width: 1300px){
+        margin: 100px 0;
+    }
 `;
 
 export const TeamBox = styled.div`
@@ -23,7 +30,7 @@ export const TeamBox = styled.div`
     justify-content: center;
     align-items: center;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         width: 85%;
     }
 
@@ -38,9 +45,17 @@ export const TeamText = styled.h4`
     text-align: center;
     letter-spacing: 0.05em;
     color: #049829;
-
-    @media screen and (min-width: 600px){
+    
+    @media screen and (min-width: 825px){
         font-size: 48px;
+    }
+
+    @media screen and (min-width: 1100px){
+        margin: 20px 0;
+    }
+
+    @media screen and (min-width: 1300px){
+        margin: 40px 0;
     }
 
 `;
@@ -59,7 +74,7 @@ export const CardFrameTop = styled.div`
     align-items: center;
     margin: 0;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         flex-direction: row;
         align-items: flex-start;
         margin: 20px 0;
@@ -79,7 +94,12 @@ export const Card = styled.div`
 
     margin: 20px 0;
     
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
+        margin: 0;
+        width: 20%;
+    }
+
+    @media screen and (min-width: 1300px){
         margin: 0;
         width: 16%;
     }
@@ -91,7 +111,7 @@ export const CardImage = styled.img`
     width: 42.5%;
     border: 2px solid white;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         margin: 60px 10px 0;
         width: 50%;
     }
@@ -106,9 +126,15 @@ export const CardTitle = styled.h6`
     letter-spacing: 0.05em;
     color: #FFFFFF;
 
-    @media screen and (min-width: 600px){
+    @media screen and (min-width: 825px){
         font-size: 18px;
     }
+
+    @media screen and (min-width: 1100px){
+        margin: 30px 0;
+    }
+
+    
 
 `;
 
@@ -121,6 +147,16 @@ export const CardSubTitle = styled.p`
     letter-spacing: 0.05em;
     color: #BDBDBD;
     width: 85%;
+
+    @media screen and (min-width: 825px){
+        font-size: 12px;
+        width: 100%;
+    }
+
+    @media screen and (min-width: 1300px){
+        font-size: 14px;
+        width: 90%;
+    }
 `;
 
 export const SocialMediaFrame = styled.div`
@@ -129,7 +165,15 @@ export const SocialMediaFrame = styled.div`
     width: 50%;
     display: flex;
     justify-content: ${props => props.justifyContent ? props.justifyContent: 'center'};;
+    min-height: 20px;
 
+    @media screen and (min-width: 825px){
+        margin: 10px 0;
+    }
+
+    @media screen and (min-width: 1300px){
+        margin: 20px 0;
+    }
 `;
 
 export const CardFrameBottom = styled.div`
