@@ -186,7 +186,7 @@ export const ImageFrame = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    
     @media screen and (min-width: 600px){
         width: 65%;
     }
@@ -197,7 +197,12 @@ export const Image = styled.img`
 
     width: 70%;
     border-radius: 8px;
-    margin: 40px 20px 0 0;
+    
+    margin: 40px 0;
+
+    @media screen and (min-width: 600px){
+        margin: 40px 20px 0 0;
+    }
 `;
 
 export const CountDownFrame = styled.div`
