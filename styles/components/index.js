@@ -4,3 +4,4 @@ export {default as Footer } from './footer';
 export {default as Team} from './team';
 export {default as RoadMap} from './roadmap';
 export {default as FAQS} from './faqs';
+export { default as Terms } from './terms';

@@ -168,10 +168,10 @@ export const Horizontal = styled.div`
 `;
 
 export const DropDown = styled.div`
-    top: 10%;
+    top: 6%;
     right: 0%;
     position: fixed;
-    height: 200px;
+    height: 250px;
     width: 100%;
     background: #1C1E27;
     box-shadow: 0px 12px 15px rgba(0, 0, 0, 0.08);
