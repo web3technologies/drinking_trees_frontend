@@ -3,30 +3,13 @@ import React from 'react'
 import { Main }   from '../styles/components';
 import { addMultiVac } from '../helpers/addChain';
 import useTimer from '../hooks/usetimer';
-import useExampleImages from '../hooks/useExamples';
-import CircularProgress from '@mui/material/CircularProgress';
+import { baseExampleURL } from '../config/config';
+
 
 const TimeFrame = ()=>{
     // used to prevent reload of the entire main container each second
     const { time } = useTimer()
     return <Main.CountDownText>{time}</Main.CountDownText>
-}
-
-const ImageComponent = ()=>{
-
-    const { image } = useExampleImages()
-
-
-    if ( image ){
-        return <Main.Image src={image}/>
-    } else {
-        return (
-            <Main.LoadingFrame>
-                <CircularProgress />
-            </Main.LoadingFrame>
-        )
-    }
-
 }
 
 
@@ -52,7 +35,7 @@ export default function MainContainer(){
                 </Main.MainFrameLeft>
                 <Main.MainFrameRight>
                     <Main.ImageFrame>
-                        <ImageComponent/>
+                        <Main.Image src={`${baseExampleURL}example_gif.gif`}/>
                         <Main.CountDownFrame>
                             <TimeFrame/>
                         </Main.CountDownFrame>
