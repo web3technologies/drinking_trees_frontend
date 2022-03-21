@@ -47,10 +47,6 @@ export default function NavigationContainer({loadUser, user, chain, switchNetwor
                                     <Navigation.TabText onClick={toggleMobile}>Mint</Navigation.TabText>
                                 </Link>
 
-                                <Link href="/terms" >
-                                    <Navigation.TabText onClick={toggleMobile}>Terms</Navigation.TabText>
-                                </Link>
-
                             </Navigation.DropDownInner>
                         </Navigation.DropDown>
                     </>

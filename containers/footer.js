@@ -24,7 +24,7 @@ export default function FooterFrame(){
         <Footer>
             <Footer.FooterFrameInner>
                 <Footer.FooterText>
-                    NFTs4TreesLLC
+                    DrinkingTrees
                 </Footer.FooterText>
                 <Link href="/terms" >
                     <Footer.FooterText style={{color: "white", cursor: "pointer"}}>

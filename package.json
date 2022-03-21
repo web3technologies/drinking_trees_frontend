@@ -20,6 +20,7 @@
     "@mui/material": "^5.5.1",
     "@usedapp/core": "^0.11.0",
     "all": "^0.0.0",
+    "aws-sdk": "^2.1096.0",
     "axios": "^0.25.0",
     "bignumber": "^1.1.0",
     "bootstrap": "5.1.3",

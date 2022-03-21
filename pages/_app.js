@@ -13,10 +13,11 @@ function MyApp({ Component, pageProps }) {
     <>
 
       <Head>
-          <title>Home App</title>
+          <title>Drinking Trees</title>
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
           <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"/>
+          <link rel="shortcut icon" href="https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"/>
       </Head>
       <GlobalStyle/>
       <NavigationContainer loadUser={loadUser} user={user} chain={chain} switchNetwork={switchNetwork}/>

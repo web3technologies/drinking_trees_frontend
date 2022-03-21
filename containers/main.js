@@ -3,12 +3,19 @@ import React from 'react'
 import { Main }   from '../styles/components';
 import { addMultiVac } from '../helpers/addChain';
 import useTimer from '../hooks/usetimer';
+import useExampleImages from '../hooks/useExamples';
+
+
+const TimeFrame = ()=>{
+    // used to prevent reload of the entire main container each second
+    const { time } = useTimer()
+    return <Main.CountDownText>{time}</Main.CountDownText>
+}
 
 
 export default function MainContainer(){
 
-   const {  time } = useTimer()
-
+    const { image } = useExampleImages()
     return (
         <Main>
             <Main.MainFrameInner>
@@ -29,9 +36,9 @@ export default function MainContainer(){
                 </Main.MainFrameLeft>
                 <Main.MainFrameRight>
                     <Main.ImageFrame>
-                        <Main.Image src={"https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"}/>
+                        <Main.Image src={image}/>
                         <Main.CountDownFrame>
-                            <Main.CountDownText>{time}</Main.CountDownText>
+                            <TimeFrame/>
                         </Main.CountDownFrame>
                     </Main.ImageFrame>
                 </Main.MainFrameRight>
@@ -40,3 +47,5 @@ export default function MainContainer(){
     )
 
 }
+
+
