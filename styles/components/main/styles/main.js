@@ -218,13 +218,14 @@ export const ImageFrame = styled.div`
     background: linear-gradient(180deg, rgba(248, 205, 33, 0.9) 13.28%, rgba(248, 205, 33, 0.34) 100%);
     box-shadow: 10px 10px 20px 8px rgba(17, 17, 17, 0.25);
     border-radius: 20px;
-
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     
     @media screen and (min-width: 825px){
+        min-height: 650px;
         width: 65%;
     }
 
@@ -242,7 +243,6 @@ export const Image = styled.img`
 
     width: 70%;
     border-radius: 8px;
-    
     margin: 40px 0;
 
     @media screen and (min-width: 825px){
@@ -276,3 +276,11 @@ export const CountDownText = styled.h4`
     }
 
 `;
+
+export const LoadingFrame = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 300px;
+`

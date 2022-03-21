@@ -4,7 +4,7 @@ import { Main }   from '../styles/components';
 import { addMultiVac } from '../helpers/addChain';
 import useTimer from '../hooks/usetimer';
 import useExampleImages from '../hooks/useExamples';
-
+import CircularProgress from '@mui/material/CircularProgress';
 
 const TimeFrame = ()=>{
     // used to prevent reload of the entire main container each second
@@ -12,10 +12,26 @@ const TimeFrame = ()=>{
     return <Main.CountDownText>{time}</Main.CountDownText>
 }
 
+const ImageComponent = ()=>{
+
+    const { image } = useExampleImages()
+
+
+    if ( image ){
+        return <Main.Image src={image}/>
+    } else {
+        return (
+            <Main.LoadingFrame>
+                <CircularProgress />
+            </Main.LoadingFrame>
+        )
+    }
+
+}
+
 
 export default function MainContainer(){
 
-    const { image } = useExampleImages()
     return (
         <Main>
             <Main.MainFrameInner>
@@ -36,7 +52,7 @@ export default function MainContainer(){
                 </Main.MainFrameLeft>
                 <Main.MainFrameRight>
                     <Main.ImageFrame>
-                        <Main.Image src={image}/>
+                        <ImageComponent/>
                         <Main.CountDownFrame>
                             <TimeFrame/>
                         </Main.CountDownFrame>

@@ -3,7 +3,7 @@ import {
     MainFrame, MainFrameInner, MainFrameLeft, 
      MainFrameRight, MainText, SupportTextFrame, SupportingText, ImageFrame, 
      Image, CountDownFrame, CountDownText, MultivacFrame, MultiVacLogo, SmallText, 
-     ExploreDiv, CollectionLink} from './styles/main'
+     ExploreDiv, CollectionLink, LoadingFrame} from './styles/main'
 
 export default function Main({children, ...restProps}) {
     return <MainFrame {...restProps}>{children}</MainFrame>
@@ -69,3 +69,9 @@ Main.CountDownFrame = function MainCountDownFrame({children, ...restProps}) {
 Main.CountDownText = function MainCountDownText({children, ...restProps}) {
     return <CountDownText {...restProps}>{children}</CountDownText>
 }
+
+Main.LoadingFrame = function MainLoadingFrame({children, ...restProps}) {
+    return <LoadingFrame {...restProps}>{children}</LoadingFrame>
+}
+
+

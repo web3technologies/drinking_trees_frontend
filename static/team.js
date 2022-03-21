@@ -71,7 +71,7 @@ export const teamData = [
 
 
 export const advisorData = {
-    image: url,
+    image: `${basePFPURL}IMG-6233.JPG`,
     username: "ZAch",
     title: "Founder Draco Dice"
 }

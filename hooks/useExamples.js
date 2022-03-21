@@ -6,7 +6,6 @@ const AWS = require("aws-sdk")
 
 export default function useExampleImages(){
 
-    const [ exampleImages, setExampleImages ] = useState([])
     const [ image, setImage ] = useState(null)
 
     function randomNumber(min, max) { 
@@ -16,6 +15,7 @@ export default function useExampleImages(){
     useEffect(()=>{
 
         let timer;
+        const images = []
 
         async function getData(){
             
@@ -33,10 +33,8 @@ export default function useExampleImages(){
 
 
             try {
-                const objects = []
                 const response = await s3.listObjectsV2(bucketParams).promise();
-                response.Contents.forEach(obj => objects.push(obj));
-                setExampleImages(objects)
+                response.Contents.forEach(obj => images.push(obj));
 
             } catch(e){
                 console.log('failing')
@@ -47,7 +45,7 @@ export default function useExampleImages(){
             timer = setInterval(()=>{
                 
                 try{
-                    const image = exampleImages[Math.floor(randomNumber(1,6))].Key
+                    const image = images[Math.floor(randomNumber(1,6))].Key
                     setImage( `${baseS3URL}${image}`)
                 } catch(e){
                     console.log(e)
@@ -69,6 +67,6 @@ export default function useExampleImages(){
 
     },[])
 
-    return { exampleImages, image }
+    return { image }
 
 }
