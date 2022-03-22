@@ -22,7 +22,7 @@ export default function MainContainer(){
                     <Main.MainText>Drinking Trees NFT <a style={{color: "#049829"}}>Collection</a></Main.MainText>
                     <Main.SupportTextFrame>
                         <Main.SupportingText>In Celebration of Earth Day and Arbor Day, we bring you 5,000 Drinking Trees</Main.SupportingText>
-                        <Main.SupportingText>10% of all proceeds to the Arbor Day Foundation</Main.SupportingText>
+                        <Main.SupportingText>10% of all proceeds to Charity</Main.SupportingText>
                         <Main.SupportingText>Mint Period : Earth Day - Arbor Day (4/22 - 4/29)</Main.SupportingText>
                         <Main.MultivacFrame onClick={addMultiVac}>
                             <Main.MultiVacLogo src={"https://gateway.pinata.cloud/ipfs/QmPTjYUsCV5BLcc859yGtnDQU35HgQMJojXTRb7sB3b8Rk"}/>
