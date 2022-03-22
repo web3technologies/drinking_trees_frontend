@@ -1,10 +1,20 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { Navigation } from '../styles/components';
+import { safeOpen } from '../helpers/safeopen';
 
 
+export default function UserContainer({user, chain, hasMetaMask, loadUser, switchNetwork={switchNetwork}}){
 
-export default function UserContainer({user, chain, loadUser, switchNetwork={switchNetwork}}){
+    console.log(hasMetaMask)
+
+    if (!hasMetaMask){
+        return <Navigation.ConnectButton 
+            style={{backgroundColor: "red"}} 
+            onClick={()=>safeOpen("https://metamask.io/")}
+        >Install MetaMask</Navigation.ConnectButton>
+    }
+
 
     if(chain.isCorrectChain === "incorrect"){
         return (

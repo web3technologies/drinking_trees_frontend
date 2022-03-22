@@ -7,7 +7,7 @@ import useConnection from '../hooks/useconnection'
 
 function MyApp({ Component, pageProps }) {
 
-  const { user, chain, contract, loadUser, switchNetwork} = useConnection()
+  const { user, chain, contract, hasMetaMask, loadUser, switchNetwork} = useConnection()
 
   return (
     <>
@@ -20,7 +20,13 @@ function MyApp({ Component, pageProps }) {
           <link rel="shortcut icon" href="https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"/>
       </Head>
       <GlobalStyle/>
-      <NavigationContainer loadUser={loadUser} user={user} chain={chain} switchNetwork={switchNetwork}/>
+      <NavigationContainer 
+        loadUser={loadUser} 
+        user={user} 
+        chain={chain} 
+        switchNetwork={switchNetwork}
+        hasMetaMask={hasMetaMask}
+      />
       <Component {...pageProps} />
       <FooterContainer/>
     </>

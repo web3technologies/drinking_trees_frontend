@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
-import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
-import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
 import { configChainIdHex, configChainIdNum} from '../config/config';
 import { addMultiVac } from '../helpers/addChain';
 
 export default function useConnection(){
+
+    const [ hasMetaMask, setHasMetaMask ] = useState(true)
 
     const [ user, setUser ] = useState({
         provider: null,
@@ -33,7 +31,6 @@ export default function useConnection(){
 
     useEffect(()=>{
         
-        console.log(configChainIdHex)
 
         async function loadData(){
 
@@ -59,7 +56,7 @@ export default function useConnection(){
                 });
 
             }else{
-                window.alert("YOU NEED TO INSTALL METAMASK")
+                setHasMetaMask(false)
             }
 
             
@@ -118,16 +115,16 @@ export default function useConnection(){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
 
-            const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-            const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-            const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+            // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+            // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+            // const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
 
-            let isAdmin;
-            try{
-                isAdmin = await bankContract.getAdminUser()
-            } catch (e){
-                isAdmin = false
-            }
+            // let isAdmin;
+            // try{
+            //     isAdmin = await bankContract.getAdminUser()
+            // } catch (e){
+            //     isAdmin = false
+            // }
 
             setUser({
                 provider: provider,
@@ -136,11 +133,11 @@ export default function useConnection(){
                 isAdminUser: isAdmin
             })
 
-            setContract({
-                marketContract: marketContract,
-                nftContract: nftContract,
-                bankContract: bankContract
-            })
+            // setContract({
+            //     marketContract: marketContract,
+            //     nftContract: nftContract,
+            //     bankContract: bankContract
+            // })
 
             setChain({
                 chainId: network.chainId,
@@ -156,5 +153,5 @@ export default function useConnection(){
         }
     }
 
-    return { user, chain, contract, loadUser, switchNetwork}
+    return { user, chain, contract, hasMetaMask, loadUser, switchNetwork}
 }
