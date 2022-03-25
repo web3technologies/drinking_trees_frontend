@@ -24,8 +24,7 @@ export const RoadMapFrameInner = styled.div`
 
     display: flex;
     justify-content: center;
-    width: 85%;
-
+    width: 90%;
     @media screen and (min-width: 600px){
         width: 95%;
     }

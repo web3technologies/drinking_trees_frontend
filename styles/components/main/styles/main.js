@@ -284,3 +284,13 @@ export const LoadingFrame = styled.div`
     width: 100%;
     min-height: 300px;
 `
+
+export const LogoFrame = styled.div`
+    margin: 10px 0;
+    display: flex;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+`;
