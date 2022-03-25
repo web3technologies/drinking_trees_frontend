@@ -2,11 +2,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { Navigation } from '../styles/components';
 import { safeOpen } from '../helpers/safeopen';
-
+import { baseExampleURL } from '../config/config';
 
 export default function UserContainer({user, chain, hasMetaMask, loadUser, switchNetwork={switchNetwork}}){
-
-    console.log(hasMetaMask)
 
     if (!hasMetaMask){
         return <Navigation.ConnectButton 
@@ -42,7 +40,11 @@ export default function UserContainer({user, chain, hasMetaMask, loadUser, switc
                 </Navigation.UserFrame>
             
                 :
-                <Navigation.ConnectButton onClick={loadUser}>Connect</Navigation.ConnectButton>
+                    <Navigation.ConnectButton onClick={loadUser}>
+                        <Navigation.MetaMaskIcon src={`${baseExampleURL}metamask.svg`}/>
+                        Connect
+                    </Navigation.ConnectButton>
+                
             }
         </>
     

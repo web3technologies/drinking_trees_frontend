@@ -5,7 +5,7 @@ import  UserContainer  from './user'
 import {useState} from 'react'
 
 
-export default function NavigationContainer({loadUser, user, chain, switchNetwork={switchNetwork}}) {
+export default function NavigationContainer({loadUser, user, chain, hasMetaMask, switchNetwork={switchNetwork}}) {
 
 
     const [ isMobileOpen, setIsMobileOpen ] = useState(false)
@@ -14,7 +14,6 @@ export default function NavigationContainer({loadUser, user, chain, switchNetwor
     const toggleMobile = ()=>{
         setIsMobileOpen(!isMobileOpen)
     }
-
 
 
     return (
@@ -79,7 +78,7 @@ export default function NavigationContainer({loadUser, user, chain, switchNetwor
                 </Navigation.NavigationLeft>
 
                 <Navigation.NavigationRight>
-                    <UserContainer user={user} loadUser={loadUser} chain={chain} switchNetwork={switchNetwork}/>
+                    <UserContainer user={user} loadUser={loadUser} chain={chain} hasMetaMask={hasMetaMask} switchNetwork={switchNetwork} />
                 </Navigation.NavigationRight>
             </Navigation.NavigationInner>           
         </Navigation>

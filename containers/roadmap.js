@@ -1,5 +1,5 @@
 import { RoadMap } from "../styles/components"
-
+import { baseExampleURL } from '../config/config';
 
 export default function RoadMapContainer(){
 
@@ -7,7 +7,7 @@ export default function RoadMapContainer(){
     return (
         <RoadMap>
             <RoadMap.RoadMapFrameInner>
-                <RoadMap.RoadMapImage src={"https://gateway.pinata.cloud/ipfs/QmRtseBHhca8LmRA5FRnVEMcwCYtQycx5kJCwGKQyp2iqj"}/>
+                <RoadMap.RoadMapImage src={`${baseExampleURL}RoadMap.svg`}/>
             </RoadMap.RoadMapFrameInner>
         </RoadMap>
     )

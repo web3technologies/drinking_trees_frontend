@@ -8,10 +8,9 @@ import useConnection from '../hooks/useconnection'
 function MyApp({ Component, pageProps }) {
 
   const { user, chain, contract, hasMetaMask, loadUser, switchNetwork} = useConnection()
-
+  
   return (
     <>
-
       <Head>
           <title>Drinking Trees</title>
           <link rel="preconnect" href="https://fonts.googleapis.com"/>
