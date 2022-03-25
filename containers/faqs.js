@@ -4,7 +4,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { FAQS, Team } from "../styles/components"
-import { faqsData } from '../config/faqs' 
+import { faqsData } from '../static/faqs' 
+import { safeOpen } from '../helpers/safeopen';
 
 
 const accordionStyle={
@@ -43,9 +44,22 @@ export default function FAQSContainer(){
                             <AccordionDetails>
                                 {
                                     faq.answers.map((answer, idx)=>(
-                                        <Typography key={idx} style={answerStyle}>
-                                            {answer}
-                                        </Typography>
+                                        <>
+                                        
+                                            <Typography key={idx} style={answerStyle}>
+                                                {answer}
+                                            </Typography>
+                                            {
+                                                "links" in faq ?
+                                                faq.links.map((link, idxTwo) =>(
+                                                    <p style={{cursor: "pointer", margin: "5px 0"}} key={idxTwo} onClick={()=> safeOpen(link.link)}>
+                                                        <a style={{color: "green"}}>{link.exchange}</a>
+                                                    </p>
+                                                ) )
+                                                :
+                                                null
+                                            }
+                                        </>
                                     ))
                                 }
                             </AccordionDetails>

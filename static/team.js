@@ -27,7 +27,7 @@ export const twitterStyle = {
 
 export const teamData = [
     {
-        image: url,
+        image: `${basePFPURL}velveteencryptogirl.png`,
         username: "VelveteenCryptoGirl",
         title: "Artist/Designer",
         socials: null

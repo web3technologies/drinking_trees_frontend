@@ -28,7 +28,7 @@ export default function FooterFrame(){
                 </Footer.FooterText>
                 <Link href="/terms" >
                     <Footer.FooterText style={{color: "white", cursor: "pointer"}}>
-                        Terms conditions
+                        Terms and Conditions
                     </Footer.FooterText>
                 </Link>
                 <Footer.IconFrame>
