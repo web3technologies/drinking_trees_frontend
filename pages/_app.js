@@ -9,9 +9,10 @@ function MyApp({ Component, pageProps }) {
 
   const { user, chain, contract, hasMetaMask, loadUser, switchNetwork} = useConnection()
 
+  console.log(hasMetaMask)
+
   return (
     <>
-
       <Head>
           <title>Drinking Trees</title>
           <link rel="preconnect" href="https://fonts.googleapis.com"/>

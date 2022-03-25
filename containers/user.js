@@ -6,13 +6,14 @@ import { baseExampleURL } from '../config/config';
 
 export default function UserContainer({user, chain, hasMetaMask, loadUser, switchNetwork={switchNetwork}}){
 
+    console.log(hasMetaMask)
 
-    // if (!hasMetaMask){
-    //     return <Navigation.ConnectButton 
-    //         style={{backgroundColor: "red"}} 
-    //         onClick={()=>safeOpen("https://metamask.io/")}
-    //     >Install MetaMask</Navigation.ConnectButton>
-    // }
+    if (!hasMetaMask){
+        return <Navigation.ConnectButton 
+            style={{backgroundColor: "red"}} 
+            onClick={()=>safeOpen("https://metamask.io/")}
+        >Install MetaMask</Navigation.ConnectButton>
+    }
 
 
     if(chain.isCorrectChain === "incorrect"){
