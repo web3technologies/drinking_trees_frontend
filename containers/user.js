@@ -6,8 +6,6 @@ import { baseExampleURL } from '../config/config';
 
 export default function UserContainer({user, chain, hasMetaMask, loadUser, switchNetwork={switchNetwork}}){
 
-    console.log(hasMetaMask)
-
     if (!hasMetaMask){
         return <Navigation.ConnectButton 
             style={{backgroundColor: "red"}} 

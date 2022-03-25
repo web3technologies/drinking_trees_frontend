@@ -8,9 +8,7 @@ import useConnection from '../hooks/useconnection'
 function MyApp({ Component, pageProps }) {
 
   const { user, chain, contract, hasMetaMask, loadUser, switchNetwork} = useConnection()
-
-  console.log(hasMetaMask)
-
+  
   return (
     <>
       <Head>
