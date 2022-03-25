@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { NavigationFrame, NavigationInner, 
-    NavigationLeft, TabText, ConnectButton, 
+    NavigationLeft, TabText, ConnectButton, MetaMaskIcon, 
     NavigationRight, UserFrame, AddressText,
     UserFrameTop, UserFrameBottom, ConnectedText,
     HamburgerFrame,  Horizontal, DropDown, DropDownInner,
@@ -33,6 +33,10 @@ Navigation.NavigationLeft = function NavigationNavigationLeft({children, ...rest
 
 Navigation.ConnectButton = function NavigationConnectButton({children, ...restProps}) {
     return <ConnectButton {...restProps}> {children}</ConnectButton>
+}
+
+Navigation.MetaMaskIcon = function NavigationMetaMaskIcon({children, ...restProps}) {
+    return <MetaMaskIcon {...restProps}></MetaMaskIcon>
 }
 
 Navigation.UserFrame = function NavigationUserFrame({children, ...restProps}) {

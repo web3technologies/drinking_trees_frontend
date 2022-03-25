@@ -79,8 +79,12 @@ export const ConnectButton = styled.button`
     height: 40px;
     letter-spacing: 2px;
     font-weight: normal;
-      border: none;
-      cursor: pointer;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 
     &:hover {
         background-color: #4BF493;
@@ -89,6 +93,12 @@ export const ConnectButton = styled.button`
     @media screen and (min-width: 825px){
         width: 15%;
     }
+
+`;
+
+export const MetaMaskIcon = styled.img`
+
+    width: 15%;
 
 `;
 
