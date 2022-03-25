@@ -101,6 +101,23 @@ export default function useConnection(){
 
       };
 
+    async function loginBackend(){
+        const message = await signer.signMessage("test")
+        const data = {
+            signature: message,
+            nonce: "test",
+            address: address
+        }
+
+        try {
+            const res = await axios.post("http://localhost:8000/usage/connect/", data)
+            console.log(res)
+        } catch (e){
+            console.log(e)
+        }
+    }
+
+
 
     async function loadUser(){
 
@@ -116,26 +133,6 @@ export default function useConnection(){
         if (network.chainId.toString() === configChainIdNum){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
-            
-            const message = await signer.signMessage("test")
-
-            const data = {
-                signature: message,
-                nonce: "test",
-                address: address
-            }
-
-            try {
-                const res = await axios.post("http://localhost:8000/usage/connect/", data)
-                console.log(res)
-            } catch (e){
-                console.log(e)
-            }
-            
-
-
-
-            console.log("here?")
 
             // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
             // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)

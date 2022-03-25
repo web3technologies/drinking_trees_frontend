@@ -52,7 +52,7 @@ export default function FAQSContainer(){
                                             {
                                                 "links" in faq ?
                                                 faq.links.map((link, idxTwo) =>(
-                                                    <p style={{cursor: "pointer", margin: "5px 0"}} key={idxTwo} onClick={()=> safeOpen(link.link)}>
+                                                    <p style={{cursor: "pointer", margin: "5px 0"}} key={idxTwo + 20} onClick={()=> safeOpen(link.link)}>
                                                         <a style={{color: "green"}}>{link.exchange}</a>
                                                     </p>
                                                 ) )
