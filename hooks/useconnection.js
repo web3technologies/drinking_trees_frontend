@@ -126,7 +126,7 @@ export default function useConnection(){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
             
-            // await loginBackend(address, signer)
+            await loginBackend(address, signer)
 
             // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
             // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)

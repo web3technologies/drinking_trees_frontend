@@ -13,7 +13,7 @@ export default async function loginBackend(address, signer){
         const res = await axios.post(`${baseBackendUrl}/web3auth/nonce`, data)
         nonce = res.data.nonce
     } catch (e){
-        console.log(e)
+        console.log(e.response)
     }
 
     if (nonce){
