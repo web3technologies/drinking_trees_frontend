@@ -1,19 +1,29 @@
 import { useState, useEffect } from "react";
 import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
-import Market from '../artifacts/contracts/NFTMarket.sol/NFTMarket.json'
-import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import Bank from '../artifacts/contracts/DrinkingTreesBank.sol/DrinkingTreesBank.json'
-import {drinkingTreesTwo, nftmarketaddress, bankAddress} from '../config'
+import { configChainIdHex, configChainIdNum, baseBackendUrl} from '../config/config';
+import { addMultiVac } from '../helpers/addChain';
+import loginBackend from "../apis/backend/loginbackend";
 
 
 export default function useConnection(){
 
+    const [ hasMetaMask, setHasMetaMask ] = useState(true)
+
     const [ user, setUser ] = useState({
         provider: null,
         signer: null,
-        isAdminUser: false
+        address: null,
+        isAdminUser: false,
     })
+
+    const [chain, setChain] = useState({
+        chainId: null,
+        chainName: null,
+        isCorrectChain: 'unsure'
+    }) 
+
+
     const [ contract, setContract ] = useState({
         marketContract: null,
         nftContract: null,
@@ -22,27 +32,41 @@ export default function useConnection(){
 
 
     useEffect(()=>{
+        
 
         async function loadData(){
 
-            // if(window.ethereum){
-            //     window.ethereum.on('accountsChanged', ()=>{
-            //         console.log("changing")
-            //         loadUser()
-            //         console.log(user.provider)
-            //     })
+            if(window.ethereum){
+                
+                window.ethereum.on('accountsChanged', ()=>{
+                    setUser(
+                        {
+                            provider: null,
+                            signer: null,
+                            address: null,
+                            isAdminUser: false,
+                        }
+                    )
+                })
     
-            //     window.ethereum.on('chainChanged', (_chainId) => {                   
-            //         loadUser()
-            //     });
-            // }
+                window.ethereum.on('chainChanged', (_chainId) => {                   
+                    
+                    if (_chainId !== configChainIdHex){
+                        setChain({
+                            chainId: _chainId,
+                            isCorrectChain: "incorrect"
+                        })
+                    } else{
+                        setChain({
+                            chainId: _chainId,
+                            isCorrectChain: "correct"
+                        })
+                    }
+                });
 
-            // if(user.provider){
-            //     user.provider.on("accountsChanged", (accounts) => {
-            //         console.log(accounts);
-            //     });
-            // }
-            loadUser()
+            }else{
+                setHasMetaMask(false)
+            }
 
             
         }
@@ -62,34 +86,85 @@ export default function useConnection(){
         }
     },[])
 
+    // allows user to switch network
+    // request the user to switch network.. Wait for it to be added and then log in the user
+    const switchNetwork = async () => {
+
+        try{
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: configChainIdHex }],
+              });
+      
+            setChain({
+                isCorrectChain: "correct"
+            })
+        }catch (e){ // try to switch then add then load
+            const isAdded = await addMultiVac()
+            if(isAdded){
+                loadUser()
+            }
+            
+        }
+
+      };
+
+    
+
+
 
     async function loadUser(){
+
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
 
         const provider = new ethers.providers.Web3Provider(connection)
-        const signer = provider.getSigner()
 
-        const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-        const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-        const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+        const network = await provider.getNetwork()
+        
+        if (network.chainId.toString() === configChainIdNum){
+            const signer = provider.getSigner()
+            const address = await signer.getAddress()
+            
+            // await loginBackend(address, signer)
 
-        const isAdmin = await bankContract.getAdminUser()
+            // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+            // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
+            // const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
 
-        setUser({
-            provider: provider,
-            signer: signer,
-            isAdminUser: isAdmin
-        })
+            // let isAdmin;
+            // try{
+            //     isAdmin = await bankContract.getAdminUser()
+            // } catch (e){
+            //     isAdmin = false
+            // }
 
-        setContract({
-            marketContract: marketContract,
-            nftContract: nftContract,
-            bankContract: bankContract
-        })
+            setUser({
+                provider: provider,
+                signer: signer,
+                address: address,
+                // isAdminUser: isAdmin
+            })
+
+            // setContract({
+            //     marketContract: marketContract,
+            //     nftContract: nftContract,
+            //     bankContract: bankContract
+            // })
+
+            setChain({
+                chainId: network.chainId,
+                chainName: network.name,
+                isCorrectChain: "correct"
+            })
+        }else{
+            setChain({
+                chainId: network.chainId,
+                chainName: network.name,
+                isCorrectChain: "incorrect"
+            })
+        }
     }
 
-    
-
-    return { user, contract, loadUser}
+    return { user, chain, contract, hasMetaMask, loadUser, switchNetwork}
 }

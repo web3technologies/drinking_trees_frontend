@@ -1,55 +1,34 @@
-import Link from 'next/link'
-import '../styles/globals.css'
-import {NavBar, MainFrame} from "./styles/base"
+import  NavigationContainer from '../containers/navbar'
+import FooterContainer from '../containers/footer'
+import GlobalStyle from '../global-styles'
+import Head from 'next/head';
+import useConnection from '../hooks/useconnection'
 
-const GIF = require('../images/preview.gif')
 
 function MyApp({ Component, pageProps }) {
+
+  const { user, chain, contract, hasMetaMask, loadUser, switchNetwork} = useConnection()
+  
   return (
-    <div>
-      <MainFrame>
-        <NavBar className="border-b p-6">
-
-          <p className="text-4xl font-bold" style={{ fontSize: '38px' }}>Drinking Trees Marketplace</p>
-
-          <div className="flex mt-4">
-
-            <Link href="/">
-              <a className="mr-6 text-green-500" style={{ fontSize: '22px' }}>
-                Home
-              </a>
-            </Link>
-
-            <Link href="/marketplace">
-              <a className="mr-6 text-green-500" style={{ fontSize: '22px' }}>
-                Marketplace
-              </a>
-            </Link>
-
-            <Link href="/my-assets">
-              <a className="mr-6 text-green-500" style={{ fontSize: '22px' }}>
-                My Trees
-              </a>
-            </Link>
-
-            <Link href="/mint">
-              <a className="mr-6 text-green-500" style={{ fontSize: '22px' }}>
-                Mint
-              </a>
-            </Link>
-
-            <Link href="/admin">
-              <a className="mr-6 text-green-500" style={{ fontSize: '22px' }}>
-                Admin
-              </a>
-            </Link>
-
-          </div>
-
-        </NavBar>
-        </MainFrame>
+    <>
+      <Head>
+          <title>Drinking Trees</title>
+          <link rel="preconnect" href="https://fonts.googleapis.com"/>
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true"/>
+          <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet"/>
+          <link rel="shortcut icon" href="https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"/>
+      </Head>
+      <GlobalStyle/>
+      <NavigationContainer 
+        loadUser={loadUser} 
+        user={user} 
+        chain={chain} 
+        switchNetwork={switchNetwork}
+        hasMetaMask={hasMetaMask}
+      />
       <Component {...pageProps} />
-    </div>
+      <FooterContainer/>
+    </>
   )
 }
 
