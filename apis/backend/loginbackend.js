@@ -3,7 +3,7 @@ import axios from 'axios'
 
 
 export default async function loginBackend(address, signer){
-    let nonce;
+    let message;
 
     const data = {
         public_address: address
@@ -11,17 +11,17 @@ export default async function loginBackend(address, signer){
     
     try {
         const res = await axios.post(`${baseBackendUrl}/web3auth/nonce`, data)
-        nonce = res.data.nonce
+        message = res.data.message
     } catch (e){
-        console.log(e)
+        console.log(e.response)
     }
 
-    if (nonce){
+    if (message){
 
-        const message = await signer.signMessage(nonce)
+        const signature = await signer.signMessage(message)
         const authData = {
-            signature: message,
-            nonce: nonce,
+            signature: signature,
+            nonce: message,
             public_address: address
         }
 
