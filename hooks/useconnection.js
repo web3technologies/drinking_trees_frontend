@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
-import { configChainIdHex, configChainIdNum} from '../config/config';
+import { configChainIdHex, configChainIdNum, baseBackendUrl} from '../config/config';
 import { addMultiVac } from '../helpers/addChain';
 import axios from 'axios'
 
@@ -38,7 +38,14 @@ export default function useConnection(){
             if(window.ethereum){
                 
                 window.ethereum.on('accountsChanged', ()=>{
-                    loadUser()
+                    setUser(
+                        {
+                            provider: null,
+                            signer: null,
+                            address: null,
+                            isAdminUser: false,
+                        }
+                    )
                 })
     
                 window.ethereum.on('chainChanged', (_chainId) => {                   
@@ -101,27 +108,48 @@ export default function useConnection(){
 
       };
 
-    async function loginBackend(){
-        const message = await signer.signMessage("test")
-        const data = {
-            signature: message,
-            nonce: "test",
-            address: address
-        }
+    async function loginBackend(address, signer){
+        let nonce;
 
+
+        const data = {
+            public_address: address
+        }
+        
         try {
-            const res = await axios.post("http://localhost:8000/usage/connect/", data)
-            console.log(res)
+            const res = await axios.post(`${baseBackendUrl}/web3auth/nonce`, data)
+            nonce = res.data.nonce
+            console.log(nonce)
         } catch (e){
             console.log(e)
         }
+
+        if (nonce){
+
+            const message = await signer.signMessage(nonce)
+            const authData = {
+                signature: message,
+                nonce: nonce,
+                public_address: address
+            }
+
+            console.log(authData)
+
+            try {
+                const res = await axios.post(`${baseBackendUrl}/web3auth/authenticate`, authData)
+                console.log(res.data)
+                sessionStorage.setItem("jwt", res.data.jwt)  
+            } catch (e){
+                console.log(e)
+            }
+        }
+
+
     }
 
 
 
     async function loadUser(){
-
-        console.log('here')
 
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
@@ -133,6 +161,8 @@ export default function useConnection(){
         if (network.chainId.toString() === configChainIdNum){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
+            
+            await loginBackend(address, signer)
 
             // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
             // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
