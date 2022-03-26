@@ -3,7 +3,8 @@ import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
 import { configChainIdHex, configChainIdNum, baseBackendUrl} from '../config/config';
 import { addMultiVac } from '../helpers/addChain';
-import axios from 'axios'
+import loginBackend from "../apis/backend/loginbackend";
+
 
 export default function useConnection(){
 
@@ -108,44 +109,7 @@ export default function useConnection(){
 
       };
 
-    async function loginBackend(address, signer){
-        let nonce;
-
-
-        const data = {
-            public_address: address
-        }
-        
-        try {
-            const res = await axios.post(`${baseBackendUrl}/web3auth/nonce`, data)
-            nonce = res.data.nonce
-            console.log(nonce)
-        } catch (e){
-            console.log(e)
-        }
-
-        if (nonce){
-
-            const message = await signer.signMessage(nonce)
-            const authData = {
-                signature: message,
-                nonce: nonce,
-                public_address: address
-            }
-
-            console.log(authData)
-
-            try {
-                const res = await axios.post(`${baseBackendUrl}/web3auth/authenticate`, authData)
-                console.log(res.data)
-                sessionStorage.setItem("jwt", res.data.jwt)  
-            } catch (e){
-                console.log(e)
-            }
-        }
-
-
-    }
+    
 
 
 
