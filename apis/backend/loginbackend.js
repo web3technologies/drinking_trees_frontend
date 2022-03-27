@@ -6,7 +6,7 @@ export default async function loginBackend(address, signer){
     let message;
 
     const data = {
-        public_address: address
+        public_address: address,
     }
     
     try {
@@ -21,15 +21,17 @@ export default async function loginBackend(address, signer){
         const signature = await signer.signMessage(message)
         const authData = {
             signature: signature,
-            nonce: message,
+            message: message,
             public_address: address
         }
 
         try {
             const res = await axios.post(`${baseBackendUrl}/web3auth/authenticate`, authData)
-            sessionStorage.setItem("jwt", res.data.jwt)  
+            sessionStorage.setItem("access", res.data.access)
+            sessionStorage.setItem('refresh', res.data.access)
+            console.log(res.data)  
         } catch (e){
-            console.log(e)
+            console.log(e.response)
         }
     }
 
