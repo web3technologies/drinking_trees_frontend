@@ -11,7 +11,7 @@ export const faqsData = [
     {
         question: "How much does it cost to MINT an NFT?",
         answers: [
-            "The Mint Price will begin at 0.01 $WETH"
+            "Details on Mint price will be released soon."
         ]
     },
     {
