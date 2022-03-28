@@ -3,33 +3,35 @@ import axios from 'axios'
 
 
 export default async function loginBackend(address, signer){
-    let nonce;
+    let message;
 
     const data = {
-        public_address: address
+        public_address: address,
     }
     
     try {
         const res = await axios.post(`${baseBackendUrl}/web3auth/nonce`, data)
-        nonce = res.data.nonce
+        message = res.data.message
     } catch (e){
-        console.log(e)
+        console.log(e.response)
     }
 
-    if (nonce){
+    if (message){
 
-        const message = await signer.signMessage(nonce)
+        const signature = await signer.signMessage(message)
         const authData = {
-            signature: message,
-            nonce: nonce,
+            signature: signature,
+            message: message,
             public_address: address
         }
 
         try {
             const res = await axios.post(`${baseBackendUrl}/web3auth/authenticate`, authData)
-            sessionStorage.setItem("jwt", res.data.jwt)  
+            sessionStorage.setItem("access", res.data.access)
+            sessionStorage.setItem('refresh', res.data.access)
+            console.log("Connection Successful") 
         } catch (e){
-            console.log(e)
+            console.log(e.response)
         }
     }
 
