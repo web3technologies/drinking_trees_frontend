@@ -51,6 +51,8 @@ export default function useConnection(){
     
                 window.ethereum.on('chainChanged', (_chainId) => {                   
                     
+                    console.log(_chainId)
+
                     if (_chainId !== configChainIdHex){
                         setChain({
                             chainId: _chainId,

@@ -11,23 +11,14 @@ export const faqsData = [
     {
         question: "How much does it cost to MINT an NFT?",
         answers: [
-            "The Mint Price will be set at 5000 $MTV tokens around $30USD."
+            "Details on Mint price will be released soon."
         ]
     },
     {
-        question: "Where can I buy MultiVac ($MTV)?",
+        question: "Can I mint a DrinkingTree with Fiat ($USD) ?",
         answers: [
-            "The MultiVac token can be purchased on Kucoin and Binance."
-        ],
-        links: [
-            {
-                exchange: "PanCakeSwap.finance",
-                link: "https://pancakeswap.finance/"
-            },
-            {
-                exchange: "Kucoin.com",
-                link: "https://www.kucoin.com/"
-            }
+            "The team behind Drinking Trees is collaborating with a third-party service provider to mint a Drinking Tree NFT via Credit Card.",
+            "Further details will be released in the near future."
         ]
     }
 ]

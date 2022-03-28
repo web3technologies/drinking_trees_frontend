@@ -1,4 +1,6 @@
 import detectEthereumProvider from '@metamask/detect-provider'
+import { configChainIdHex } from '../config/config'
+
 
 export const addMultiVac = async () => {
 
@@ -12,15 +14,15 @@ export const addMultiVac = async () => {
       await provider.request({
         method: 'wallet_addEthereumChain',
         params: [{
-          chainId: '0xf49d',
-          chainName: 'MultiVac Mainnet',
+          chainId: configChainIdHex,
+          chainName: 'Polygon Mainnet',
           nativeCurrency: {
-            name: 'Multivac',
-            symbol: 'MTV',
+            name: 'MATIC',
+            symbol: 'MATIC',
             decimals: 18
            },
-          rpcUrls: ['https://rpc.mtv.ac'],
-          blockExplorerUrls: ['https://e.mtv.ac/']
+          rpcUrls: ['https://polygon-rpc.com/'],
+          blockExplorerUrls: ['https://polygonscan.com/']
         }]
       })
     } catch(e) {
