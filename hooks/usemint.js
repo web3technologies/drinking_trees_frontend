@@ -1,8 +1,8 @@
 import { ethers, BigNumber } from 'ethers'
 import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
-import {drinkingTreesTwo} from '../config'
-import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
+import { drinkingTreesTwo } from '../config'
+import NFT from "../artifacts/contracts/DrinkingTrees.sol/DrinkingTrees.json"
 import CircularProgress from '@mui/material/CircularProgress';
 
 
@@ -23,13 +23,17 @@ export default function useMint(){
             const connection = await web3Modal.connect()
             const provider = new ethers.providers.Web3Provider(connection)
             const signer = provider.getSigner()
+            console.log(drinkingTreesTwo)
             const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+            console.log("here")
             const cost = await contract.cost()
-            const stringCost = ethers.utils.formatEther(BigNumber.from(cost).toString())
-            setCost({
-                stringVal: stringCost,
-                etherVal: cost
-            })
+            console.log(cost)
+            // const stringCost = ethers.utils.formatEther(BigNumber.from(cost).toString())
+            // setCost({
+            //     stringVal: stringCost,
+            //     etherVal: cost
+            // })
+            console.log("here2")
         }
     
         loadData()
@@ -62,6 +66,7 @@ export default function useMint(){
     }
 
 
+    return { mintNFT }
 }
 
 
