@@ -60,16 +60,16 @@ export default function NavigationContainer({loadUser, user, chain, hasMetaMask,
                         <Navigation.TabText>Home</Navigation.TabText>
                     </Link>
 
-                    <Link href="/marketplace">
-                        <Navigation.TabText>Marketplace</Navigation.TabText>
+                    <Link href="/mint">
+                        <Navigation.TabText>Mint</Navigation.TabText>
                     </Link>
 
                     <Link href="/my-assets">
                         <Navigation.TabText>My Trees</Navigation.TabText>
                     </Link>
 
-                    <Link href="/mint">
-                        <Navigation.TabText>Mint</Navigation.TabText>
+                    <Link href="/marketplace">
+                        <Navigation.TabText>Marketplace</Navigation.TabText>
                     </Link>
                 </Navigation.NavigationLeft>
 
