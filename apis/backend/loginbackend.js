@@ -29,9 +29,11 @@ export default async function loginBackend(address, signer){
             const res = await axios.post(`${baseBackendUrl}/web3auth/authenticate`, authData)
             sessionStorage.setItem("access", res.data.access)
             sessionStorage.setItem('refresh', res.data.access)
-            console.log("Connection Successful") 
+            console.log("Connection Successful")
+            return true 
         } catch (e){
             console.log(e.response)
+            return false
         }
     }
 

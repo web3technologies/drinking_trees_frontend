@@ -9,6 +9,7 @@ import loginBackend from "../apis/backend/loginbackend";
 export default function useConnection(){
 
     const [ hasMetaMask, setHasMetaMask ] = useState(true)
+    const [ loadingUser, setLoadingUser ] = useState(false)
 
     const [ user, setUser ] = useState({
         provider: null,
@@ -117,42 +118,33 @@ export default function useConnection(){
 
     async function loadUser(){
 
+
+        console.log("loading user")
+
+        setLoadingUser(true)
+
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
 
         const provider = new ethers.providers.Web3Provider(connection)
 
         const network = await provider.getNetwork()
-        
+        console.log('here')
         if (network.chainId.toString() === configChainIdNum){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
             
             await loginBackend(address, signer)
 
-            // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-            // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-            // const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+            setLoadingUser(false)
 
-            // let isAdmin;
-            // try{
-            //     isAdmin = await bankContract.getAdminUser()
-            // } catch (e){
-            //     isAdmin = false
-            // }
 
             setUser({
                 provider: provider,
                 signer: signer,
                 address: address,
-                // isAdminUser: isAdmin
+                isAdminUser: true
             })
-
-            // setContract({
-            //     marketContract: marketContract,
-            //     nftContract: nftContract,
-            //     bankContract: bankContract
-            // })
 
             setChain({
                 chainId: network.chainId,
@@ -168,5 +160,5 @@ export default function useConnection(){
         }
     }
 
-    return { user, chain, contract, hasMetaMask, loadUser, switchNetwork}
+    return { user, chain, contract, hasMetaMask, loadingUser, loadUser, switchNetwork}
 }
