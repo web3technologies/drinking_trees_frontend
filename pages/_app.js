@@ -8,7 +8,7 @@ import AdminContainer from '../containers/admin';
 
 function MyApp({ Component, pageProps }) {
 
-  const { user, chain, contract, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
+  const { user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
 
   if(process.env.NEXT_PUBLIC_ENVIRONMENT === "staging"){
     if (!user.isAdminUser){
