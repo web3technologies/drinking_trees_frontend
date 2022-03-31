@@ -10,8 +10,6 @@ function MyApp({ Component, pageProps }) {
 
   const { user, chain, contract, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
 
-  console.log(process.env.NEXT_PUBLIC_ENVIRONMENT)
-
   if(process.env.NEXT_PUBLIC_ENVIRONMENT === "staging"){
     if (!user.isAdminUser){
       return (
