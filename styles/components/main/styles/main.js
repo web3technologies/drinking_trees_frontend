@@ -9,6 +9,7 @@ export const MainFrame = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 80vh;
 `
 
 export const MainFrameInner = styled.div`
