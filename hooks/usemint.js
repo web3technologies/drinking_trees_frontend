@@ -1,9 +1,7 @@
 import { ethers, BigNumber } from 'ethers'
 import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
-import {drinkingTreesTwo} from '../config'
-import NFT from "../artifacts/contracts/DrinkingTreesCollection1.sol/DrinkingTrees.json"
-import CircularProgress from '@mui/material/CircularProgress';
+import fetchContractData from '../apis/s3/fetchcontractdata'
 
 
 export default function useMint(){
@@ -12,24 +10,44 @@ export default function useMint(){
         stringVal: null,
         etherVal: null
     })
+
+    const [contractData, setContractData ] = useState({
+        abi: null,
+        address: null
+    })
     
-    const [error, setError ] = useState(null)
+    const [ error, setError ] = useState(null)
     const [ minting, setMinting ] = useState(false)
+
+
     
     useEffect(()=>{
     
         async function loadData(){
+
+            const nftData = await fetchContractData("contracts/DrinkingTrees.sol/DrinkingTrees.json")
+            const nftAddress = await fetchContractData("contracts/address/DrinkingTrees.json")
+-
+            setContractData({abi: nftData.abi, address: nftAddress.address})
+
+
             const web3Modal = new Web3Modal()
             const connection = await web3Modal.connect()
             const provider = new ethers.providers.Web3Provider(connection)
             const signer = provider.getSigner()
-            const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-            const cost = await contract.cost()
-            const stringCost = ethers.utils.formatEther(BigNumber.from(cost).toString())
-            setCost({
-                stringVal: stringCost,
-                etherVal: cost
-            })
+            const contract = new ethers.Contract(nftAddress.address, nftData.abi, signer)
+            try {
+                const cost = await contract.cost()
+                const stringCost = ethers.utils.formatEther(BigNumber.from(cost).toString())
+                setCost({
+                    stringVal: stringCost,
+                    etherVal: cost
+                })
+            } catch (e){
+                console.log(e)
+                console.log("there are errors")
+            }
+            
         }
     
         loadData()
@@ -40,7 +58,8 @@ export default function useMint(){
         const connection = await web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(connection)
         const signer = provider.getSigner()
-        const contract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
+
+        const contract = new ethers.Contract(contractData.address, contractData.abi, signer)
         
         try{
             setError(null)
@@ -48,20 +67,15 @@ export default function useMint(){
             setMinting(true)
             const mintLog = await mint.wait()
             // const event = mintLog.events?.find(event => event.event === 'MarketItemCreated')
-    
-            console.log('before mint')
-            console.log(mintLog)
-            console.log(mintLog.event)
             setMinting(false)
         } catch (err){
-            console.log("error here")
-            console.log(err)
             setError(err.message) 
         }
         
     }
 
 
+    return { mintNFT }
 }
 
 

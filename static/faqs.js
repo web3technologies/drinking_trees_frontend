@@ -20,5 +20,14 @@ export const faqsData = [
             "The team behind Drinking Trees is collaborating with a third-party service provider to mint a Drinking Tree NFT via Credit Card.",
             "Further details will be released in the near future."
         ]
+    },
+    {
+        question: "Are my NFTs Decentralized?",
+        answers: [
+            "Yes! We utizlize the Polygon Blockchain to store the location to your NFT.",
+            "The NFT metadata including the image resides on the decentralized storage protocol, IPFS.",
+            "Even our Website is decentralized! It is stored on the IPFS Protocol."
+        ]
     }
+    
 ]
