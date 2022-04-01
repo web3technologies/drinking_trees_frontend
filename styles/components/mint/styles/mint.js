@@ -14,16 +14,16 @@ export const MintFrame = styled.div`
 
 export const MintFrameInner = styled.div`
     
-    margin: 40px 0;
+    margin: 60px 0;
     width: 90%;
     display: flex;
 
-    justify-content: space-evenly;
+    justify-content: space-between;
 `;
 
 export const MintFrameLeft = styled.div`
     
-    width: 55%;
+    width: 50%;
 
     display: flex;
     flex-direction: column;
@@ -74,14 +74,14 @@ export const InfoText = styled.p`
 export const MintButton = styled.button`
     font-family: 'Fjalla One', sans-serif;
     letter-spacing: 2px;
-    width: 35%;
+    width: 50%;
     background: #049829;
     border-radius: 4px;
     border: none;
     color: #ffffff;
-    height: 40px;
     cursor: pointer;
     font-size: 18px;
+    padding: 20px;
 `;
 
 
