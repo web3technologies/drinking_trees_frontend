@@ -9,7 +9,7 @@ import { UserContext } from '../context/user';
 export default function MintContainer(){
 
     const {loadUser, user} = useContext(UserContext)
-    const { mintNFT } = useMint()
+    const { nftData, mintNFT } = useMint()
 
     const infoStyle={
         fontSize: "18px"
@@ -25,19 +25,19 @@ export default function MintContainer(){
                         <Mint.InfoFrame>
                             <Mint.InfoCard>
                                 <Mint.InfoText style={infoStyle}>Status</Mint.InfoText>
-                                <Mint.InfoText>Minting!</Mint.InfoText>
+                                <Mint.InfoText>{nftData.status}</Mint.InfoText>
                             </Mint.InfoCard>
                             <Mint.InfoCard>
                                 <Mint.InfoText style={infoStyle}>Price</Mint.InfoText>
-                                <Mint.InfoText>$50</Mint.InfoText>
+                                <Mint.InfoText>{nftData.price.stringVal}</Mint.InfoText>
                             </Mint.InfoCard>
                             <Mint.InfoCard>
                                 <Mint.InfoText style={infoStyle}>Total</Mint.InfoText>
-                                <Mint.InfoText>10,000</Mint.InfoText>
+                                <Mint.InfoText>{nftData.maxSupply}</Mint.InfoText>
                             </Mint.InfoCard>
                             <Mint.InfoCard>
                                 <Mint.InfoText style={infoStyle}>Remaining</Mint.InfoText>
-                                <Mint.InfoText>3200</Mint.InfoText>
+                                <Mint.InfoText>{nftData.remaining}</Mint.InfoText>
                             </Mint.InfoCard>
                         </Mint.InfoFrame>
                         {

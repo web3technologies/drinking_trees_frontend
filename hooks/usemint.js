@@ -6,16 +6,19 @@ import fetchContractData from '../apis/s3/fetchcontractdata'
 
 export default function useMint(){
 
-
-
-    const [ cost, setCost ] = useState({
-        stringVal: null,
-        etherVal: null
-    })
-
     const [contractData, setContractData ] = useState({
         abi: null,
         address: null
+    })
+
+    const [nftData, setNFTData] = useState({
+        status: "",
+        price: {
+            stringVal: null,
+            etherVal: null
+        },
+        total: "",
+        remaining: ""
     })
     
     const [ error, setError ] = useState(null)
@@ -39,9 +42,23 @@ export default function useMint(){
             try {
                 const cost = await contract.cost()
                 const stringCost = ethers.utils.formatEther(BigNumber.from(cost).toString())
-                setCost({
-                    stringVal: stringCost,
-                    etherVal: cost
+                
+                const status = await contract.paused()
+                let maxSupply = await contract.maxSupply()
+                maxSupply = ethers.utils.formatUnits(BigNumber.from(maxSupply), 'wei')
+
+                let totalSupply = await contract.totalSupply()
+                totalSupply = ethers.utils.formatUnits(BigNumber.from(totalSupply), 'wei')
+                const remaining = maxSupply - totalSupply
+
+                setNFTData({
+                    status: !status ? "Minting" : "Paused",
+                    price: {
+                        stringVal: stringCost,
+                        etherVal: cost
+                    },
+                    maxSupply: maxSupply ,
+                    remaining: remaining
                 })
             } catch (e){
                 console.log(e)
@@ -52,6 +69,18 @@ export default function useMint(){
         }
     
         loadData()
+
+        return ()=> {
+            setNFTData({
+                status: "",
+                price: {
+                    stringVal: null,
+                    etherVal: null
+                },
+                total: "",
+                remaining: ""
+            })
+        }
     },[])
     
     async function mintNFT(user){
@@ -61,7 +90,7 @@ export default function useMint(){
         
         try{
             setError(null)
-            const mint = await contract.mint(1, {value: cost.etherVal})
+            const mint = await contract.mint(1, {value: nftData.price.etherVal})
             setMinting(true)
             const mintLog = await mint.wait()
             
@@ -88,7 +117,7 @@ export default function useMint(){
         
 
 
-    return { mintNFT }
+    return { nftData, mintNFT }
 }
 
 
