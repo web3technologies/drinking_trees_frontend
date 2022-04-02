@@ -4,7 +4,7 @@ import GlobalStyle from '../global-styles'
 import Head from 'next/head';
 import useConnection from '../hooks/useconnection'
 import AdminContainer from '../containers/admin';
-
+import {UserContext} from '../context/user';
 
 function MyApp({ Component, pageProps }) {
 
@@ -35,15 +35,11 @@ function MyApp({ Component, pageProps }) {
           <link rel="shortcut icon" href="https://gateway.pinata.cloud/ipfs/QmQBHrUk5ev9gvsHHk3ToMSixBWMhTvTZ6NpRK1ueSUdxB"/>
       </Head>
       <GlobalStyle/>
-      <NavigationContainer 
-        loadUser={loadUser} 
-        user={user} 
-        chain={chain} 
-        switchNetwork={switchNetwork}
-        hasMetaMask={hasMetaMask}
-      />
-      <Component {...pageProps} />
-      <FooterContainer/>
+      <UserContext.Provider value={{user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork}}>
+        <NavigationContainer/>
+        <Component {...pageProps} />
+        <FooterContainer/>
+      </UserContext.Provider>
     </>
   )
 }

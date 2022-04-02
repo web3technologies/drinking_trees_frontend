@@ -2,12 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import { Navigation } from '../styles/components';
 import  UserContainer  from './user'
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+// context
+import { UserContext } from '../context/user';
 
 
-export default function NavigationContainer({loadUser, user, chain, hasMetaMask, switchNetwork={switchNetwork}}) {
+export default function NavigationContainer() {
 
-
+    const {loadUser, user, chain, hasMetaMask, switchNetwork} = useContext(UserContext)
     const [ isMobileOpen, setIsMobileOpen ] = useState(false)
 
 

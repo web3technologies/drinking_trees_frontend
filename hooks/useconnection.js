@@ -71,14 +71,21 @@ export default function useConnection(){
 
         
         return ()=> {
-            setContract({
-                marketContract: null,
-                nftContract: null,
-                bankContract: null
+            setUser({
+                provider: null,
+                signer: null,
+                address: null,
+                isAdminUser: false,
             })
-
-            
+        
+            setChain({
+                chainId: null,
+                chainName: null,
+                isCorrectChain: 'unsure'
+            })
         }
+
+
     },[])
 
     // allows user to switch network
@@ -127,7 +134,7 @@ export default function useConnection(){
                 provider: provider,
                 signer: signer,
                 address: address,
-                isAdminUser: user.is_staff ? true : false
+                isAdminUser: user ? user.is_staff ? true : false : null
             })
 
             setChain({
