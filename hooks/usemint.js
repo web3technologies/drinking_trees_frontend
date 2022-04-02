@@ -1,13 +1,11 @@
 import { ethers, BigNumber } from 'ethers'
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import Web3Modal from "web3modal"
 import fetchContractData from '../apis/s3/fetchcontractdata'
-import { UserContext } from '../context/user';
 
 
 export default function useMint(){
 
-    const {loadUser, user} = useContext(UserContext)
 
 
     const [ cost, setCost ] = useState({
@@ -56,39 +54,35 @@ export default function useMint(){
         loadData()
     },[])
     
-    async function mintNFT(){
+    async function mintNFT(user){
 
-        if (!user.address){
-            loadUser()
-        } else{
+        const userAddress = await user.signer.getAddress()
+        const contract = new ethers.Contract(contractData.address, contractData.abi, user.provider.getSigner())
+        
+        try{
+            setError(null)
+            const mint = await contract.mint(1, {value: cost.etherVal})
+            setMinting(true)
+            const mintLog = await mint.wait()
             
-            const userAddress = await user.signer.getAddress()
-            const contract = new ethers.Contract(contractData.address, contractData.abi, user.provider.getSigner())
-            
-            try{
-                setError(null)
-                const mint = await contract.mint(1, {value: cost.etherVal})
-                setMinting(true)
-                const mintLog = await mint.wait()
-                
-                const nfts = await contract.walletOfOwner(userAddress)
+            const nfts = await contract.walletOfOwner(userAddress)
 
-                for (let i = 0; i<nfts.length; i++){
-                    const uri = await contract.tokenURI(nfts[i])
-                    console.log(uri)
-                }
-                
-                
-                // const event = mintLog.events?.find(event => event.event === 'MarketItemCreated')
-                setMinting(false)
-            } catch (err){
-                
-                console.log("error")
-                console.log(err.message)
-                setError(err.message) 
+            for (let i = 0; i<nfts.length; i++){
+                const uri = await contract.tokenURI(nfts[i])
+                console.log(uri)
             }
             
-            }
+            
+            // const event = mintLog.events?.find(event => event.event === 'MarketItemCreated')
+            setMinting(false)
+        } catch (err){
+            
+            console.log("error")
+            console.log(err.message)
+            setError(err.message) 
+        }
+            
+            
         }
 
         

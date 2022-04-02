@@ -2,10 +2,13 @@ import { Main, Mint }   from '../styles/components';
 import { baseExampleURL } from '../config/config';
 import TimeFrame from './time';
 import useMint from '../hooks/usemint';
+import { useContext } from 'react'
+import { UserContext } from '../context/user';
 
 
 export default function MintContainer(){
 
+    const {loadUser, user} = useContext(UserContext)
     const { mintNFT } = useMint()
 
     const infoStyle={
@@ -37,7 +40,13 @@ export default function MintContainer(){
                                 <Mint.InfoText>3200</Mint.InfoText>
                             </Mint.InfoCard>
                         </Mint.InfoFrame>
-                        <Mint.MintButton onClick={mintNFT}>Mint!</Mint.MintButton>
+                        {
+                            user.address ?
+                            <Mint.MintButton onClick={ () => mintNFT(user)}>Mint!</Mint.MintButton>
+                            :
+                            <Mint.MintButton onClick={loadUser}>Connect</Mint.MintButton>
+                        }
+                        
                     </Mint.MintFrameLeft>
 
                     <Mint.MintFrameRight>
