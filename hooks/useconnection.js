@@ -9,6 +9,7 @@ import loginBackend from "../apis/backend/loginbackend";
 export default function useConnection(){
 
     const [ hasMetaMask, setHasMetaMask ] = useState(true)
+    const [ loadingUser, setLoadingUser ] = useState(false)
 
     const [ user, setUser ] = useState({
         provider: null,
@@ -21,13 +22,6 @@ export default function useConnection(){
         chainId: null,
         chainName: null,
         isCorrectChain: 'unsure'
-    }) 
-
-
-    const [ contract, setContract ] = useState({
-        marketContract: null,
-        nftContract: null,
-        bankContract: null
     })
 
 
@@ -76,7 +70,6 @@ export default function useConnection(){
         loadData()
 
         
-
         return ()=> {
             setContract({
                 marketContract: null,
@@ -111,48 +104,31 @@ export default function useConnection(){
 
       };
 
-    
-
-
 
     async function loadUser(){
 
+        setLoadingUser(true)
         const web3Modal = new Web3Modal()
         const connection = await web3Modal.connect()
-
         const provider = new ethers.providers.Web3Provider(connection)
-
         const network = await provider.getNetwork()
-        
+
+
         if (network.chainId.toString() === configChainIdNum){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
             
-            await loginBackend(address, signer)
+            const user = await loginBackend(address, signer)
 
-            // const nftContract = new ethers.Contract(drinkingTreesTwo, NFT.abi, signer)
-            // const marketContract = new ethers.Contract(nftmarketaddress, Market.abi, signer)
-            // const bankContract = new ethers.Contract(bankAddress, Bank.abi, signer)
+            setLoadingUser(false)
 
-            // let isAdmin;
-            // try{
-            //     isAdmin = await bankContract.getAdminUser()
-            // } catch (e){
-            //     isAdmin = false
-            // }
 
             setUser({
                 provider: provider,
                 signer: signer,
                 address: address,
-                // isAdminUser: isAdmin
+                isAdminUser: user.is_staff ? true : false
             })
-
-            // setContract({
-            //     marketContract: marketContract,
-            //     nftContract: nftContract,
-            //     bankContract: bankContract
-            // })
 
             setChain({
                 chainId: network.chainId,
@@ -168,5 +144,5 @@ export default function useConnection(){
         }
     }
 
-    return { user, chain, contract, hasMetaMask, loadUser, switchNetwork}
+    return { user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork}
 }
