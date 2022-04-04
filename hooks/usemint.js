@@ -36,6 +36,7 @@ export default function useMint(){
 
             const nftData = await fetchContractData("contracts/DrinkingTrees.sol/DrinkingTrees.json")
             const nftAddress = await fetchContractData("contracts/address/DrinkingTrees.json")
+
             setContractData({abi: nftData.abi, address: nftAddress.address})
 
             const contract = new ethers.Contract(nftAddress.address, nftData.abi, provider)

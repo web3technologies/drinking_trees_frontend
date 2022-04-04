@@ -1,4 +1,4 @@
-import { Main, Mint }   from '../styles/components';
+import { Main, Mint, Navigation }   from '../styles/components';
 import { baseExampleURL } from '../config/config';
 import TimeFrame from './time';
 import useMint from '../hooks/usemint';
@@ -6,9 +6,33 @@ import { useContext } from 'react'
 import { UserContext } from '../context/user';
 
 
+function MintButton({mintNFT}){
+
+    const {loadUser, user, chain, switchNetwork} = useContext(UserContext)
+
+    if(chain.isCorrectChain === "incorrect"){
+        return (
+            <Navigation.ConnectButton style={{backgroundColor: "red"}} onClick={switchNetwork}>Switch Chain</Navigation.ConnectButton>
+        )
+    }
+
+    return (
+        <>
+            {
+                user.address ?
+                <Mint.MintButton onClick={ () => mintNFT(user)}>Mint!</Mint.MintButton>
+                :
+                <Mint.MintButton onClick={loadUser}>Connect</Mint.MintButton>
+            }
+        
+        </>)
+
+
+}
+
+
 export default function MintContainer(){
 
-    const {loadUser, user} = useContext(UserContext)
     const { nftData, mintNFT } = useMint()
 
     const infoStyle={
@@ -40,13 +64,8 @@ export default function MintContainer(){
                                 <Mint.InfoText>{nftData.remaining}</Mint.InfoText>
                             </Mint.InfoCard>
                         </Mint.InfoFrame>
-                        {
-                            user.address ?
-                            <Mint.MintButton onClick={ () => mintNFT(user)}>Mint!</Mint.MintButton>
-                            :
-                            <Mint.MintButton onClick={loadUser}>Connect</Mint.MintButton>
-                        }
                         
+                        <MintButton mintNFT={mintNFT}/>
                     </Mint.MintFrameLeft>
 
                     <Mint.MintFrameRight>
