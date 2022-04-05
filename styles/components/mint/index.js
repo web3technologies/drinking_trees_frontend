@@ -1,7 +1,7 @@
 import React from 'react';
 import { MintFrame, MintFrameInner, 
     MintFrameLeft, MainText, MintFrameRight,
-     InfoFrame, InfoCard, InfoText, MintButton
+     InfoFrame, InfoCard, InfoText, MintButton, MainTextMobile
 } from './styles/mint'
 
 export default function Mint({children, ...restProps}) {
@@ -20,6 +20,11 @@ Mint.MintFrameLeft = function MintMintFrameLeft({children, ...restProps}) {
 Mint.MainText = function MintMainText({children, ...restProps}) {
     return <MainText {...restProps}> {children}</MainText>
 }
+
+Mint.MainTextMobile = function MintMainTextMobile({children, ...restProps}) {
+    return <MainTextMobile {...restProps}> {children}</MainTextMobile>
+}
+
 
 Mint.InfoFrame = function MintInfoFrame({children, ...restProps}) {
     return <InfoFrame {...restProps}> {children}</InfoFrame>

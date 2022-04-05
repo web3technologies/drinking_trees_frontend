@@ -43,7 +43,7 @@ export default function MintContainer(){
         <Main>
             <Mint>
                 <Mint.MainFrameInner>
-
+                <Mint.MainTextMobile>Drinking Trees NFT Collection</Mint.MainTextMobile>
                     <Mint.MintFrameLeft>
                         <Mint.MainText>Drinking Trees NFT Collection</Mint.MainText>
                         <Mint.InfoFrame>
