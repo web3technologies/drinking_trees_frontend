@@ -41,6 +41,10 @@ export const MintFrameInner = styled.div`
         align-items: stretch;
 
     }
+
+    @media screen and (min-width: 1300px){
+        margin: 60px 0;
+    }
 `;
 
 export const MintFrameLeft = styled.div`
