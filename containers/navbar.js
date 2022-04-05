@@ -38,7 +38,7 @@ export default function NavigationContainer() {
                                 <Link href="/mint" >
                                     <Navigation.TabText onClick={toggleMobile}>Mint</Navigation.TabText>
                                 </Link>
-                                <Link href="/my-assets">
+                                <Link href="/my-trees">
                                     <Navigation.TabText onClick={toggleMobile}>My Trees</Navigation.TabText>
                                 </Link>
                                 <Link href="/marketplace" >
@@ -66,7 +66,7 @@ export default function NavigationContainer() {
                         <Navigation.TabText>Mint</Navigation.TabText>
                     </Link>
 
-                    <Link href="/my-assets">
+                    <Link href="/my-trees">
                         <Navigation.TabText>My Trees</Navigation.TabText>
                     </Link>
 

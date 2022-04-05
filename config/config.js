@@ -17,4 +17,8 @@ export const s3SecretAccessKey = process.env.NEXT_PUBLIC_S3_SECRET_ACCESS_KEY
 // Backend
 export const baseBackendUrl = process.env.NEXT_PUBLIC_BACKEND_BASE_URL
 
+// pinata
+export const pinataURL = process.env.NEXT_PUBLIC_PINATA_URL
+
+
 

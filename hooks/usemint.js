@@ -95,13 +95,6 @@ export default function useMint(){
             setMinting(true)
             const mintLog = await mint.wait()
             
-            const nfts = await contract.walletOfOwner(userAddress)
-
-            for (let i = 0; i<nfts.length; i++){
-                const uri = await contract.tokenURI(nfts[i])
-                console.log(uri)
-            }
-            
             
             // const event = mintLog.events?.find(event => event.event === 'MarketItemCreated')
             setMinting(false)
