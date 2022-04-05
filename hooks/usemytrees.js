@@ -1,12 +1,14 @@
-import { ethers, BigNumber } from 'ethers'
-import { useEffect, useState } from 'react'
+import { ethers } from 'ethers'
+import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
 import { drinkingTreesTwo } from '../config'
-import {baseUrl, baseUri } from '../config'
+import { UserContext } from '../context/user';
+import fetchContractData from '../apis/s3/fetchcontractdata'
+import { pinataURL } from '../config/config'
 
 
-export default function useMyAssets(user, contract){
-
+export default function useMyTrees(){
+    const {loadUser, user, chain, switchNetwork} = useContext(UserContext)
     const [ userAssets, setUserAssets ] = useState([])
     const [ listPrice, setListPrice ] = useState()
     const [ loading, setLoading ] = useState(true)
@@ -15,23 +17,24 @@ export default function useMyAssets(user, contract){
 
         async function loadNFTs(){
             
-            if(user.signer && contract.nftContract){
-                const user_address = await user.signer.getAddress()
-                let newData = await contract.nftContract.walletOfOwner(user_address)
+
+            const nftData = await fetchContractData("contracts/DrinkingTrees.sol/DrinkingTrees.json")
+            const nftAddress = await fetchContractData("contracts/address/DrinkingTrees.json")
+
+            if(user.signer && nftData){
+                const contract = new ethers.Contract(nftAddress.address, nftData.abi, user.signer)
+                const userAddress = await user.signer.getAddress()
             
-                const intArr = []
-                for (let i = 0; i<newData.length; i++){
-                    intArr.push(BigNumber.from(newData[i]).toNumber())
-                }
-            
+                const nfts = await contract.walletOfOwner(userAddress)
                 const nftArr = []
-                for (let i = 0; i<intArr.length; i++){
-                    const nftId = intArr[i]
-                    const nft = await axios.get(`${baseUrl}${baseUri}${nftId}.json`)
-                    const img = nft.data.image.split("ipfs://")[1]
-                    nft.data.image = `${baseUrl}${img}`
-                    nft.data.id = nftId
-                    nftArr.push(nft)
+
+                for (let i = 0; i<nfts.length; i++){
+                    let uri = await contract.tokenURI(nfts[i])
+                    uri = uri.replace("ipfs://", pinataURL)
+                    let nftMetaData = await axios.get(uri)
+                    nftMetaData.data.image = nftMetaData.data.image.replace("ipfs://", pinataURL)
+                    console.log(nftMetaData.data.image)
+                    nftArr.push(nftMetaData)
                 }
                 
                 setUserAssets(nftArr)
@@ -43,14 +46,14 @@ export default function useMyAssets(user, contract){
         
         }
     
-    if (user && contract){
+    if (user){
         loadNFTs()
     }
     
     
     return ()=> setUserAssets([])
     
-    },[user, contract])
+    },[user])
 
     async function sellAsset(nft, index){
 
@@ -85,5 +88,5 @@ export default function useMyAssets(user, contract){
         setListPrice(e.target.value)
     }
 
-    return { userAssets, sellAsset, handlePriceChange, loading}
+    return { userAssets, handlePriceChange, loading}
 }
