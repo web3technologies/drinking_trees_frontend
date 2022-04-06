@@ -21,15 +21,16 @@ const pStyle = {
 
 export default function MainContainer(){
 
+    
     return (
         <Main>
             <Main.MainFrameInner>
                 <Main.MainFrameLeft>
                     <Main.MainText>Drinking Trees NFT <a style={{color: "#049829"}}>Collection</a></Main.MainText>
                     <Main.SupportTextFrame>
-                        <Main.SupportingText>In Celebration of Earth Day and Arbor Day, we bring you 10,000 Drinking Trees</Main.SupportingText>
+                        <Main.SupportingText>In Celebration of Arbor Day, we bring you 10,000 Drinking Trees</Main.SupportingText>
                         <Main.SupportingText>10% of all proceeds to <a style={pStyle} onClick={()=>safeOpen("https://onetreeplanted.org/")}>One Tree Planted</a></Main.SupportingText>
-                        <Main.SupportingText>Mint Period : Earth Day - Arbor Day (4/22 - 4/29)</Main.SupportingText>
+                        <Main.SupportingText>Mint Period: Starts the day before Arbor Day 4/28 - 5/1</Main.SupportingText>
                         <Main.MultivacFrame onClick={addMultiVac}>
                             <Main.MultiVacLogo src={`${baseExampleURL}Polygon_Logo_for_drinkingtrees.io.vff.png`} style={{padding: "6px", background: "white", borderRadius: "8px"}}/>
                             <Main.LogoFrame>

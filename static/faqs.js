@@ -4,8 +4,8 @@ export const faqsData = [
     {
         question: "How do I mint an NFT?",
         answers: [
-            "The beginning of the minting process begins on 4/22/2022, which marks the 52nd anniversary of Earth Day. You will need to set up MetaMask, fund your wallet, and then click on the mint button.",
-            "Watch our tutorial video to see how to mint."
+            "The beginning of the minting process begins on 4/28/2022, the day before Arbor Day. You will need to set up MetaMask, fund your wallet, and then click on the mint button.",
+            "Or you can mint with your Credit Card through a service partner NFT Pay."
         ]
     },
     {
