@@ -7,7 +7,7 @@ export default function RoadMapContainer(){
     return (
         <RoadMap>
             <RoadMap.RoadMapFrameInner>
-                <RoadMap.RoadMapImage src={`${baseExampleURL}RoadMap.svg`}/>
+                <RoadMap.RoadMapImage src={`${baseExampleURL}RoadMaps.svg`}/>
             </RoadMap.RoadMapFrameInner>
         </RoadMap>
     )
