@@ -26,6 +26,7 @@ export default function useMyTrees(){
                 const userAddress = await user.signer.getAddress()
             
                 const nfts = await contract.walletOfOwner(userAddress)
+                console.log(nfts)
                 const nftArr = []
 
                 for (let i = 0; i<nfts.length; i++){
