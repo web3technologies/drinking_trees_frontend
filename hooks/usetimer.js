@@ -10,7 +10,7 @@ export default function useTimer(){
     let timer;
 
     const startTimer = ()=> {
-        const countDownDate = new Date("April 22 2022 00:00:00").getTime();
+        const countDownDate = new Date(1651165200 * 1000).getTime();
         
         timer = setInterval(()=>{
             const now = new Date().getTime()
