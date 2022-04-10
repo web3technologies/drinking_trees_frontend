@@ -30,7 +30,7 @@ function MintButton({mintNFT}){
 
 
 const StyledModal = Modal.styled`
-  width: 20rem;
+  width: 45%;
   height: 20rem;
   display: flex;
   align-items: center;
@@ -51,8 +51,10 @@ export default function FancyModalButton() {
             <StyledModal
                 isOpen={isOpen}
                 onBackgroundClick={toggleModal}
-                onEscapeKeydown={toggleModal}>
-                    <span>I am a modal!</span>
+                onEscapeKeydown={toggleModal}
+            >
+                    <button>Mint with NFTPay</button>
+                    <MintButton/>
                     <button onClick={toggleModal}>Close me</button>
             </StyledModal>
         </>
