@@ -1,16 +1,15 @@
 import MintContainer from '../containers/mint';
-import useMint from '../hooks/usemint';
-
+import { ModalProvider } from 'styled-react-modal'
 
 
 export default function Mint(){
 
-    // const { mintNFT } = useMint()
-
 
     return (
         <>
-            <MintContainer/>
+            <ModalProvider>
+                <MintContainer/>
+            </ModalProvider>
         </>
         )
 }
