@@ -7,10 +7,6 @@ import 'react-toastify/dist/ReactToastify.css';
 import FancyModalButton from './modal';
 
 
-
-
-
-
 export default function MintContainer(){
 
     const { nftData, mintNFT, error, success } = useMint()
@@ -44,14 +40,6 @@ export default function MintContainer(){
             });
     }
 
-    function open(){
-
-    }
-
-    function handleClose(){
-
-    }
-
     const style = {}
 
     return (
@@ -81,8 +69,7 @@ export default function MintContainer(){
                                     <Mint.InfoText>{nftData.remaining}</Mint.InfoText>
                                 </Mint.InfoCard>
                             </Mint.InfoFrame>
-                            <FancyModalButton/>
-                            {/* <MintButton mintNFT={mintNFT}/> */}
+                            <FancyModalButton mintNFT={mintNFT}/>
                         </Mint.MintFrameLeft>
 
                         <Mint.MintFrameRight>
