@@ -1,5 +1,5 @@
 import useMyTrees from "../hooks/usemytrees"
-import { ImageGallery, NFTImage, NFTImageContainer, NFTImageTags, NFTImageTextTitle, NFTImageText} from "../styles/components/imageGallery/imageGallery"
+import { ImageGallery, NFTImage, NFTImageContainer, NFTImageTags,NFTImageTextDescription, NFTImageDiv, NFTImageTextTitle, NFTImageText} from "../styles/components/imageGallery/imageGallery"
 import imageMock from "../public/TestImages/1.png"
 
 
@@ -26,61 +26,117 @@ export default function MyTreesContainer(){
             </div> */}
             <ImageGallery>
                 <NFTImageContainer> 
-                    <NFTImage src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/10.png"} />
+    
+                    <NFTImageDiv>
+                        <img src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/10.png"}/>
+                        <NFTImageText>
+                            <p>Background: Black</p>
+                            <p>Eyeball: White</p>
+                            <p>Eye color: Yellow</p>
+                            <p>Iris: Small</p>
+                            <p>Shine: Shapes</p>
+                            <p>Bottom lid: Middle</p>
+                            <p>Top lid: Middle</p>
+                        </NFTImageText>
+                    </NFTImageDiv>
                     <NFTImageTextTitle>Drinking Trees NFT #1</NFTImageTextTitle>
-                    <NFTImageTextTitle>A collection of NFTs in support One Tree Planted</NFTImageTextTitle>
-                    
+                    <NFTImageTextDescription>A collection of NFTs in support One Tree Planted</NFTImageTextDescription>
+                    <NFTImageTextDescription>dna: cfa27eeba852b5a1cc1b861892aa36c65b2df024</NFTImageTextDescription>
+                    <NFTImageTextDescription>edition: 1</NFTImageTextDescription>
+                    <NFTImageTextDescription>date: 1648861142336</NFTImageTextDescription>
+                    <NFTImageTextDescription>generation: 1</NFTImageTextDescription>
+
                 </NFTImageContainer>
                 <NFTImageContainer> 
-                    <NFTImage src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/10.png"} />
+    
+                    <NFTImageDiv>
+                        <img src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/10.png"} />
+                        <NFTImageText>
+                            <p>Background: Black</p>
+                            <p>Eyeball: White</p>
+                            <p>Eye color: Yellow</p>
+                            <p>Iris: Small</p>
+                            <p>Shine: Shapes</p>
+                            <p>Bottom lid: Middle</p>
+                            <p>Top lid: Middle</p>
+                        </NFTImageText>
+                    </NFTImageDiv>
                     <NFTImageTextTitle>Drinking Trees NFT #10</NFTImageTextTitle>
-                    <NFTImageTextTitle>A collection of NFTs in support One Tree Planted</NFTImageTextTitle>
-                   
+                    <NFTImageTextDescription>A collection of NFTs in support One Tree Planted</NFTImageTextDescription>
+                    <NFTImageTextDescription>dna: cfa27eeba852b5a1cc1b861892aa36c65b2df024</NFTImageTextDescription>
+                    <NFTImageTextDescription>edition: 1</NFTImageTextDescription>
+                    <NFTImageTextDescription>date: 1648861142336</NFTImageTextDescription>
+                    <NFTImageTextDescription>generation: 1</NFTImageTextDescription>
+
                 </NFTImageContainer>
                 <NFTImageContainer> 
-                    <NFTImage src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/11.png"} />
+    
+                    <NFTImageDiv>
+                        <img  src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/11.png"} />
+                        <NFTImageText>
+                            <p>Background: Black</p>
+                            <p>Eyeball: White</p>
+                            <p>Eye color: Yellow</p>
+                            <p>Iris: Small</p>
+                            <p>Shine: Shapes</p>
+                            <p>Bottom lid: Middle</p>
+                            <p>Top lid: Middle</p>
+                        </NFTImageText>
+                    </NFTImageDiv>
                     <NFTImageTextTitle>Drinking Trees NFT #11</NFTImageTextTitle>
-                    
-                    <NFTImageTextTitle>A collection of NFTs in support One Tree Planted</NFTImageTextTitle>
-                  
-                    {/* <NFTImageTextTitle>Traits</NFTImageTextTitle> */}
-                    {/* <NFTImageTags>Background: Black</NFTImageTags>
-                    <NFTImageTags>Eyeball: Red</NFTImageTags>
-                    <NFTImageTags>Eye color: Yellow</NFTImageTags>
-                    <NFTImageTags>Iris: Large</NFTImageTags>
-                    <NFTImageTags>Shine: Shapes</NFTImageTags>
-                    <NFTImageTags>Bottom lid: Low</NFTImageTags>
-                    <NFTImageTags>Top lid: Low</NFTImageTags> */}
+                    <NFTImageTextDescription>A collection of NFTs in support One Tree Planted</NFTImageTextDescription>
+                    <NFTImageTextDescription>dna: cfa27eeba852b5a1cc1b861892aa36c65b2df024</NFTImageTextDescription>
+                    <NFTImageTextDescription>edition: 1</NFTImageTextDescription>
+                    <NFTImageTextDescription>date: 1648861142336</NFTImageTextDescription>
+                    <NFTImageTextDescription>generation: 1</NFTImageTextDescription>
+
                 </NFTImageContainer>
-                <NFTImageContainer> 
-                    <NFTImage src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/13.png"} />
-                    <NFTImageTextTitle>Drinking Trees NFT #11</NFTImageTextTitle>
-                    
-                    <NFTImageTextTitle>A collection of NFTs in support One Tree Planted</NFTImageTextTitle>
-                  
-                    {/* <NFTImageTextTitle>Traits</NFTImageTextTitle> */}
-                    {/* <NFTImageTags>Background: Black</NFTImageTags>
-                    <NFTImageTags>Eyeball: Red</NFTImageTags>
-                    <NFTImageTags>Eye color: Yellow</NFTImageTags>
-                    <NFTImageTags>Iris: Large</NFTImageTags>
-                    <NFTImageTags>Shine: Shapes</NFTImageTags>
-                    <NFTImageTags>Bottom lid: Low</NFTImageTags>
-                    <NFTImageTags>Top lid: Low</NFTImageTags> */}
+               
+              <NFTImageContainer> 
+    
+                    <NFTImageDiv>
+                        <img  src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/13.png"} />
+                        <NFTImageText>
+                            <p>Background: Black</p>
+                            <p>Eyeball: White</p>
+                            <p>Eye color: Yellow</p>
+                            <p>Iris: Small</p>
+                            <p>Shine: Shapes</p>
+                            <p>Bottom lid: Middle</p>
+                            <p>Top lid: Middle</p>
+                        </NFTImageText>
+                    </NFTImageDiv>
+                    <NFTImageTextTitle>Drinking Trees NFT #13</NFTImageTextTitle>
+                    <NFTImageTextDescription>A collection of NFTs in support One Tree Planted</NFTImageTextDescription>
+                    <NFTImageTextDescription>dna: cfa27eeba852b5a1cc1b861892aa36c65b2df024</NFTImageTextDescription>
+                    <NFTImageTextDescription>edition: 1</NFTImageTextDescription>
+                    <NFTImageTextDescription>date: 1648861142336</NFTImageTextDescription>
+                    <NFTImageTextDescription>generation: 1</NFTImageTextDescription>
+
                 </NFTImageContainer>
+              
+               
                 <NFTImageContainer> 
-                    <NFTImage src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/13.png"} />
-                    <NFTImageTextTitle>Drinking Trees NFT #11</NFTImageTextTitle>
-                    
-                    <NFTImageTextTitle>A collection of NFTs in support One Tree Planted</NFTImageTextTitle>
-                  
-                    {/* <NFTImageTextTitle>Traits</NFTImageTextTitle> */}
-                    {/* <NFTImageTags>Background: Black</NFTImageTags>
-                    <NFTImageTags>Eyeball: Red</NFTImageTags>
-                    <NFTImageTags>Eye color: Yellow</NFTImageTags>
-                    <NFTImageTags>Iris: Large</NFTImageTags>
-                    <NFTImageTags>Shine: Shapes</NFTImageTags>
-                    <NFTImageTags>Bottom lid: Low</NFTImageTags>
-                    <NFTImageTags>Top lid: Low</NFTImageTags> */}
+    
+                    <NFTImageDiv>
+                        <img  src={"https://gateway.pinata.cloud/ipfs/QmfVaciVeEyZMEuyB5xJQbte78TVoNFd3KVQoky92hNwnj/13.png"} />
+                        <NFTImageText>
+                            <p>Background: Black</p>
+                            <p>Eyeball: Red</p>
+                            <p>Eye color: Yellow</p>
+                            <p>Iris: Small</p>
+                            <p>Shine: Shapes</p>
+                            <p>Bottom lid: Middle</p>
+                            <p>Top lid: Middle</p>
+                        </NFTImageText>
+                    </NFTImageDiv>
+                    <NFTImageTextTitle>Drinking Trees NFT #13</NFTImageTextTitle>
+                    <NFTImageTextDescription>A collection of NFTs in support One Tree Planted</NFTImageTextDescription>
+                    <NFTImageTextDescription>dna: cfa27eeba852b5a1cc1b861892aa36c65b2df024</NFTImageTextDescription>
+                    <NFTImageTextDescription>edition: 1</NFTImageTextDescription>
+                    <NFTImageTextDescription>date: 1648861142336</NFTImageTextDescription>
+                    <NFTImageTextDescription>generation: 1</NFTImageTextDescription>
+
                 </NFTImageContainer>
             </ImageGallery>
         
