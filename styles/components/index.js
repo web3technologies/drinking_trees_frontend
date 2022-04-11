@@ -6,3 +6,4 @@ export {default as RoadMap} from './roadmap';
 export {default as FAQS} from './faqs';
 export {default as Terms } from './terms';
 export {default as Mint} from './mint';
+export {default as Modal} from './modal';

@@ -6,6 +6,7 @@ import { useContext } from 'react'
 import { UserContext } from '../context/user';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import ModalContainer from './modal';
 
 
 function MintButton({mintNFT}){
