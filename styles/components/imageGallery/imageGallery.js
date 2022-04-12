@@ -11,7 +11,6 @@ export const NFTImageContainer = styled.div`
   cursor: pointer;
   border-radius: 15px;
   width: 300px;
-  color: white;
   float: left;
   margin-left: 2%;
   margin-right: 2%;
