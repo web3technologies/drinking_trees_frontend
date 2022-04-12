@@ -1,28 +1,54 @@
-import useMyTrees from "../hooks/usemytrees"
+import React from "react";
+import useMyTrees from "../hooks/usemytrees";
+import {
+  ImageGallery,
+  NFTImageContainer,
+  NFTImageTextDescription,
+  NFTImageDiv,
+  NFTImageTextTitle,
+  NFTImageText,
+} from "../styles/components/imageGallery/imageGallery";
 
+export default function MyTreesContainer() {
+  const { userAssets, handlePriceChange, loading } = useMyTrees();
 
-export default function MyTreesContainer(){
+  return (
+    <>
+      {userAssets
+        ? userAssets.map((nft, idx) => (
+            <ImageGallery>
+              <NFTImageContainer>
+                <NFTImageDiv>
+                  <img src={nft.data.image} />
 
-    const{ userAssets, handlePriceChange, loading} = useMyTrees()
-
-    
-
-    return (
-        <>
-            <div style={{display: "flex", justifyContent: "center", margin: "80px 0"}}>
-                <div style={{display: "flex", justifyContent: "space-evenly", width: "85%"}}>
-                    {
-                        userAssets ? 
-                        userAssets.map((nft, idx)=>(
-                            <img style={{width: "20%"}} src={nft.data.image}></img>
+                  <NFTImageText>
+                    {nft.data.attributes
+                      ? nft.data.attributes.map((trait_type, value) => (
+                          <p>
+                            {trait_type.trait_type} {trait_type.value}
+                          </p>
                         ))
-                        :
-                        null
-                    }
-                    
-                </div>
-            </div>
-        
-        </>)
-    
+                      : null}
+                  </NFTImageText>
+
+                  <NFTImageTextTitle>{nft.data.name}</NFTImageTextTitle>
+                  <NFTImageTextDescription>
+                    {nft.data.description}
+                  </NFTImageTextDescription>
+                  <NFTImageTextDescription>
+                    {nft.data.dna}
+                  </NFTImageTextDescription>
+                  <NFTImageTextDescription>
+                    {nft.data.edition}
+                  </NFTImageTextDescription>
+                  <NFTImageTextDescription>
+                    {nft.data.date}
+                  </NFTImageTextDescription>
+                </NFTImageDiv>
+              </NFTImageContainer>
+            </ImageGallery>
+          ))
+        : null}
+    </>
+  );
 }
