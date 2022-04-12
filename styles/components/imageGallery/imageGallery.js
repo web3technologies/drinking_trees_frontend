@@ -7,13 +7,18 @@ export const ImageGallery = styled.div`
   align-items: center;
 `;
 
+export const ImageLink = styled.a`
+  cursor: pointer;
+`;
+
+
 export const NFTImageContainer = styled.div`
   cursor: pointer;
   border-radius: 15px;
   width: 300px;
   float: left;
   color: green;
-  margin-left: 2%;
+  margin-left: 5%;
   margin-right: 2%;
   margin-bottom: 5%;
   position: relative; /* required for (c2) */
@@ -21,6 +26,7 @@ export const NFTImageContainer = styled.div`
 
 export const NFTImageDiv = styled.div`
   position: relative; /* required for (c2) */
+  text-decoration: none;
   img {
     height: 300px;
     width: 300px;

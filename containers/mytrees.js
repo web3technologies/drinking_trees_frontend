@@ -7,10 +7,15 @@ import {
   NFTImageDiv,
   NFTImageTextTitle,
   NFTImageText,
+  ImageLink
 } from "../styles/components/imageGallery/imageGallery";
 import MockData from '../mockData/test.json'
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
+  
+ 
+ 
+
 
   return (
     <>
@@ -54,8 +59,11 @@ export default function MyTreesContainer() {
                     
                 <ImageGallery>
                     <NFTImageContainer>  
+                    {/* <NFTImageDiv href={`/details/${encodeURIComponent(nft)}`}> */}
                     <NFTImageDiv>
+                      <ImageLink  href={`/details`}>
                             <img src={nft.image}/>
+                            </ImageLink>
                             
                                     
                                 <NFTImageText>
