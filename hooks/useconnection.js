@@ -125,7 +125,7 @@ export default function useConnection(){
             const signer = provider.getSigner()
             const address = await signer.getAddress()
             
-            const user = await loginBackend(address, signer)
+            // const user = await loginBackend(address, signer)
 
             setLoadingUser(false)
 

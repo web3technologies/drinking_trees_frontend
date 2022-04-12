@@ -8,13 +8,13 @@ import {
   NFTImageTextTitle,
   NFTImageText,
 } from "../styles/components/imageGallery/imageGallery";
-
+import MockData from '../mockData/test.json'
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
 
   return (
     <>
-      {userAssets
+      {/* {userAssets
         ? userAssets.map((nft, idx) => (
             <ImageGallery>
               <NFTImageContainer>
@@ -48,7 +48,43 @@ export default function MyTreesContainer() {
               </NFTImageContainer>
             </ImageGallery>
           ))
-        : null}
+        : null} */}
+        { MockData ? 
+                MockData.map((nft, idx)=>(
+                    
+                <ImageGallery>
+                    <NFTImageContainer>  
+                    <NFTImageDiv>
+                            <img src={nft.image}/>
+                            
+                                    
+                                <NFTImageText>
+                                {
+                                nft.attributes ? 
+                                nft.attributes.map((trait_type, value) => (
+                                <p>{trait_type.trait_type} {trait_type.value}</p>
+                                  ))
+                                : null
+                                }    
+                                </NFTImageText>
+                                     
+                            
+                            <NFTImageTextTitle>{nft.name}</NFTImageTextTitle>
+                            <NFTImageTextDescription>{nft.description}</NFTImageTextDescription>
+                            <NFTImageTextDescription>{nft.dna}</NFTImageTextDescription>
+                            <NFTImageTextDescription>{nft.edition}</NFTImageTextDescription>
+                            <NFTImageTextDescription>{nft.date}</NFTImageTextDescription>
+                    </NFTImageDiv>
+                            
+                       
+                        
+                    </NFTImageContainer> 
+                </ImageGallery>
+               ))
+               :
+               null
+           
+        }
     </>
   );
 }
