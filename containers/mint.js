@@ -19,7 +19,7 @@ export default function MintContainer(){
         toast.error(error, {
             toastId: "customId",
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
@@ -31,7 +31,7 @@ export default function MintContainer(){
         toast.success(success, {
             toastId: "customId",
             position: "top-center",
-            autoClose: 5000,
+            autoClose: 2500,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,

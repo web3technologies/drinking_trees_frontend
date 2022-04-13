@@ -7,6 +7,10 @@ export const ModalFrame = styled.div`
     justify-content: space-between;
 `;
 
+export const ModalFrameTop = styled.div``;
+
+export const ModalFrameBottom = styled.div``;
+
 export const ModalFrameLeft = styled.div`
     width: 47.5%;
     display: flex;
@@ -28,5 +32,5 @@ export const ModalFrameRight = styled.div`
 export const ModalMainText = styled.h4`
 
         font-size: 28px;
-
+        letter-spacing: 2px;
 `;
