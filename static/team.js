@@ -35,7 +35,7 @@ export const teamData = [
     {
         image: `${basePFPURL}dannyboy.png`,
         username: "dannyboy",
-        title: "Operations & Community Lead",
+        title: "Strategy & Operations",
         socials: [
             {
                 link: "https://twitter.com/dannyB995", 
@@ -47,7 +47,7 @@ export const teamData = [
     {
         image: `${basePFPURL}doctorculture.JPG`,
         username: "doctorculture",
-        title: "Social Media Content Marketing",
+        title: "Community Lead",
         socials:[
             {
                 link: "https://www.tiktok.com/@doctorculture", 

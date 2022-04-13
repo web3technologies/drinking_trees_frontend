@@ -12,9 +12,9 @@ export default function Home() {
   return (
       <>
         <MainContainer/>
-        <FAQSContainer/>
         <RoadMapContainer/>
         <TeamContainer/>
+        <FAQSContainer/>
       </>
   )
 }
