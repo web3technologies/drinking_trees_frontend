@@ -19,7 +19,7 @@ export const TeamFrame = styled.div`
 export const TeamBox = styled.div`
 
     // border: 2px solid purple;
-    background: #1C1E27;
+    // background: #1C1E27;
     box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.25);
     border-radius: 50px;
 

@@ -40,13 +40,6 @@ export default function MainContainer(){
                         <Main.SupportingText>In celebration of Arbor Day, we bring you 5,000 Drinking Trees</Main.SupportingText>
                         <Main.SupportingText>10% of all proceeds donated to <a style={pStyle} onClick={()=>safeOpen("https://onetreeplanted.org/")}>One Tree Planted</a></Main.SupportingText>
                         <Main.SupportingText>Mint Period: Starts the day before Arbor Day 4/28 - 5/1 at 1:00pm ET</Main.SupportingText>
-                        <Main.MultivacFrame onClick={addMultiVac}>
-                            {/* <Main.MultiVacLogo src={`${baseExampleURL}Polygon_Logo_for_drinkingtrees.io.vff.png`} style={{padding: "6px", background: "white", borderRadius: "8px"}}/> */}
-                            <Main.LogoFrame>
-                                <Navigation.MetaMaskIcon src={`${baseExampleURL}metamask.svg`} style={{width: "12%"}}/>
-                                <Main.SmallText>Click to add blockchain</Main.SmallText>
-                            </Main.LogoFrame>
-                        </Main.MultivacFrame>
                         <Main.ExploreDiv>
                             <Main.CollectionLink>Explore Collection (Coming Soon)</Main.CollectionLink>
                         </Main.ExploreDiv>

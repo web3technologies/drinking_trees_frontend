@@ -11,7 +11,7 @@ import {
 
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
-
+  
   return (
     <>
       {userAssets
