@@ -3,7 +3,7 @@ import useMyTrees from "../hooks/usemytrees";
 import { ImageDetailsPage } from "../styles/components/imageGallery/details";
 
 
-export default function DetailsContainer() {
+export default function DetailsContainer(props) {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
 
  

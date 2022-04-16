@@ -1,4 +1,5 @@
 import React from "react";
+import {useRouter} from 'next/router'
 import useMyTrees from "../hooks/usemytrees";
 import {
   ImageGallery,
@@ -10,10 +11,19 @@ import {
   ImageLink
 } from "../styles/components/imageGallery/imageGallery";
 import MockData from '../mockData/test.json'
+import DetailsContainer from "./details";
+import { Router } from "@mui/icons-material";
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
+  const router = useRouter()
+  const openDetails = (nft) => {
+    console.log("function selected for: " + nft.name)
+    router.push({
+      pathname: '/details/[nft]',
+      query: { nft: nft},
+    })
   
- 
+ }
  
 
 
@@ -59,11 +69,11 @@ export default function MyTreesContainer() {
                     
                 <ImageGallery>
                     <NFTImageContainer>  
-                    {/* <NFTImageDiv href={`/details/${encodeURIComponent(nft)}`}> */}
-                    <NFTImageDiv>
-                      <ImageLink  href={`/details`}>
+                    {/* <ImageLink onClick={openDetails({nft})}/> */}
+                    <NFTImageDiv onClick={() => openDetails(nft)}>
+                      {/* <ImageLink  href={`/details`}> */}
                             <img src={nft.image}/>
-                            </ImageLink>
+                            {/* </ImageLink> */}
                             
                                     
                                 <NFTImageText>
