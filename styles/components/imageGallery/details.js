@@ -23,22 +23,25 @@ export const DetailImageWrap = styled.div`
   margin: 0 auto;
   padding-bottom: 10%;
   img {
-    border-bottom: 10px solid green;
+    border-bottom: 12px solid #e6c12e;
     border-radius: 15px 15px 0 0;
   }
 `;
 export const TitleStyle = styled.div`
-  color: green;
+  color: #e6c12e;
   font-size: 30px;
 `;
+export const TitleTags = styled.div`
+color: #e6c12e;
+`
 
 export const NFTImageTextDescription = styled.p`
   font-size: 10px;
   color: white;
   margin: 0;
   padding-top: 5px;
-  border-bottom: 1px solid green;
-  border-left: 1px solid green;
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
   padding-left: 2%;
   width: 50%;
 `;

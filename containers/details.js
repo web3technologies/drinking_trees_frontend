@@ -9,6 +9,7 @@ import {
   TitleStyle,
   NFTImageTextDescription,
   NFTAttributes,
+  TitleTags
 } from "../styles/components/imageGallery/details";
 import { useRouter } from "next/router";
 import { AiOutlineTag } from "react-icons/ai";
@@ -39,13 +40,14 @@ export default function DetailsContainer(props) {
           <InnerDiv>
             <TitleStyle>{query.name}</TitleStyle>
             <NFTImageTextDescription>
-              {query.description}
+              description: {query.description}
             </NFTImageTextDescription>
-            <NFTImageTextDescription>{query.dna}</NFTImageTextDescription>
-            <NFTImageTextDescription>{query.edition}</NFTImageTextDescription>
-            <NFTImageTextDescription>{query.date}</NFTImageTextDescription>
+            <NFTImageTextDescription>dna: {query.dna}</NFTImageTextDescription>
+            <NFTImageTextDescription>edition: {query.edition}</NFTImageTextDescription>
+            <NFTImageTextDescription>date: {query.date}</NFTImageTextDescription>
             <NFTAttributes>
-              <AiOutlineTag /> Tags:{" "}
+              <TitleTags><AiOutlineTag /> Tags:{" "}</TitleTags>
+              
             </NFTAttributes>
             {query.attributes
               ? query.attributes.map((trait_type, value) => (
