@@ -33,3 +33,26 @@ yarn-error.log*
 
 # vercel
 .vercel
+mockData/1.json
+mockData/1534043161Twitter-Bird-Png.png
+mockData/background.png
+mockData/backgroundSketch.png
+mockData/download (1).png
+mockData/download (2).png
+mockData/download.png
+mockData/navpane.png
+mockData/Treeview_1.HEIC
+mockData/TestImages/1.png
+mockData/TestImages/cactus_head.png
+mockData/TestImages/example_gif.gif
+mockData/TestImages/oak_head.png
+mockData/TestImages/palm_head.png
+mockData/TestImages/Pine_Head.png
+mockData/TestImages/Willow_head.png
+public/images/1.png
+public/images/cactus_head.png
+public/images/example_gif.gif
+public/images/oak_head.png
+public/images/palm_head.png
+public/images/Pine_Head.png
+public/images/Willow_head.png
