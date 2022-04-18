@@ -1,6 +1,8 @@
-import React from "react";
+import React from "react"
+import {useState, useEffect} from "react"
 import {useRouter} from 'next/router'
-import useMyTrees from "../hooks/usemytrees";
+import useMyTrees from "../hooks/usemytrees"
+import { FaBeer } from 'react-icons/fa';
 import {
   ImageGallery,
   NFTImageContainer,
@@ -8,19 +10,46 @@ import {
   NFTImageDiv,
   NFTImageTextTitle,
   NFTImageText,
-  ImageLink
+  ImageLink,
+  ContainerDiv, 
+  ErrorTitle
 } from "../styles/components/imageGallery/imageGallery";
 import MockData from '../mockData/test.json'
 import DetailsContainer from "./details";
 import { Router } from "@mui/icons-material";
+import { Container } from "postcss";
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
   const router = useRouter()
+  const [nftattributes, setNftAttributes] = useState([])
+  const [showUserAssests, setUserAssetState] = useState(true)
+
+  useEffect(() =>{
+  
+    if(!userAssets.length>=0){
+      setUserAssetState(false)
+    }
+})
   const openDetails = (nft) => {
+    let nftAttributeItems = [];
     console.log("function selected for: " + nft.name)
+    {
+      nft.attributes ? nft.attributes.map((trait_type, value) => (
+        console.log("trait_type: " + trait_type.trait_type),
+        console.log("value: " + trait_type.value),
+        nftAttributeItems.push(trait_type.trait_type, trait_type.value)
+          ))
+        : null
+    }
+  
     router.push({
-      pathname: '/details/[nft]',
-      query: { nft: nft},
+      pathname: '/details/',
+      query: { name: nft.name, image: nft.image, description: nft.description, 
+        dna: nft.dna, edition: nft.edition, date: nft.date,
+        attributes: nftAttributeItems
+       },
+      
+                               
     })
   
  }
@@ -29,6 +58,13 @@ export default function MyTreesContainer() {
 
   return (
     <>
+   
+    {showUserAssests &&
+      <ContainerDiv><ErrorTitle>You do not currently own any NFTs</ErrorTitle></ContainerDiv>
+    }
+     {!showUserAssests && 
+     <ContainerDiv>
+     
       {/* {userAssets
         ? userAssets.map((nft, idx) => (
             <ImageGallery>
@@ -102,7 +138,10 @@ export default function MyTreesContainer() {
                :
                null
            
-        }
+          }
+       
+        </ContainerDiv>
+}
     </>
   );
 }
