@@ -1,7 +1,6 @@
 import { ethers } from 'ethers'
 import { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
-import { drinkingTreesTwo } from '../config'
 import { UserContext } from '../context/user';
 import fetchContractData from '../apis/s3/fetchcontractdata'
 import { pinataURL } from '../config/config'
