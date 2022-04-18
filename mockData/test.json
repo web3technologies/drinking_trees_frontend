@@ -1,0 +1,275 @@
+[
+    {
+      "name": "Your Collection #1",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/1.png",
+      "dna": "a24545707a303ed72efa058392672aa0ef60b8e6",
+      "edition": 1,
+      "date": 1649518384104,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Yellow Background"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Orange Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Cactus"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Chain"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Coconut"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #2",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/2.png",
+      "dna": "76e3ef88a70264309f3f6b23549c8e3798a97166",
+      "edition": 2,
+      "date": 1649518384884,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Blue Gradient"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Red Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Pine"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Chain"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Juice Box"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #3",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/3.png",
+      "dna": "1c3529b96bda0e6590525b9fa8df8756f308c1ec",
+      "edition": 3,
+      "date": 1649518385512,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Blue Background"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Green Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Pine"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "snake"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Boba Tea"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #4",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/4.png",
+      "dna": "2c45dc66406d4b110ae249e93673c462dbc0cb1e",
+      "edition": 4,
+      "date": 1649518386011,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Blue Gradient"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Green Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Palm"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Tie"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Beer Keg"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #5",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/5.png",
+      "dna": "f515b525d1dbc1f2174df0879c44302bb9de8ee1",
+      "edition": 5,
+      "date": 1649518386508,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Orange Gradient"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Yellow Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Willow"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Chain"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Margarita"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #6",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/6.png",
+      "dna": "5c139103a962ec5dbe3c0534b0cfeb7f30dd71a5",
+      "edition": 6,
+      "date": 1649518386982,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Orange Background"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Yellow Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Willow"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Juice Box"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    },
+    {
+      "name": "Your Collection #7",
+      "description": "Remember to replace this description",
+      "image": "https://gateway.pinata.cloud/ipfs/QmVAPvsE5aUryEsQfZx8FvTzBpeuLuLNm7aRMnhq292pWN/7.png",
+      "dna": "815d00ce03f1d8984cd174f804682ad0c8d11ea5",
+      "edition": 7,
+      "date": 1649518387457,
+      "attributes": [
+        {
+          "trait_type": "1. Backgrounds",
+          "value": "Yellow Background"
+        },
+        {
+          "trait_type": "2. Shirts",
+          "value": "Purple Shirt"
+        },
+        {
+          "trait_type": "3. Trees",
+          "value": "Bare"
+        },
+        {
+          "trait_type": "4. Accessories",
+          "value": "Tie"
+        },
+        {
+          "trait_type": "4. Accessories copy",
+          "value": "Parrot"
+        },
+        {
+          "trait_type": "5. Drinks",
+          "value": "Juice Box"
+        },
+        {
+          "trait_type": "6. Rings",
+          "value": "Rings"
+        }
+      ],
+      "compiler": "HashLips Art Engine"
+    }
+]

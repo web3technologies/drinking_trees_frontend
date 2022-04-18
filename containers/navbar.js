@@ -2,12 +2,14 @@ import React from 'react'
 import Link from 'next/link'
 import { Navigation } from '../styles/components';
 import  UserContainer  from './user'
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+// context
+import { UserContext } from '../context/user';
 
 
-export default function NavigationContainer({loadUser, user, chain, hasMetaMask, switchNetwork={switchNetwork}}) {
+export default function NavigationContainer() {
 
-
+    const {loadUser, user, chain, hasMetaMask, switchNetwork} = useContext(UserContext)
     const [ isMobileOpen, setIsMobileOpen ] = useState(false)
 
 
@@ -33,19 +35,15 @@ export default function NavigationContainer({loadUser, user, chain, hasMetaMask,
                                 <Link href="/">
                                     <Navigation.TabText onClick={toggleMobile}>Home</Navigation.TabText>
                                 </Link>
-
-                                <Link href="/marketplace" >
-                                    <Navigation.TabText onClick={toggleMobile}>Marketplace</Navigation.TabText>
-                                </Link>
-
-                                <Link href="/my-assets">
-                                    <Navigation.TabText onClick={toggleMobile}>My Trees</Navigation.TabText>
-                                </Link>
-
                                 <Link href="/mint" >
                                     <Navigation.TabText onClick={toggleMobile}>Mint</Navigation.TabText>
                                 </Link>
-
+                                <Link href="/my-trees">
+                                    <Navigation.TabText onClick={toggleMobile}>My Trees</Navigation.TabText>
+                                </Link>
+                                <Link href="/marketplace" >
+                                    <Navigation.TabText onClick={toggleMobile}>Marketplace</Navigation.TabText>
+                                </Link>
                             </Navigation.DropDownInner>
                         </Navigation.DropDown>
                     </>
@@ -64,16 +62,16 @@ export default function NavigationContainer({loadUser, user, chain, hasMetaMask,
                         <Navigation.TabText>Home</Navigation.TabText>
                     </Link>
 
-                    <Link href="/marketplace">
-                        <Navigation.TabText>Marketplace</Navigation.TabText>
+                    <Link href="/mint">
+                        <Navigation.TabText>Mint</Navigation.TabText>
                     </Link>
 
-                    <Link href="/my-assets">
+                    <Link href="/my-trees">
                         <Navigation.TabText>My Trees</Navigation.TabText>
                     </Link>
 
-                    <Link href="/mint">
-                        <Navigation.TabText>Mint</Navigation.TabText>
+                    <Link href="/marketplace">
+                        <Navigation.TabText>Marketplace</Navigation.TabText>
                     </Link>
                 </Navigation.NavigationLeft>
 

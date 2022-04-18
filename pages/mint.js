@@ -1,12 +1,16 @@
+import MintContainer from '../containers/mint';
+import useMint from '../hooks/usemint';
 
-import ComingSoonContainer from "../containers/comingsoon"
 
 
 export default function Mint(){
 
+    // const { mintNFT } = useMint()
 
 
     return (
-        <ComingSoonContainer/>
+        <>
+            <MintContainer/>
+        </>
         )
 }

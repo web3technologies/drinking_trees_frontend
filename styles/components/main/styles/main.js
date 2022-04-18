@@ -9,6 +9,7 @@ export const MainFrame = styled.main`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    min-height: 80vh;
 `
 
 export const MainFrameInner = styled.div`
@@ -197,15 +198,14 @@ export const CollectionLink = styled.a`
 
 
 export const MainFrameRight = styled.div`
-
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 80px;
-    // border: 2px solid green;
 
     @media screen and (min-width: 825px){
+        justify-content: flex-end;
         width: 65%;
         margin: 0;
     }
@@ -213,7 +213,6 @@ export const MainFrameRight = styled.div`
 `;
 
 export const ImageFrame = styled.div`
-
     width: 90%;
     background: linear-gradient(180deg, rgba(248, 205, 33, 0.9) 13.28%, rgba(248, 205, 33, 0.34) 100%);
     box-shadow: 10px 10px 20px 8px rgba(17, 17, 17, 0.25);

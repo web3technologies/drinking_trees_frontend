@@ -2,15 +2,11 @@ import React from 'react'
 // component
 import { Main, Navigation }   from '../styles/components';
 import { addMultiVac } from '../helpers/addChain';
-import useTimer from '../hooks/usetimer';
+import TimeFrame from './time'
 import { baseExampleURL } from '../config/config';
 import { safeOpen } from '../helpers/safeopen';
 
-const TimeFrame = ()=>{
-    // used to prevent reload of the entire main container each second
-    const { time } = useTimer()
-    return <Main.CountDownText>{time}</Main.CountDownText>
-}
+
 
 const pStyle = {
     textDecoration: "underline",

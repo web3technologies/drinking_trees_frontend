@@ -33,10 +33,6 @@ export default function UserContainer({user, chain, hasMetaMask, loadUser, switc
                         <FontAwesomeIcon icon={faUser} color="white" style={{height: "25px"}}/> 
                     </Navigation.UserFrameTop>
 
-                    <Navigation.UserFrameBottom>
-                        <Navigation.ConnectedText>Connected</Navigation.ConnectedText>
-                    </Navigation.UserFrameBottom>
-
                 </Navigation.UserFrame>
             
                 :
