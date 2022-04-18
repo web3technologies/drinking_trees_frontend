@@ -18,6 +18,9 @@ import {
 import DetailsContainer from "./details";
 import { Router } from "@mui/icons-material";
 import { Container } from "postcss";
+
+
+
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
   const router = useRouter();

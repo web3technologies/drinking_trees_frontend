@@ -44,7 +44,7 @@ export default function TeamContainer(){
                         }
                     </Team.CardFrameTop>
                     <Team.CardFrameBottom>
-                        <Team.TeamText style={{fontSize: "38px", color: "white"}}>Advisor</Team.TeamText>
+                        <Team.TeamText style={{fontSize: "38px"}}>Advisor</Team.TeamText>
                         <Team.Card>
                             <Team.CardImage src={advisorData.image}/>
                                 <Team.CardTitle>{advisorData.username}</Team.CardTitle>

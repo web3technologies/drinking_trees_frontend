@@ -68,10 +68,8 @@ export default function useMyTrees(){
                     nft.data.id, 
                     ethers.utils.parseEther(listPrice)
                     )
-                console.log("here")
                 const marketCreateReceipt = await nftMarketCreate.wait()
                 const event = await marketCreateReceipt.events?.find(event => event.event === 'MarketItemCreated')
-                console.log(event.args)
                 setListPrice(null)
                 setLoading(false)
                 userNfts.splice(index, 1)

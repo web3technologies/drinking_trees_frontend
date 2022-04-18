@@ -5,6 +5,11 @@ export const ContainerDiv = styled.div`
 `;
 export const ImageGallery = styled.div`
   width: 100%;
+<<<<<<< HEAD
+  height: 100%;
+  min-height: 100vh;
+=======
+>>>>>>> develop
   align-content: center;
   align-items: center;
 `;

@@ -6,6 +6,7 @@ import useConnection from '../hooks/useconnection'
 import AdminContainer from '../containers/admin';
 import {UserContext} from '../context/user';
 
+
 function MyApp({ Component, pageProps }) {
 
   const { user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
@@ -19,8 +20,7 @@ function MyApp({ Component, pageProps }) {
           switchNetwork={switchNetwork}
           loadingUser={loadingUser}
       />
-      ) 
-      
+      )
       
     }
   }
