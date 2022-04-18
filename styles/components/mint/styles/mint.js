@@ -13,7 +13,7 @@ export const MintFrame = styled.div`
     border-radius: 20px;
 
     @media screen and (min-width: 825px){
-        margin: 25px 0;
+        // margin: 25px 0;
         flex-direction: row;
     }
 

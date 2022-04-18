@@ -1,11 +1,12 @@
 import React from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
 import { Navigation } from '../styles/components';
 import  UserContainer  from './user'
 import {useState, useContext} from 'react'
 // context
 import { UserContext } from '../context/user';
 
+import Link from './customlink'
 
 export default function NavigationContainer() {
 

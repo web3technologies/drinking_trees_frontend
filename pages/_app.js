@@ -6,12 +6,14 @@ import useConnection from '../hooks/useconnection'
 import AdminContainer from '../containers/admin';
 import {UserContext} from '../context/user';
 
+
 function MyApp({ Component, pageProps }) {
 
   const { user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
 
   if(process.env.NEXT_PUBLIC_ENVIRONMENT === "staging"){
-    if (!user.isAdminUser){
+    // if (!user.isAdminUser){
+    if(false){
       return (
         <AdminContainer
           chain={chain} 
@@ -19,8 +21,7 @@ function MyApp({ Component, pageProps }) {
           switchNetwork={switchNetwork}
           loadingUser={loadingUser}
       />
-      ) 
-      
+      )
       
     }
   }
