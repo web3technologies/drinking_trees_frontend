@@ -161,7 +161,7 @@ export const SmallText = styled.p`
 export const ExploreDiv = styled.div`
     margin-top: 48px;
     width: 90%;
-    background: linear-gradient(180deg, #049829 0%, rgba(59, 225, 130, 0) 100%);
+    background: #049829;
     border-radius: 10px;
     display: flex;
     justify-content: center;
@@ -214,7 +214,7 @@ export const MainFrameRight = styled.div`
 
 export const ImageFrame = styled.div`
     width: 90%;
-    background: linear-gradient(180deg, rgba(248, 205, 33, 0.9) 13.28%, rgba(248, 205, 33, 0.34) 100%);
+    background: #e6c12e;
     box-shadow: 10px 10px 20px 8px rgba(17, 17, 17, 0.25);
     border-radius: 20px;
     min-height: 300px;

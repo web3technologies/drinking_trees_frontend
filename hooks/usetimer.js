@@ -10,7 +10,7 @@ export default function useTimer(){
     let timer;
 
     const startTimer = ()=> {
-        const countDownDate = new Date(1651165200 * 1000).getTime();
+        const countDownDate = new Date(1651180800 * 1000).getTime();
         
         timer = setInterval(()=>{
             const now = new Date().getTime()
@@ -40,6 +40,6 @@ export default function useTimer(){
     },[])
 
     
-    return {time}
+    return {time, finished}
 
 }

@@ -60,7 +60,7 @@ export default function useMint(){
                     remaining: remaining
                 })
             } catch (e){
-                console.log(e)
+                console.log(e.data)
                 console.log("there are errors")
             }
             
@@ -99,7 +99,8 @@ export default function useMint(){
             // const event = mintLog.events?.find(event => event.event === 'MarketItemCreated')
             setMinting(false)
         } catch (err){
-            setError(err.message) 
+            console.log(err.data)
+            setError(err.data) 
         }  
             
         }
