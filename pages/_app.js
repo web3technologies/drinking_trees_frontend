@@ -11,19 +11,19 @@ function MyApp({ Component, pageProps }) {
 
   const { user, chain, hasMetaMask, loadingUser, loadUser, switchNetwork} = useConnection()
 
-  if(process.env.NEXT_PUBLIC_ENVIRONMENT === "staging"){
-    if (!user.isAdminUser){
-      return (
-        <AdminContainer
-          chain={chain} 
-          loadUser={loadUser}
-          switchNetwork={switchNetwork}
-          loadingUser={loadingUser}
-      />
-      )
+  // if(process.env.NEXT_PUBLIC_ENVIRONMENT === "staging"){
+  //   if (!user.isAdminUser){
+  //     return (
+  //       <AdminContainer
+  //         chain={chain} 
+  //         loadUser={loadUser}
+  //         switchNetwork={switchNetwork}
+  //         loadingUser={loadingUser}
+  //     />
+  //     )
       
-    }
-  }
+  //   }
+  // }
   
   return (
     <>
