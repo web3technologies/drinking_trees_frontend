@@ -9,14 +9,25 @@ import {
   NFTImageText,
 } from "../styles/components/imageGallery/imageGallery";
 
+
 export default function MyTreesContainer() {
   const { userAssets, handlePriceChange, loading } = useMyTrees();
   
+  if (userAssets.length === 0){
+    return (
+      <div style={{display: "flex", justifyContent: "center", minHeight: "100vh"}}>
+
+        <p>No NFTS yet</p>
+        </div>
+    )
+  }
+
+
   return (
-    <>
+    <div style={{minHeight: "100vh"}}>
       {userAssets
         ? userAssets.map((nft, idx) => (
-            <ImageGallery>
+            <ImageGallery >
               <NFTImageContainer>
                 <NFTImageDiv>
                   <img src={nft.data.image} />
@@ -49,6 +60,6 @@ export default function MyTreesContainer() {
             </ImageGallery>
           ))
         : null}
-    </>
+    </div>
   );
 }

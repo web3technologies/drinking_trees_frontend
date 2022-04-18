@@ -3,6 +3,7 @@ import { Mint, Navigation }   from '../styles/components';
 import { useContext, useState } from 'react'
 import { UserContext } from '../context/user';
 import { Modal2 } from '../styles/components';
+import useTimer from '../hooks/usetimer';
 
 
 function MintButton({mintNFT}){
@@ -45,7 +46,8 @@ const StyledModal = Modal.styled`
 
 export default function FancyModalButton({mintNFT}) {
     const [isOpen, setIsOpen] = useState(false)
-  
+    const { finished } = useTimer()
+
     function toggleModal(e) {
       setIsOpen(!isOpen)
     }
@@ -56,7 +58,13 @@ export default function FancyModalButton({mintNFT}) {
 
     return (
         <>
+        {
+            finished ? 
             <Mint.MintButton onClick={toggleModal}>Mint!</Mint.MintButton>
+            :
+            <Mint.MintButton>Mint not available!</Mint.MintButton>
+        }
+            
             <StyledModal
                 isOpen={isOpen}
                 onBackgroundClick={toggleModal}

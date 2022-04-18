@@ -44,7 +44,7 @@ export const TeamText = styled.h4`
     font-size: 36px;
     text-align: center;
     letter-spacing: 0.05em;
-    color: #049829;
+    color: #ffffff;
     
     @media screen and (min-width: 825px){
         font-size: 48px;

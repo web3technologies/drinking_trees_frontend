@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const ImageGallery = styled.div`
   width: 100%;
   height: 100%;
+  min-height: 100vh;
   align-content: center;
   align-items: center;
 `;

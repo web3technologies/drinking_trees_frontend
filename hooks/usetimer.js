@@ -40,6 +40,6 @@ export default function useTimer(){
     },[])
 
     
-    return {time}
+    return {time, finished}
 
 }
