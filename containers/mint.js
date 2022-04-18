@@ -9,7 +9,7 @@ import FancyModalButton from './modal';
 
 export default function MintContainer(){
 
-    // const { nftData, mintNFT, error, success } = useMint()
+    const { nftData, mintNFT, error, success } = useMint()
 
     const infoStyle={
         fontSize: "18px"
