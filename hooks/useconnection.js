@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { ethers } from 'ethers'
 import Web3Modal from "web3modal"
-import { configChainIdHex, configChainIdNum, baseBackendUrl} from '../config/config';
-import { addMultiVac } from '../helpers/addChain';
+import { configChainIdHex, configChainIdNum } from '../config/config';
 import loginBackend from "../apis/backend/loginbackend";
 
 
@@ -93,6 +92,7 @@ export default function useConnection(){
     const switchNetwork = async () => {
 
         try{
+            console.log('changin')
             await window.ethereum.request({
                 method: 'wallet_switchEthereumChain',
                 params: [{ chainId: configChainIdHex }],
@@ -102,10 +102,9 @@ export default function useConnection(){
                 isCorrectChain: "correct"
             })
         }catch (e){ // try to switch then add then load
-            const isAdded = await addMultiVac()
-            if(isAdded){
-                loadUser()
-            }
+            setChain({
+                isCorrectChain: "incorrect"
+            }) 
             
         }
 
@@ -119,9 +118,12 @@ export default function useConnection(){
         const connection = await web3Modal.connect()
         const provider = new ethers.providers.Web3Provider(connection)
         const network = await provider.getNetwork()
-
-
+        
+        
+        console.log(network.chainId.toString())
+        console.log(configChainIdNum)
         if (network.chainId.toString() === configChainIdNum){
+            console.log('yes')
             const signer = provider.getSigner()
             const address = await signer.getAddress()
             

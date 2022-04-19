@@ -57,9 +57,10 @@ export default function FancyModalButton({mintNFT}) {
     }
 
     return (
+        
         <>
         {
-            finished ? 
+            finished || process.env.NEXT_PUBLIC_ENVIRONMENT !== "Production" ? 
             <Mint.MintButton onClick={toggleModal}>Mint!</Mint.MintButton>
             :
             <Mint.MintButton>Mint not available!</Mint.MintButton>
