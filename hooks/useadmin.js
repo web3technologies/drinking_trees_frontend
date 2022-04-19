@@ -43,9 +43,15 @@ export default function useAdmin(){
 
 
     async function withdrawBalance(){
+        const web3Modal = new Web3Modal()
+        const connection = await web3Modal.connect()
+        const provider = new ethers.providers.Web3Provider(connection)
+        const contract = new ethers.Contract(contractData.address, contractData.abi, provider.getSigner())
+        
+        const withdraw = await contract.withdraw()
 
     }
     
-   return { balance,withdrawBalance }
+   return { balance, withdrawBalance }
 
 }
