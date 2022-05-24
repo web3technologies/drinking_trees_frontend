@@ -9,6 +9,7 @@ export default async function logLandingPage(){
     } catch (e){
         console.log(e)
     }
+   
     
 
 }

@@ -3,8 +3,15 @@ import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { Navigation } from '../styles/components';
 import { safeOpen } from '../helpers/safeopen';
 import { baseExampleURL } from '../config/config';
+import { faTwitter, faDiscord, faPlaystation} from '@fortawesome/free-brands-svg-icons'
 
 export default function UserContainer({user, chain, hasMetaMask, loadUser, switchNetwork={switchNetwork}}){
+    const tikTokStyle = {
+        width: "30px",
+        height: "30px",
+        color: "#1da1f2",
+        cursor: "pointer",
+    }
 
     if (!hasMetaMask){
         return <Navigation.ConnectButton 
@@ -37,11 +44,25 @@ export default function UserContainer({user, chain, hasMetaMask, loadUser, switc
             
                 :
                     <Navigation.ConnectButton onClick={loadUser}>
-                        <Navigation.MetaMaskIcon src={`${baseExampleURL}metamask.svg`}/>
+                        <Navigation.MetaMaskIcon src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png"/>
                         Connect
                     </Navigation.ConnectButton>
-                
+
             }
+                    <Navigation.SocialsButtonTwitter onClick={loadUser}>
+                    <FontAwesomeIcon
+                        icon={faTwitter} 
+                        style={tikTokStyle} 
+                        onClick={()=> {safeOpen("https://twitter.com/drinkingtrees")}}/>
+                    </Navigation.SocialsButtonTwitter >
+                    <Navigation.SocialsButtonDiscord onClick={loadUser}>
+                    <FontAwesomeIcon
+                        icon={faDiscord} 
+                        style={tikTokStyle} 
+                        onClick={()=> {safeOpen("https://discord.com/channels/940060662158229505/940060662158229507")}}/>
+                    </Navigation.SocialsButtonDiscord >
+                
+            
         </>
     
         )
