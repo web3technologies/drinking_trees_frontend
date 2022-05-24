@@ -66,7 +66,34 @@ export const teamData = [
         username: "Buy_It_All",
         title: "Front-End and Blockchain Developer",
         socials: null
+    },
+    {
+        image: `${basePFPURL}Yoshi.png`,
+        username: "Yoshi",
+        title: "Security Engineer and Front-End Developer",
+        socials: null
     }
+]
+
+export const teamData2 = [
+    {
+        image: `${basePFPURL}2.png`,
+        username: "yoshi",
+        title: "Security Engineer",
+        socials: null
+    },
+    {
+        image: `${basePFPURL}1.png`,
+        username: "NeverHedge Scott",
+        title: "",
+        socials:[
+            {
+                link:  "https://www.youtube.com/c/NeverHedgeDFSCryptoSportsBettingStocks", 
+                style:  youtTubeStyle,
+                icon:  faYoutube
+            },
+        ],
+    },
 ]
 
 

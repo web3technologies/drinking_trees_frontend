@@ -2,9 +2,11 @@ import styled from "styled-components";
 
 export const ContainerDiv = styled.div`
   height: 100vh;
+  
 `;
 export const ImageGallery = styled.div`
   width: 100%;
+  
   align-content: center;
   align-items: center;
 `;
@@ -13,10 +15,12 @@ export const ImageLink = styled.div`
 `;
 export const NFTImageContainer = styled.div`
   cursor: pointer;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
+//   background: rgb(114,248,121);
+// background: linear-gradient(180deg, rgba(114,248,121,1) 88%, rgba(255,247,51,1) 100%, rgba(255,255,255,1) 100%);
   width: 300px;
   float: left;
-  color: green;
+  color: #72F879;
   margin-left: 5%;
   margin-right: 2%;
   margin-bottom: 5%;
@@ -30,7 +34,7 @@ export const NFTImageDiv = styled.div`
     width: 300px;
     cursor: pointer;
     border-radius: 15px 15px 0 0;
-    border-bottom: 5px solid green;
+    border-bottom: 10px solid #e6c12e;
   }
 `;
 export const NFTImageText = styled.p`
@@ -57,10 +61,10 @@ export const NFTImageText = styled.p`
 `;
 export const NFTImageTextTitle = styled.p`
   font-size: 15px;
-  color: green;
-  border-bottom: 1px solid green;
+  color: #e6c12e;
+  border-bottom: 1px solid #e6c12e;
   // font-weight: bold;
-  border-left: 1px solid green;
+  border-left: 1px solid #e6c12e;
   margin-left: 2%;
   padding-left: 2%;
   padding-top: 0;
@@ -68,15 +72,15 @@ export const NFTImageTextTitle = styled.p`
 `;
 export const NFTImageTextDescription = styled.p`
   font-size: 10px;
-  color: green;
+  color: white;
   margin: 0;
   padding-top: 5px;
-  border-bottom: 1px solid green;
-  border-left: 1px solid green;
+  border-bottom: 1px solid #e6c12e;
+  border-left: 1px solid #e6c12e;
   padding-left: 2%;
 `;
 export const ErrorTitle = styled.p`
   text-align: center;
-  color: green;
+  color: #049829;
   font-size: 40px;
 `;

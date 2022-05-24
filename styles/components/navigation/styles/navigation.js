@@ -2,7 +2,12 @@ import styled from 'styled-components';
 
 
 export const NavigationFrame = styled.nav`
-    margin: 25px 0;
+    // margin: 25px 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height:10vh;
+    padding-top:25px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -42,7 +47,7 @@ export const NavigationLeft = styled.div`
 
 export const TabText = styled.a`
 
-color: #049829;
+color: var(--white-color);
     font-size: 18px;
     cursor: pointer;
     letter-spacing: 1px;
@@ -51,13 +56,13 @@ color: #049829;
     margin: 18px 0;
 
     &:hover {
-        color: #4BF493;
+        color: var(--pink-color);
     }
     
     @media screen and (min-width: 825px){
         letter-spacing: 2px;
         margin: 0;
-        color: #049829;
+        color: var(--orange-color);
     }
 
 `;
@@ -69,12 +74,12 @@ export const NavigationRight = styled.div`
     justify-content: flex-end;
 `;
 
-
-export const ConnectButton = styled.button`
+export const  SocialsButtonTwitter = styled.button`
 
     color: white;
-    background-color: #049829;
-    width: 50%;
+    background-color: var(--blue-color);
+    
+    width: 30%;
     border-radius: 10px;
     height: 40px;
     letter-spacing: 2px;
@@ -85,10 +90,64 @@ export const ConnectButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-left: 10px;
 
     &:hover {
-        background-color: #4BF493;
-      }
+        background-color:  var(--gold-color);
+    }
+
+    @media screen and (min-width: 825px){
+        width: 15%;
+    }
+
+`;
+export const  SocialsButtonDiscord = styled.button`
+
+    color: white;
+    background-color: var(--pink-color);
+    
+    width: 30%;
+    border-radius: 10px;
+    height: 40px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-left: 10px;
+
+    &:hover {
+        background-color:  var(--purple-color);
+    }
+
+    @media screen and (min-width: 825px){
+        width: 15%;
+    }
+
+`;
+export const ConnectButton = styled.button`
+
+    color: white;
+    background-color: var(--orange-color);
+    
+    width: 50%;
+    border-radius: 10px;
+    height: 40px;
+    letter-spacing: 2px;
+    font-weight: normal;
+    border: none;
+    cursor: pointer;
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &:hover {
+        background-color:  var(--lightgreen-color);
+    }
 
     @media screen and (min-width: 825px){
         width: 15%;
@@ -135,7 +194,7 @@ export const UserFrameBottom = styled.div`
 
 export const AddressText = styled.p`
 
-    color: #ffffff;
+    color: var(--orange-color);
     font-size: 12px;
     letter-spacing: 2px
     margin: 0px;
@@ -146,7 +205,7 @@ export const AddressText = styled.p`
 `;
 
 export const ConnectedText = styled.p`
-    color: green;
+    color: var(--green-trees);
     font-size: 8px;
     margin: 0px;
 

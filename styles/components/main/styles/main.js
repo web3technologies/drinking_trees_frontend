@@ -1,226 +1,186 @@
 import styled from 'styled-components';
 
 
-export const MainFrame = styled.main`
 
+
+export const MainFrame = styled.main`
     width: 100%;
-    // border: 2px solid yellow;
+    // border: 10px solid yellow;
+    margin-top:3%;
+    background-color: var(--skyblue-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh;
+    background-image: url('https://i.imgur.com/MZ4EbBS.jpeg');
+    background-size:contain;
+    // background-position:center;
+    background-repeat:no-repeat;
+    height:300vh;
+    z-index:10;
+    
+    h1{
+        z-index:10;
+
+    }
 `
 
-export const MainFrameInner = styled.div`
+export const Heading = styled.p`
+        height:200vh;
+        color: var(--white-color);
+        z-index:10;
+        font-size:50px;
+        padding-top:2%;
+`
 
-    margin: 30px 0;
-    width: 90%;
+
+export const MainFrameInner = styled.div`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    @media screen and (min-width: 825px){
-        margin: 60px 0;
-        justify-content: space-between;
-        align-items: flex-start;
-        flex-direction: row;
-        width: 85%;
-    }
-    @media screen and (min-width: 1920px){
-        width: 85%;
-    }
+    background: var(--green-color);
+    // justify-content: space-between;
+    width: 100%;
+    margin-top: clamp(5%, 7%, 10%);
+    height: 130%;
 `;
 
 export const MainFrameLeft = styled.div`
-
-
-    width: 100%;
     display: flex;
-
+    // justify-content: center;
+    width: clamp(60%, 80%, 80%);
     flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
-
-    @media screen and (min-width: 825px){
-        display: block;
-        width: 35%;
-    }
-
+    padding-left: clamp(5%, 10%, 15%);
+    height: 180vh;
 
 `;
 
 
 export const MainText = styled.h1`
-
-    font-size: 48px;
-    color: #ffffff;
+    font-size: clamp(var(--title-font), var(--title-font), 56px);
+    color: var(--white-color);
     width: 100%;
     font-weight: normal;
     text-align: center;
-    margin: 0;
-
-    @media screen and (min-width: 825px){
-        font-size: 48px;
-        text-align: left;
-    }
-
-    @media screen and (min-width: 1000px){
-        margin: 20px 0;
-        font-size: 48px;
-    }
-
-    @media screen and (min-width: 1300px){
-        font-size: 56px;
-    }
+    text-align: left;
+    
 `;
 
 export const SupportTextFrame = styled.div`
 
     width: 100%;
+    align-items: clamp(flex-start, center, center);
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    @media screen and (min-width: 825px){
-        align-items: flex-start;
-    }
+    z-index:10;
 `;
 
 export const SupportingText = styled.h6`
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 23px;
-    color: #FFFFFF;
+    font-size: clamp(var(--supporting-font), var(--supporting-font), 18px);
+    color: var(--white-color);
     margin: 8px 0;
     text-align: center;
-    
-    @media screen and (min-width: 825px){
-        text-align: left;
-        font-size: 18px;
-        margin: 22px 0;
-    }
-
-    @media screen and (min-width: 1000px){
-        font-size: 14px;
-        margin: 14px 0;
-    }
-
-    @media screen and (min-width: 1300px){
-        font-size: 18px;
-        margin: 22px 0;
-    }
-
+    text-align: left;
+    margin: clamp(14px, 22px, 25px);
+    margin-left: 0;
 `;
 
-export const MultivacFrame = styled.div`
-    margin: 40px 0 0 0;
-    display: flex;
-    flex-direction: column;
-    width: 35%;
-    cursor: pointer;
-
-    @media screen and (min-width: 825px){
-        margin: 80px 0 0 0;
-    }
-
-    @media screen and (min-width: 1000px){
-        
-        margin: 20px 0 0 0;
-    }
-
-    @media screen and (min-width: 1300px){
-        margin: 80px 0 0 0;
-    }
+export const BlueDiv = styled.div`
+    padding: clamp(100px, 100px, 100px);
+    // margin: clamp(14px, 22px, 25px);
+    // height: 500px;
+    width:150%;
+    height: 30%;
+    background: var(--blue-color);
+    position: absolute;
+    right:0;
+    bottom:0;
+    z-index:0;
+  
+`;
+export const PurpleDiv = styled.div`
+    padding: clamp(100px, 100px, 100px);
+    // margin: clamp(14px, 22px, 25px);
+    // height: 500px;
+    width:50%;
+    height: 80%;
+    background: var(--purple-color);
+    position: absolute;
+    right:0;
+    bottom:0;
+    // z-index:-1;
+    overflow:hidden;
+    position:absolute;
+  
 `;
 
-export const MultiVacLogo = styled.img`
-
-    width: 100%;
-`;
-
-export const SmallText = styled.p`
-
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    text-align: center;
-    letter-spacing: 0.05em;
-    color: #FFFFFF;
-
-    // &:hover {
-    //     background-color: #4BF493;
-    //   }
-
-`;
 
 export const ExploreDiv = styled.div`
-    margin-top: 48px;
-    width: 90%;
-    background: linear-gradient(180deg, #049829 0%, rgba(59, 225, 130, 0) 100%);
-    border-radius: 10px;
     display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    // width: 90%;
+    background: var(--orange-color);
+    border-radius: 10px;
     justify-content: center;
     align-items: center;
     cursor: pointer;
-
-    @media screen and (min-width: 825px){
-        width: 60%;
+    with: clamp(60%, 60%, 80%);
+    &:hover{
+        background: var(--purple-color);
     }
 
-    @media screen and (min-width: 1000px){
-        
-        width: 80%;
-    }
-
-    @media screen and (min-width: 1300px){
-        width: 60%;
-    }
 
 `;
 
 export const CollectionLink = styled.a`
 
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    color: #FFFFFF;
+    font-size: clamp(var(--supporting-font), var(--supporting-font), 20px);
+    color: var(--white-color);
     margin: 10px;
+    &:hover{
+        color: var(--blue-color);
+    }
 
-    @media screen and (min-width: 825px){
-        font-size: 20px;
+`;
+export const LinkLogo = styled.div`
+
+    img{
+        width: 50px;
+        height:50px;
+        margin-right: 10px;
     }
 `;
 
 
 export const MainFrameRight = styled.div`
-    width: 100%;
+
+    width: clamp(100%, 45%, 65%);
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 80px;
-
-    @media screen and (min-width: 825px){
-        justify-content: flex-end;
-        width: 65%;
-        margin: 0;
+    height:200vh;
+    img{
+        height: 50%;
+        top:0;
+        position: absolute;
+        right:0;
+        z-index:10;
     }
 
 `;
 
 export const ImageFrame = styled.div`
-    width: 90%;
-    background: linear-gradient(180deg, rgba(248, 205, 33, 0.9) 13.28%, rgba(248, 205, 33, 0.34) 100%);
+    // width: 90%;
+    background: var(--purple-color);
     box-shadow: 10px 10px 20px 8px rgba(17, 17, 17, 0.25);
     border-radius: 20px;
     min-height: 300px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    // justify-content: center;
+    right:0;
     align-items: center;
     
     @media screen and (min-width: 825px){
@@ -251,10 +211,13 @@ export const Image = styled.img`
 
 export const CountDownFrame = styled.div`
 
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    width: 100%;
+    right:0;
+    bottom:0;
+    height:500px;
+    float:right;
+  
+    background-color: var(--gold-color);
 
     @media screen and (min-width: 825px){
         width: 70%;

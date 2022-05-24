@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { NavigationFrame, NavigationInner, 
-    NavigationLeft, TabText, ConnectButton, MetaMaskIcon, 
+import { NavigationFrame, NavigationInner, NavigationLogo,
+    NavigationLeft, TabText, ConnectButton, SocialsButtonTwitter, SocialsButtonDiscord, MetaMaskIcon, 
     NavigationRight, UserFrame, AddressText,
     UserFrameTop, UserFrameBottom, ConnectedText,
     HamburgerFrame,  Horizontal, DropDown, DropDownInner,
@@ -16,6 +16,9 @@ export default function Navigation({children, ...restProps}){
 
 Navigation.NavigationInner = function NavigationNavigationInner({children, ...restProps}) {
     return <NavigationInner {...restProps}> {children}</NavigationInner>
+}
+Navigation.NavigationLogo = function NavigationNavigationLogo({children, ...restProps}) {
+    return <NavigationLogo {...restProps}> {children}</NavigationLogo>
 }
 
 Navigation.NavigationRight = function NavigationNavigationRight({children, ...restProps}) {
@@ -33,6 +36,12 @@ Navigation.NavigationLeft = function NavigationNavigationLeft({children, ...rest
 
 Navigation.ConnectButton = function NavigationConnectButton({children, ...restProps}) {
     return <ConnectButton {...restProps}> {children}</ConnectButton>
+}
+Navigation.SocialsButtonTwitter = function NavigationSocialsButtonTwitter({children, ...restProps}) {
+    return <SocialsButtonTwitter {...restProps}> {children}</SocialsButtonTwitter>
+}
+Navigation.SocialsButtonDiscord = function NavigationSocialsButtonDiscord({children, ...restProps}) {
+    return <SocialsButtonDiscord {...restProps}> {children}</SocialsButtonDiscord>
 }
 
 Navigation.MetaMaskIcon = function NavigationMetaMaskIcon({children, ...restProps}) {
