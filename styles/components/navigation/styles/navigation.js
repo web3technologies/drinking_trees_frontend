@@ -14,6 +14,9 @@ export const NavigationFrame = styled.nav`
     justify-content: center;
 
 `;
+export const NavigationLogo = styled.nav`
+
+`;
 
 export const NavigationInner = styled.div`
 
