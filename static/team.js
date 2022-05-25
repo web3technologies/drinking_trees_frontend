@@ -68,7 +68,7 @@ export const teamData = [
         socials: null
     },
     {
-        image: `${basePFPURL}Yoshi.png`,
+        image: `https://i.imgur.com/g2WcNX2.png`,
         username: "Yoshi",
         title: "Security Engineer and Front-End Developer",
         socials: null
